@@ -513,7 +513,7 @@
                 name="{{ option.name }}"
                 value="{{ value }}"
                 form="{{ product_form_id }}"
-                {% if forloop.first %}
+                {% if value == op_value %}
                   checked
                 {% endif %}
                 class="{% if is_color_option %} {% else %} js-variant-option {% endif %} visually-hidden"
@@ -543,7 +543,7 @@
                 name="{{ option.name }}"
                 value="{{ value }}"
                 form="{{ product_form_id }}"
-                {% if forloop.first %}
+                {% if value == op_value %}
                   checked
                 {% endif %}
                 class="{% if is_color_option %} {% else %} js-variant-option {% endif %} visually-hidden"
@@ -696,7 +696,7 @@
                 name="{{ option.name }}"
                 value="{{ value }}"
                 form="{{ product_form_id }}"
-                {% if forloop.first %}
+                {% if value == op_value %}
                   checked
                 {% endif %}
                 class="{% if is_color_option %} {% else %} js-variant-option {% endif %} visually-hidden"
@@ -726,7 +726,7 @@
                 name="{{ option.name }}"
                 value="{{ value }}"
                 form="{{ product_form_id }}"
-                {% if forloop.first %}
+                {% if value == op_value %}
                   checked
                 {% endif %}
                 class="{% if is_color_option %} {% else %} js-variant-option {% endif %} visually-hidden"
