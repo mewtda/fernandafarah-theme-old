@@ -303,7 +303,7 @@
       "type": "products-carousel",
       "settings": {
         "section_width": "stretch_width",
-        "color_scheme": "scheme-4faf0e4d-27f4-4d02-bc51-617383bab1a9",
+        "color_scheme": "default",
         "heading": "Novidades",
         "description": "",
         "show_view_all_button": false,
