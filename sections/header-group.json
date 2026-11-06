@@ -1,7 +1,52 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.header.name",
   "type": "header",
   "sections": {
+    "announcement_dawn": {
+      "type": "announcement-dawn",
+      "blocks": {
+        "announcement_1": {
+          "type": "announcement",
+          "settings": {
+            "text": "Frete grátis acima de R$ 1999",
+            "link": ""
+          }
+        },
+        "announcement_2": {
+          "type": "announcement",
+          "settings": {
+            "text": "Parcele em até 6x sem juros",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_1",
+        "announcement_2"
+      ],
+      "settings": {
+        "color_scheme": "default",
+        "show_mobile": true,
+        "show_separator_line": false,
+        "auto_rotate": true,
+        "change_every": 5,
+        "uppercase": true,
+        "font_size": 13,
+        "font_weight": 400,
+        "letter_spacing": 5,
+        "padding_top": 10,
+        "padding_bottom": 10
+      }
+    },
     "top_bar_CbXNYj": {
       "type": "top-bar",
       "blocks": {
@@ -136,6 +181,7 @@
         "mega_menu": "main-menu",
         "dropdowns_animation": "fade-in-down",
         "uppercase_first": true,
+        "menu_font_weight": "theme",
         "hot": "Hot",
         "label_color_hot": "#000000",
         "label_background_hot": "#ffffff",
@@ -159,42 +205,6 @@
         "show_recently_viewed": false,
         "padding_top": 0,
         "padding_bottom": 0
-      }
-    },
-    "announcement_dawn": {
-      "type": "announcement-dawn",
-      "blocks": {
-        "announcement_1": {
-          "type": "announcement",
-          "settings": {
-            "text": "Frete grátis acima de R$ 299",
-            "link": ""
-          }
-        },
-        "announcement_2": {
-          "type": "announcement",
-          "settings": {
-            "text": "Parcele em até 6x sem juros",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "announcement_1",
-        "announcement_2"
-      ],
-      "settings": {
-        "color_scheme": "scheme-2b5c6c91-201d-4fb1-aba3-e6d562656976",
-        "show_mobile": true,
-        "show_separator_line": false,
-        "auto_rotate": true,
-        "change_every": 5,
-        "uppercase": true,
-        "font_size": 13,
-        "font_weight": 400,
-        "letter_spacing": 5,
-        "padding_top": 10,
-        "padding_bottom": 10
       }
     }
   },

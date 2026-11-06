@@ -1,1 +1,749 @@
-{"sections":{"slideshow_RykJMi":{"type":"slideshow","blocks":{"slider_item_JbXYD3":{"type":"slider_item","settings":{"image":"shopify:\/\/shop_images\/BANNER_V1.png","image_mobile":"shopify:\/\/shop_images\/BANNER_-_MOB_02.png","overlay_opacity":0,"slider_effect":"effect_fadeinup","subheading":"","heading":"","description":"","first_button_label":"","first_button_link":"shopify:\/\/collections\/novidades","first_button_style":false,"second_button_label":"","second_button_link":"","second_button_style":false,"content_alignment":"center","content_position":"bottom-center","content_width":"container","content_max_width":100,"content_padding_block":60,"content_padding_inline":30,"show_content_background":false,"content_background":"#ffffff","content_box_opacity":100,"content_alignment_mobile":"center"}},"slider_item_pULFaf":{"type":"slider_item","settings":{"image":"shopify:\/\/shop_images\/BANNER_V2.png","image_mobile":"shopify:\/\/shop_images\/BANNER_-_MOB_02_V1.png","overlay_opacity":0,"slider_effect":"effect_fadeinup","subheading":"","heading":"","description":"","first_button_label":"","first_button_link":"shopify:\/\/collections\/alfaiataria","first_button_style":false,"second_button_label":"","second_button_link":"","second_button_style":false,"content_alignment":"center","content_position":"bottom-center","content_width":"fluid_container","content_max_width":40,"content_padding_block":40,"content_padding_inline":15,"show_content_background":false,"content_background":"#ffffff","content_box_opacity":100,"content_alignment_mobile":"center"}},"slider_item_NgPjLx":{"type":"slider_item","settings":{"image":"shopify:\/\/shop_images\/03_002cd4cd-9b84-4aec-9abf-93944e713202.png","image_mobile":"shopify:\/\/shop_images\/03_7b162937-d456-4d04-9fbe-4c6f22a5e486.png","overlay_opacity":0,"slider_effect":"effect_fadeinup","subheading":"","heading":"","description":"","first_button_label":"","first_button_link":"shopify:\/\/collections\/segunda-pele-em-renda","first_button_style":false,"second_button_label":"","second_button_link":"","second_button_style":false,"content_alignment":"center","content_position":"bottom-center","content_width":"fluid_container","content_max_width":100,"content_padding_block":60,"content_padding_inline":30,"show_content_background":false,"content_background":"#ffffff","content_box_opacity":100,"content_alignment_mobile":"center"}},"slider_item_RTtkGA":{"type":"slider_item","settings":{"image":"shopify:\/\/shop_images\/04_456a1855-f242-46f8-9405-c459fd33f40f.png","image_mobile":"shopify:\/\/shop_images\/04_1.png","overlay_opacity":0,"slider_effect":"effect_fadeindown","subheading":"","heading":"","description":"","first_button_label":"","first_button_link":"shopify:\/\/collections\/moletom","first_button_style":false,"second_button_label":"","second_button_link":"","second_button_style":false,"content_alignment":"center","content_position":"bottom-left","content_width":"container","content_max_width":100,"content_padding_block":60,"content_padding_inline":0,"show_content_background":false,"content_background":"#ffffff","content_box_opacity":100,"content_alignment_mobile":"left"}},"slider_item_WMKwRK":{"type":"slider_item","settings":{"image":"shopify:\/\/shop_images\/DESK_-_Sale.png","image_mobile":"shopify:\/\/shop_images\/MOB_-_Sale.png","overlay_opacity":0,"slider_effect":"effect_fadeindown","subheading":"","heading":"","description":"","first_button_label":"","first_button_link":"shopify:\/\/collections\/sale-1","first_button_style":true,"second_button_label":"","second_button_link":"https:\/\/fernandafarah.com.br\/search?q=segunda+pele+em+renda&options%5Bunavailable_products%5D=last&options%5Bprefix%5D=last&options%5Bfields%5D=title%2Cvendor%2Cproduct_type%2Cvariants.title&type=products","second_button_style":false,"content_alignment":"left","content_position":"bottom-center","content_width":"container","content_max_width":100,"content_padding_block":60,"content_padding_inline":30,"show_content_background":false,"content_background":"#ffffff","content_box_opacity":100,"content_alignment_mobile":"center"}}},"block_order":["slider_item_JbXYD3","slider_item_pULFaf","slider_item_NgPjLx","slider_item_RTtkGA","slider_item_WMKwRK"],"custom_css":[],"settings":{"section_width":"full_width","section_scroll_animation":false,"slide_height":"full_screen","desktop_height":1000,"mobile_height":600,"color_scheme":"scheme-3d10de96-a479-49bd-819c-e044746b4f3e","subheading_font_size":14,"subheading_font_weight":"body_weight","subheading_spacing_bottom":5,"heading_font_size":50,"heading_font_weight":"heading_weight","heading_uppercase":false,"heading_spacing_bottom":20,"des_font_size":16,"des_font_weight":"body_weight","des_spacing_bottom":40,"show_layout3":false,"show_arrow":true,"carousel_pagination":"show_dots","pagination_position":"center","autoplay":true,"autorotate_speed":5,"content_below_image":false,"padding_top":0,"padding_bottom":0,"reset_spacing":false}},"17743889294751bb72":{"type":"_blocks","blocks":{"ai_gen_block_96ffb0b_R49KWp":{"type":"ai_gen_block_96ffb0b","settings":{"collections":["blusas-2","vestidos-1","calcas-copia","jaquetas","blusas-copia","novidades"],"custom_image_2":"shopify:\/\/shop_images\/IMG_7289.jpg","custom_image_3":"shopify:\/\/shop_images\/IMG_6111_1.jpg","custom_image_5":"shopify:\/\/shop_images\/IMG_7594_1a2b5d26-8f7e-49e9-9cdf-d309cfb76a64.jpg","custom_image_6":"shopify:\/\/shop_images\/rn-image_picker_lib_temp_58cc6e94-e5a7-4f71-9af7-860caf77abbf.jpg","desktop_alignment":"left","desktop_width_percent":100,"hide_on_desktop":true,"gap":20,"text_gap":10,"image_border_radius":5,"placeholder_bg_color":"#f4f4f4","text_size":14,"text_color":"#111111","nav_bg_color":"#ffffff","nav_hover_bg_color":"#111111","nav_icon_color":"#111111"},"blocks":{}}},"block_order":["ai_gen_block_96ffb0b_R49KWp"],"disabled":true,"settings":{}},"video_width_text_ovlerlay_zzK7cP":{"type":"video-width-text-ovlerlay","blocks":{"heading_kPYNjY":{"type":"heading","disabled":true,"settings":{"heading":"","font_size":36,"font_weight":"heading_weight","uppercase":false,"spacing_bottom":24}},"description_ACnGkM":{"type":"description","disabled":true,"settings":{"description":"<p>Shop Now<\/p>","font_size":14,"font_weight":"body_weight","spacing_bottom":25}},"button_qrqWfm":{"type":"button","settings":{"first_button_label":"Shop Now","first_button_link":"shopify:\/\/collections\/novidades","first_button_type":"outline","second_button_label":"","second_button_link":"","second_button_type":"primary","spacing_bottom":30}}},"block_order":["heading_kPYNjY","description_ACnGkM","button_qrqWfm"],"disabled":true,"name":"t:sections.video_with_text_overlay.name","settings":{"section_width":"full_width","color_scheme":"scheme-3d10de96-a479-49bd-819c-e044746b4f3e","video_url":"","video_local":"shopify:\/\/files\/videos\/B42_1_SegundaPeleRendaPreta.mp4","overlay_opacity":0,"image_height":"custom","desktop_height":1000,"mobile_height":800,"content_alignment":"center","content_position":"bottom-center","content_width":"container","content_max_width":100,"content_padding_block":120,"content_padding_inline":50,"show_content_background":false,"content_background":"#ffffff","content_box_opacity":100,"content_below_image":false,"content_alignment_mobile":"left","padding_top":0,"padding_bottom":0,"reset_spacing":false}},"products_carousel_BrKFhr":{"type":"products-carousel","settings":{"section_width":"stretch_width","color_scheme":"","heading":"Novidades","description":"","show_view_all_button":false,"header_size":"small","header_alignment":"left","collection":"novidades","items_to_show":12,"items_per_row":4,"column_gap":5,"equal_height_adjustment":false,"show_banner":false,"title_inside":false,"sticky_banner":false,"banner_width":30,"position":"left","banner_link":"","banner_type":"image","video_url":"","video_autoplay":true,"show_arrow":true,"carousel_pagination":"show_dots_on_mobile","infinite":true,"autoplay":false,"autorotate_speed":5,"reveal":true,"items_per_row_mobile":1.5,"padding_top":0,"padding_bottom":0,"reset_spacing":false}},"collection_packery_6GNcrw":{"type":"collection-packery","blocks":{"collection_aCfkHz":{"type":"collection","settings":{"collection":"vestidos-1","collection_image":"shopify:\/\/shop_images\/IMG_9457.jpg","collection_title":""}},"collection_tGjBKK":{"type":"collection","settings":{"collection":"blusas-2","collection_image":"shopify:\/\/shop_images\/47.png","collection_title":""}},"collection_KMYMcF":{"type":"collection","settings":{"collection":"moletom","collection_image":"shopify:\/\/shop_images\/IMG_0530.jpg","collection_title":""}},"collection_JGEQk4":{"type":"collection","settings":{"collection":"calcas-copia","collection_image":"shopify:\/\/shop_images\/53.png","collection_title":""}}},"block_order":["collection_aCfkHz","collection_tGjBKK","collection_KMYMcF","collection_JGEQk4"],"name":"t:sections.collection-packery.name","settings":{"section_width":"stretch_width","color_scheme":"scheme-3d10de96-a479-49bd-819c-e044746b4f3e","heading":"","description":"","header_size":"medium","header_alignment":"left","design":"morden","image_ratio":"landscape","custom_ratio":"","show_product_count":false,"text_alignment":"center","column_gap":5,"font_size":20,"font_weight":"heading_weight","carousel_on_mobile":true,"items_per_row_mobile":1,"padding_top":0,"padding_bottom":0,"reset_spacing":false}},"collection_list_VmEYkJ":{"type":"collection-list","blocks":{"collection_kUA3MH":{"type":"collection","settings":{"collection":"vestidos-1","collection_title":""}},"collection_ctTBpd":{"type":"collection","settings":{"collection":"blusas-2","collection_title":""}},"collection_r7aTxN":{"type":"collection","settings":{"collection":"calcas-copia","collection_title":""}},"collection_fyfMEN":{"type":"collection","settings":{"collection":"jaquetas","collection_title":""}},"collection_FUAzK4":{"type":"collection","settings":{"collection":"blusas-copia","collection_title":""}},"collection_qnWALe":{"type":"collection","settings":{"collection":"saias-1","collection_title":""}}},"block_order":["collection_kUA3MH","collection_ctTBpd","collection_r7aTxN","collection_fyfMEN","collection_FUAzK4","collection_qnWALe"],"disabled":true,"settings":{"section_width":"fluid_container","color_scheme":"default","heading":"","description":"","show_view_all_button":false,"header_size":"medium","header_alignment":"center","display_mode":"split_columns","image_ratio":"portrait","custom_ratio":"9:16","items_per_row":6,"column_gap":5,"collection_information_position":"overlay_image","design":"futuristic","text_alignment":"left","show_product_count":false,"show_description":false,"font_size":24,"font_weight":"body_weight","information_spacing":0,"rounded_image":false,"image_custom_width":false,"image_width":185,"show_arrow":true,"carousel_pagination":"show_dots_on_mobile","infinite":false,"autoplay":false,"autorotate_speed":5,"reveal":false,"items_per_row_mobile":1.5,"speed":57,"img_width":410,"img_height":540,"padding_top":0,"padding_bottom":0,"reset_spacing":false}},"products_carousel_ctPF6C":{"type":"products-carousel","settings":{"section_width":"stretch_width","color_scheme":"","heading":"Best Sellers","description":"","show_view_all_button":false,"header_size":"small","header_alignment":"left","collection":"mais-vendidos","items_to_show":12,"items_per_row":4,"column_gap":5,"equal_height_adjustment":false,"show_banner":false,"title_inside":false,"sticky_banner":false,"banner_width":50,"position":"left","banner_link":"","banner_type":"image","video_url":"","video_autoplay":true,"show_arrow":true,"carousel_pagination":"show_dots_on_mobile","infinite":true,"autoplay":false,"autorotate_speed":4,"reveal":true,"items_per_row_mobile":1.5,"padding_top":0,"padding_bottom":0,"reset_spacing":false}},"1776133405c4c16561":{"type":"_blocks","blocks":{"ai_gen_block_4fec9f1_6nCbeH":{"type":"ai_gen_block_4fec9f1","settings":{"product_list":["conjunto-moletom-de-capuz-bandana-costas-com-strass","conjunto-moletom-de-capuz-bandana-costas-com-berloques","conjunto-moletom-calca-pantalona-com-bandana-avulsa","conjunto-moletom-detalhes-em-laco","conjunto-moletom-pantalona-com-detalhes-em-ribana-69989ab90147d","conjunto-de-jaqueta-jeans-e-calca-jogger-em-moletom","t-shirt-basica-malha-manga-curta-344791855","saia-de-couro-com-babados-6957e8635e71e"],"padding_top":50,"padding_bottom":50,"padding_horizontal":40,"mobile_padding_top":45,"mobile_padding_bottom":40,"mobile_padding_horizontal":15,"desktop_video_height":400,"slide_width":250,"mobile_slide_width":200,"gap":20,"aspect_ratio":160,"border_radius":8,"video_background":"#f4f4f4","show_product_info":true,"show_vendor":false,"show_title":true,"show_price":true,"info_spacing":10,"show_badges":true,"badges_position":"left","badges_top":8,"badges_horizontal":8,"vendor_size":12,"vendor_color":"#999999","title_size":16,"title_weight":400,"title_color":"#111111","price_size":16,"price_weight":600,"price_color":"#111111","sale_price_color":"#d0473e","story_duration":5},"blocks":{}}},"block_order":["ai_gen_block_4fec9f1_6nCbeH"],"disabled":true,"settings":{}},"product_testimonials_DyerjT":{"type":"product-testimonials","blocks":{"testimonials_items_bKPBwX":{"type":"testimonials_items","settings":{"author_rating":5,"author_text":"<p>A perfect product, it keeps you very warm without over heating. True to size, I couldn't be happier with the purchase... Thank you! 🤗<\/p>","select_product":"waistcoat-with-pockets","author_name":"Cameron Smith."}},"testimonials_items_3trnNN":{"type":"testimonials_items","settings":{"author_rating":5,"author_text":"<p>A fantastic purchase! The product provides just the right amount of warmth without causing overheating. Highly recommend! 😊<\/p>","select_product":"zip-neck-jumper","author_name":"Algistino Lionel."}},"testimonials_items_xDzhkj":{"type":"testimonials_items","settings":{"author_rating":5,"author_text":"<p>These are sooo pretty and very comfy. Perfect color as well. I love wearing these with a neutral top and Chelsea boots. Wicked cute...😍<\/p>","select_product":"basic-blazer","author_name":"Carie-Gosée H."}}},"block_order":["testimonials_items_bKPBwX","testimonials_items_3trnNN","testimonials_items_xDzhkj"],"disabled":true,"settings":{"section_width":"fluid_container","color_scheme":"scheme-2b5c6c91-201d-4fb1-aba3-e6d562656976","heading":"Happy Customers","description":"<p>Customers love our products and we always strive to please them all.<\/p>","header_alignment":"center","header_size":"medium","design":"default","show_image":true,"show_verified_buyer":true,"img_position":"left","image_ratio":"portrait","custom_ratio":"","img_width":38,"framed":true,"rate_color":"#ff9c05","items_per_row":2,"column_gap":30,"show_arrow":true,"carousel_pagination":"show_dots_on_mobile","infinite":false,"autoplay":false,"autorotate_speed":5,"reveal":false,"items_per_row_mobile":1,"padding_top":60,"padding_bottom":80,"reset_spacing":false}},"vertical_scrolling_gallery_JN6JWy":{"type":"vertical-scrolling-gallery","blocks":{"scrolling_image_GUadeB":{"type":"scrolling_image","settings":{"image":"shopify:\/\/shop_images\/IMG_3733.jpg","link":""}},"scrolling_image_y3THhG":{"type":"scrolling_image","settings":{"image":"shopify:\/\/shop_images\/IMG_3733.jpg","link":""}},"scrolling_image_8n38Bi":{"type":"scrolling_image","settings":{"image":"shopify:\/\/shop_images\/IMG_3737.jpg","link":""}},"scrolling_image_NhxG6F":{"type":"scrolling_image","settings":{"image":"shopify:\/\/shop_images\/IMG_3734.jpg","link":""}}},"block_order":["scrolling_image_GUadeB","scrolling_image_y3THhG","scrolling_image_8n38Bi","scrolling_image_NhxG6F"],"name":"t:sections.scrolling_gallery.name","settings":{"section_width":"full_width","color_scheme":"","content_width":"50%","desktop_height":800,"mobile_height":360,"position":"left","speed":20,"column_gap":30,"custom_svg":"","subheading":"Nós criamos moda como quem constrói permanência.","heading":"","description":"<p>Acreditamos no <strong>design <\/strong>próprio, <strong>exclusivo <\/strong>e <strong>atemporal <\/strong>como expressão máxima de elegância — aquela que não depende de excessos, ruídos ou tendências passageiras.<\/p><p>Há <strong>10 anos<\/strong> em Belo Horizonte — e há 7 com nossa loja física no Belvedere — desenvolvemos peças autorais que nascem do rigor criativo, da precisão das formas e do cuidado absoluto com cada detalhe. Cada coleção é pensada para atravessar o tempo, valorizando a identidade de mulheres que reconhecem o luxo na qualidade, na intenção e na presença.<\/p><p>Nossa moda é <strong>silenciosa, sofisticada e consciente<\/strong>. Criamos para quem escolhe menos, mas melhor. Para quem entende que exclusividade não se anuncia — <strong>se percebe.<\/strong><\/p>","first_button_label":"","first_button_link":"","first_button_type":"primary","second_button_label":"","second_button_link":"","second_button_type":"primary","content_alignment":"left","content_position":"middle-left","content_padding_block":30,"content_padding_inline":30,"custom_svg_spacing_bottom":10,"subheading_font_size":12,"subheading_font_weight":"subheading_weight","subheading_spacing_bottom":10,"heading_font_size":36,"heading_font_weight":"heading_weight","heading_uppercase":false,"heading_spacing_bottom":10,"des_font_size":14,"des_font_weight":"body_weight","des_spacing_bottom":10,"padding_top":0,"padding_bottom":0,"reset_spacing":false}}},"order":["slideshow_RykJMi","17743889294751bb72","video_width_text_ovlerlay_zzK7cP","products_carousel_BrKFhr","collection_packery_6GNcrw","collection_list_VmEYkJ","products_carousel_ctPF6C","1776133405c4c16561","product_testimonials_DyerjT","vertical_scrolling_gallery_JN6JWy"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow_RykJMi": {
+      "type": "slideshow",
+      "blocks": {
+        "slider_item_JbXYD3": {
+          "type": "slider_item",
+          "settings": {
+            "image": "shopify://shop_images/BANNER_V1.png",
+            "image_mobile": "shopify://shop_images/BANNER_-_MOB_02.png",
+            "overlay_opacity": 0,
+            "slider_effect": "effect_fadeinup",
+            "subheading": "",
+            "heading": "",
+            "description": "",
+            "first_button_label": "",
+            "first_button_link": "shopify://collections/novidades",
+            "first_button_style": false,
+            "second_button_label": "",
+            "second_button_link": "",
+            "second_button_style": false,
+            "content_alignment": "center",
+            "content_position": "bottom-center",
+            "content_width": "container",
+            "content_max_width": 100,
+            "content_padding_block": 60,
+            "content_padding_inline": 30,
+            "show_content_background": false,
+            "content_background": "#ffffff",
+            "content_box_opacity": 100,
+            "content_alignment_mobile": "center"
+          }
+        },
+        "slider_item_pULFaf": {
+          "type": "slider_item",
+          "settings": {
+            "image": "shopify://shop_images/BANNER_V2.png",
+            "image_mobile": "shopify://shop_images/BANNER_-_MOB_02_V1.png",
+            "overlay_opacity": 0,
+            "slider_effect": "effect_fadeinup",
+            "subheading": "",
+            "heading": "",
+            "description": "",
+            "first_button_label": "",
+            "first_button_link": "shopify://collections/alfaiataria",
+            "first_button_style": false,
+            "second_button_label": "",
+            "second_button_link": "",
+            "second_button_style": false,
+            "content_alignment": "center",
+            "content_position": "bottom-center",
+            "content_width": "fluid_container",
+            "content_max_width": 40,
+            "content_padding_block": 40,
+            "content_padding_inline": 15,
+            "show_content_background": false,
+            "content_background": "#ffffff",
+            "content_box_opacity": 100,
+            "content_alignment_mobile": "center"
+          }
+        },
+        "slider_item_NgPjLx": {
+          "type": "slider_item",
+          "settings": {
+            "image": "shopify://shop_images/03_002cd4cd-9b84-4aec-9abf-93944e713202.png",
+            "image_mobile": "shopify://shop_images/03_7b162937-d456-4d04-9fbe-4c6f22a5e486.png",
+            "overlay_opacity": 0,
+            "slider_effect": "effect_fadeinup",
+            "subheading": "",
+            "heading": "",
+            "description": "",
+            "first_button_label": "",
+            "first_button_link": "shopify://collections/segunda-pele-em-renda",
+            "first_button_style": false,
+            "second_button_label": "",
+            "second_button_link": "",
+            "second_button_style": false,
+            "content_alignment": "center",
+            "content_position": "bottom-center",
+            "content_width": "fluid_container",
+            "content_max_width": 100,
+            "content_padding_block": 60,
+            "content_padding_inline": 30,
+            "show_content_background": false,
+            "content_background": "#ffffff",
+            "content_box_opacity": 100,
+            "content_alignment_mobile": "center"
+          }
+        },
+        "slider_item_RTtkGA": {
+          "type": "slider_item",
+          "settings": {
+            "image": "shopify://shop_images/04_456a1855-f242-46f8-9405-c459fd33f40f.png",
+            "image_mobile": "shopify://shop_images/04_1.png",
+            "overlay_opacity": 0,
+            "slider_effect": "effect_fadeindown",
+            "subheading": "",
+            "heading": "",
+            "description": "",
+            "first_button_label": "",
+            "first_button_link": "shopify://collections/moletom",
+            "first_button_style": false,
+            "second_button_label": "",
+            "second_button_link": "",
+            "second_button_style": false,
+            "content_alignment": "center",
+            "content_position": "bottom-left",
+            "content_width": "container",
+            "content_max_width": 100,
+            "content_padding_block": 60,
+            "content_padding_inline": 0,
+            "show_content_background": false,
+            "content_background": "#ffffff",
+            "content_box_opacity": 100,
+            "content_alignment_mobile": "left"
+          }
+        },
+        "slider_item_WMKwRK": {
+          "type": "slider_item",
+          "settings": {
+            "image": "shopify://shop_images/DESK_-_Sale.png",
+            "image_mobile": "shopify://shop_images/MOB_-_Sale.png",
+            "overlay_opacity": 0,
+            "slider_effect": "effect_fadeindown",
+            "subheading": "",
+            "heading": "",
+            "description": "",
+            "first_button_label": "",
+            "first_button_link": "shopify://collections/sale-1",
+            "first_button_style": true,
+            "second_button_label": "",
+            "second_button_link": "https://fernandafarah.com.br/search?q=segunda+pele+em+renda&options%5Bunavailable_products%5D=last&options%5Bprefix%5D=last&options%5Bfields%5D=title%2Cvendor%2Cproduct_type%2Cvariants.title&type=products",
+            "second_button_style": false,
+            "content_alignment": "left",
+            "content_position": "bottom-center",
+            "content_width": "container",
+            "content_max_width": 100,
+            "content_padding_block": 60,
+            "content_padding_inline": 30,
+            "show_content_background": false,
+            "content_background": "#ffffff",
+            "content_box_opacity": 100,
+            "content_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slider_item_JbXYD3",
+        "slider_item_pULFaf",
+        "slider_item_NgPjLx",
+        "slider_item_RTtkGA",
+        "slider_item_WMKwRK"
+      ],
+      "custom_css": [],
+      "settings": {
+        "section_width": "full_width",
+        "section_scroll_animation": false,
+        "slide_height": "full_screen",
+        "desktop_height": 1000,
+        "mobile_height": 600,
+        "color_scheme": "scheme-3d10de96-a479-49bd-819c-e044746b4f3e",
+        "subheading_font_size": 14,
+        "subheading_font_weight": "body_weight",
+        "subheading_spacing_bottom": 5,
+        "heading_font_size": 50,
+        "heading_font_weight": "heading_weight",
+        "heading_uppercase": false,
+        "heading_spacing_bottom": 20,
+        "des_font_size": 16,
+        "des_font_weight": "body_weight",
+        "des_spacing_bottom": 40,
+        "show_layout3": false,
+        "show_arrow": true,
+        "carousel_pagination": "show_dots",
+        "pagination_position": "center",
+        "autoplay": true,
+        "autorotate_speed": 5,
+        "content_below_image": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "reset_spacing": false
+      }
+    },
+    "17743889294751bb72": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_96ffb0b_R49KWp": {
+          "type": "ai_gen_block_96ffb0b",
+          "settings": {
+            "collections": [
+              "blusas-2",
+              "vestidos-1",
+              "calcas-copia",
+              "jaquetas",
+              "blusas-copia",
+              "novidades"
+            ],
+            "custom_image_2": "shopify://shop_images/IMG_7289.jpg",
+            "custom_image_3": "shopify://shop_images/IMG_6111_1.jpg",
+            "custom_image_5": "shopify://shop_images/IMG_7594_1a2b5d26-8f7e-49e9-9cdf-d309cfb76a64.jpg",
+            "custom_image_6": "shopify://shop_images/rn-image_picker_lib_temp_58cc6e94-e5a7-4f71-9af7-860caf77abbf.jpg",
+            "desktop_alignment": "left",
+            "desktop_width_percent": 100,
+            "hide_on_desktop": true,
+            "gap": 20,
+            "text_gap": 10,
+            "image_border_radius": 5,
+            "placeholder_bg_color": "#f4f4f4",
+            "text_size": 14,
+            "text_color": "#111111",
+            "nav_bg_color": "#ffffff",
+            "nav_hover_bg_color": "#111111",
+            "nav_icon_color": "#111111"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_96ffb0b_R49KWp"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "video_width_text_ovlerlay_zzK7cP": {
+      "type": "video-width-text-ovlerlay",
+      "blocks": {
+        "heading_kPYNjY": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "",
+            "font_size": 36,
+            "font_weight": "heading_weight",
+            "uppercase": false,
+            "spacing_bottom": 24
+          }
+        },
+        "description_ACnGkM": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "description": "<p>Shop Now</p>",
+            "font_size": 14,
+            "font_weight": "body_weight",
+            "spacing_bottom": 25
+          }
+        },
+        "button_qrqWfm": {
+          "type": "button",
+          "settings": {
+            "first_button_label": "Shop Now",
+            "first_button_link": "shopify://collections/novidades",
+            "first_button_type": "outline",
+            "second_button_label": "",
+            "second_button_link": "",
+            "second_button_type": "primary",
+            "spacing_bottom": 30
+          }
+        }
+      },
+      "block_order": [
+        "heading_kPYNjY",
+        "description_ACnGkM",
+        "button_qrqWfm"
+      ],
+      "disabled": true,
+      "name": "t:sections.video_with_text_overlay.name",
+      "settings": {
+        "section_width": "full_width",
+        "color_scheme": "scheme-3d10de96-a479-49bd-819c-e044746b4f3e",
+        "video_url": "",
+        "video_local": "shopify://files/videos/B42_1_SegundaPeleRendaPreta.mp4",
+        "overlay_opacity": 0,
+        "image_height": "custom",
+        "desktop_height": 1000,
+        "mobile_height": 800,
+        "content_alignment": "center",
+        "content_position": "bottom-center",
+        "content_width": "container",
+        "content_max_width": 100,
+        "content_padding_block": 120,
+        "content_padding_inline": 50,
+        "show_content_background": false,
+        "content_background": "#ffffff",
+        "content_box_opacity": 100,
+        "content_below_image": false,
+        "content_alignment_mobile": "left",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "reset_spacing": false
+      }
+    },
+    "products_carousel_BrKFhr": {
+      "type": "products-carousel",
+      "settings": {
+        "section_width": "stretch_width",
+        "color_scheme": "scheme-4faf0e4d-27f4-4d02-bc51-617383bab1a9",
+        "heading": "Novidades",
+        "description": "",
+        "show_view_all_button": false,
+        "header_size": "small",
+        "header_alignment": "left",
+        "collection": "novidades",
+        "items_to_show": 12,
+        "items_per_row": 4,
+        "column_gap": 5,
+        "equal_height_adjustment": false,
+        "show_banner": false,
+        "title_inside": false,
+        "sticky_banner": false,
+        "banner_width": 30,
+        "position": "left",
+        "banner_link": "",
+        "banner_type": "image",
+        "video_url": "",
+        "video_autoplay": true,
+        "show_arrow": true,
+        "carousel_pagination": "show_dots_on_mobile",
+        "infinite": true,
+        "autoplay": false,
+        "autorotate_speed": 5,
+        "reveal": true,
+        "items_per_row_mobile": 1.5,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "reset_spacing": false
+      }
+    },
+    "collection_packery_6GNcrw": {
+      "type": "collection-packery",
+      "blocks": {
+        "collection_aCfkHz": {
+          "type": "collection",
+          "settings": {
+            "collection": "vestidos-1",
+            "collection_image": "shopify://shop_images/IMG_9457.jpg",
+            "collection_title": ""
+          }
+        },
+        "collection_tGjBKK": {
+          "type": "collection",
+          "settings": {
+            "collection": "blusas-2",
+            "collection_image": "shopify://shop_images/47.png",
+            "collection_title": ""
+          }
+        },
+        "collection_KMYMcF": {
+          "type": "collection",
+          "settings": {
+            "collection": "moletom",
+            "collection_image": "shopify://shop_images/IMG_0530.jpg",
+            "collection_title": ""
+          }
+        },
+        "collection_JGEQk4": {
+          "type": "collection",
+          "settings": {
+            "collection": "calcas-copia",
+            "collection_image": "shopify://shop_images/53.png",
+            "collection_title": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_aCfkHz",
+        "collection_tGjBKK",
+        "collection_KMYMcF",
+        "collection_JGEQk4"
+      ],
+      "name": "t:sections.collection-packery.name",
+      "settings": {
+        "section_width": "stretch_width",
+        "color_scheme": "scheme-3d10de96-a479-49bd-819c-e044746b4f3e",
+        "heading": "",
+        "description": "",
+        "header_size": "medium",
+        "header_alignment": "left",
+        "design": "morden",
+        "image_ratio": "landscape",
+        "custom_ratio": "",
+        "show_product_count": false,
+        "text_alignment": "center",
+        "column_gap": 5,
+        "font_size": 20,
+        "font_weight": "heading_weight",
+        "carousel_on_mobile": true,
+        "items_per_row_mobile": 1,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "reset_spacing": false
+      }
+    },
+    "collection_list_VmEYkJ": {
+      "type": "collection-list",
+      "blocks": {
+        "collection_kUA3MH": {
+          "type": "collection",
+          "settings": {
+            "collection": "vestidos-1",
+            "collection_title": ""
+          }
+        },
+        "collection_ctTBpd": {
+          "type": "collection",
+          "settings": {
+            "collection": "blusas-2",
+            "collection_title": ""
+          }
+        },
+        "collection_r7aTxN": {
+          "type": "collection",
+          "settings": {
+            "collection": "calcas-copia",
+            "collection_title": ""
+          }
+        },
+        "collection_fyfMEN": {
+          "type": "collection",
+          "settings": {
+            "collection": "jaquetas",
+            "collection_title": ""
+          }
+        },
+        "collection_FUAzK4": {
+          "type": "collection",
+          "settings": {
+            "collection": "blusas-copia",
+            "collection_title": ""
+          }
+        },
+        "collection_qnWALe": {
+          "type": "collection",
+          "settings": {
+            "collection": "saias-1",
+            "collection_title": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_kUA3MH",
+        "collection_ctTBpd",
+        "collection_r7aTxN",
+        "collection_fyfMEN",
+        "collection_FUAzK4",
+        "collection_qnWALe"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_width": "fluid_container",
+        "color_scheme": "default",
+        "heading": "",
+        "description": "",
+        "show_view_all_button": false,
+        "header_size": "medium",
+        "header_alignment": "center",
+        "display_mode": "split_columns",
+        "image_ratio": "portrait",
+        "custom_ratio": "9:16",
+        "items_per_row": 6,
+        "column_gap": 5,
+        "collection_information_position": "overlay_image",
+        "design": "futuristic",
+        "text_alignment": "left",
+        "show_product_count": false,
+        "show_description": false,
+        "font_size": 24,
+        "font_weight": "body_weight",
+        "information_spacing": 0,
+        "rounded_image": false,
+        "image_custom_width": false,
+        "image_width": 185,
+        "show_arrow": true,
+        "carousel_pagination": "show_dots_on_mobile",
+        "infinite": false,
+        "autoplay": false,
+        "autorotate_speed": 5,
+        "reveal": false,
+        "items_per_row_mobile": 1.5,
+        "speed": 57,
+        "img_width": 410,
+        "img_height": 540,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "reset_spacing": false
+      }
+    },
+    "products_carousel_ctPF6C": {
+      "type": "products-carousel",
+      "settings": {
+        "section_width": "stretch_width",
+        "color_scheme": "",
+        "heading": "Best Sellers",
+        "description": "",
+        "show_view_all_button": false,
+        "header_size": "small",
+        "header_alignment": "left",
+        "collection": "mais-vendidos",
+        "items_to_show": 12,
+        "items_per_row": 4,
+        "column_gap": 5,
+        "equal_height_adjustment": false,
+        "show_banner": false,
+        "title_inside": false,
+        "sticky_banner": false,
+        "banner_width": 50,
+        "position": "left",
+        "banner_link": "",
+        "banner_type": "image",
+        "video_url": "",
+        "video_autoplay": true,
+        "show_arrow": true,
+        "carousel_pagination": "show_dots_on_mobile",
+        "infinite": true,
+        "autoplay": false,
+        "autorotate_speed": 4,
+        "reveal": true,
+        "items_per_row_mobile": 1.5,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "reset_spacing": false
+      }
+    },
+    "1776133405c4c16561": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_4fec9f1_6nCbeH": {
+          "type": "ai_gen_block_4fec9f1",
+          "settings": {
+            "product_list": [
+              "conjunto-moletom-de-capuz-bandana-costas-com-strass",
+              "conjunto-moletom-de-capuz-bandana-costas-com-berloques",
+              "conjunto-moletom-calca-pantalona-com-bandana-avulsa",
+              "conjunto-moletom-detalhes-em-laco",
+              "conjunto-moletom-pantalona-com-detalhes-em-ribana-69989ab90147d",
+              "conjunto-de-jaqueta-jeans-e-calca-jogger-em-moletom",
+              "t-shirt-basica-malha-manga-curta-344791855",
+              "saia-de-couro-com-babados-6957e8635e71e"
+            ],
+            "padding_top": 50,
+            "padding_bottom": 50,
+            "padding_horizontal": 40,
+            "mobile_padding_top": 45,
+            "mobile_padding_bottom": 40,
+            "mobile_padding_horizontal": 15,
+            "desktop_video_height": 400,
+            "slide_width": 250,
+            "mobile_slide_width": 200,
+            "gap": 20,
+            "aspect_ratio": 160,
+            "border_radius": 8,
+            "video_background": "#f4f4f4",
+            "show_product_info": true,
+            "show_vendor": false,
+            "show_title": true,
+            "show_price": true,
+            "info_spacing": 10,
+            "show_badges": true,
+            "badges_position": "left",
+            "badges_top": 8,
+            "badges_horizontal": 8,
+            "vendor_size": 12,
+            "vendor_color": "#999999",
+            "title_size": 16,
+            "title_weight": 400,
+            "title_color": "#111111",
+            "price_size": 16,
+            "price_weight": 600,
+            "price_color": "#111111",
+            "sale_price_color": "#d0473e",
+            "story_duration": 5
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_4fec9f1_6nCbeH"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "product_testimonials_DyerjT": {
+      "type": "product-testimonials",
+      "blocks": {
+        "testimonials_items_bKPBwX": {
+          "type": "testimonials_items",
+          "settings": {
+            "author_rating": 5,
+            "author_text": "<p>A perfect product, it keeps you very warm without over heating. True to size, I couldn't be happier with the purchase... Thank you! 🤗</p>",
+            "select_product": "waistcoat-with-pockets",
+            "author_name": "Cameron Smith."
+          }
+        },
+        "testimonials_items_3trnNN": {
+          "type": "testimonials_items",
+          "settings": {
+            "author_rating": 5,
+            "author_text": "<p>A fantastic purchase! The product provides just the right amount of warmth without causing overheating. Highly recommend! 😊</p>",
+            "select_product": "zip-neck-jumper",
+            "author_name": "Algistino Lionel."
+          }
+        },
+        "testimonials_items_xDzhkj": {
+          "type": "testimonials_items",
+          "settings": {
+            "author_rating": 5,
+            "author_text": "<p>These are sooo pretty and very comfy. Perfect color as well. I love wearing these with a neutral top and Chelsea boots. Wicked cute...😍</p>",
+            "select_product": "basic-blazer",
+            "author_name": "Carie-Gosée H."
+          }
+        }
+      },
+      "block_order": [
+        "testimonials_items_bKPBwX",
+        "testimonials_items_3trnNN",
+        "testimonials_items_xDzhkj"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_width": "fluid_container",
+        "color_scheme": "scheme-2b5c6c91-201d-4fb1-aba3-e6d562656976",
+        "heading": "Happy Customers",
+        "description": "<p>Customers love our products and we always strive to please them all.</p>",
+        "header_alignment": "center",
+        "header_size": "medium",
+        "design": "default",
+        "show_image": true,
+        "show_verified_buyer": true,
+        "img_position": "left",
+        "image_ratio": "portrait",
+        "custom_ratio": "",
+        "img_width": 38,
+        "framed": true,
+        "rate_color": "#ff9c05",
+        "items_per_row": 2,
+        "column_gap": 30,
+        "show_arrow": true,
+        "carousel_pagination": "show_dots_on_mobile",
+        "infinite": false,
+        "autoplay": false,
+        "autorotate_speed": 5,
+        "reveal": false,
+        "items_per_row_mobile": 1,
+        "padding_top": 60,
+        "padding_bottom": 80,
+        "reset_spacing": false
+      }
+    },
+    "vertical_scrolling_gallery_JN6JWy": {
+      "type": "vertical-scrolling-gallery",
+      "blocks": {
+        "scrolling_image_GUadeB": {
+          "type": "scrolling_image",
+          "settings": {
+            "image": "shopify://shop_images/IMG_3733.jpg",
+            "link": ""
+          }
+        },
+        "scrolling_image_y3THhG": {
+          "type": "scrolling_image",
+          "settings": {
+            "image": "shopify://shop_images/IMG_3733.jpg",
+            "link": ""
+          }
+        },
+        "scrolling_image_8n38Bi": {
+          "type": "scrolling_image",
+          "settings": {
+            "image": "shopify://shop_images/IMG_3737.jpg",
+            "link": ""
+          }
+        },
+        "scrolling_image_NhxG6F": {
+          "type": "scrolling_image",
+          "settings": {
+            "image": "shopify://shop_images/IMG_3734.jpg",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "scrolling_image_GUadeB",
+        "scrolling_image_y3THhG",
+        "scrolling_image_8n38Bi",
+        "scrolling_image_NhxG6F"
+      ],
+      "name": "t:sections.scrolling_gallery.name",
+      "settings": {
+        "section_width": "full_width",
+        "color_scheme": "",
+        "content_width": "50%",
+        "desktop_height": 800,
+        "mobile_height": 360,
+        "position": "left",
+        "speed": 20,
+        "column_gap": 30,
+        "custom_svg": "",
+        "subheading": "Nós criamos moda como quem constrói permanência.",
+        "heading": "",
+        "description": "<p>Acreditamos no <strong>design </strong>próprio, <strong>exclusivo </strong>e <strong>atemporal </strong>como expressão máxima de elegância — aquela que não depende de excessos, ruídos ou tendências passageiras.</p><p>Há <strong>10 anos</strong> em Belo Horizonte — e há 7 com nossa loja física no Belvedere — desenvolvemos peças autorais que nascem do rigor criativo, da precisão das formas e do cuidado absoluto com cada detalhe. Cada coleção é pensada para atravessar o tempo, valorizando a identidade de mulheres que reconhecem o luxo na qualidade, na intenção e na presença.</p><p>Nossa moda é <strong>silenciosa, sofisticada e consciente</strong>. Criamos para quem escolhe menos, mas melhor. Para quem entende que exclusividade não se anuncia — <strong>se percebe.</strong></p>",
+        "first_button_label": "",
+        "first_button_link": "",
+        "first_button_type": "primary",
+        "second_button_label": "",
+        "second_button_link": "",
+        "second_button_type": "primary",
+        "content_alignment": "left",
+        "content_position": "middle-left",
+        "content_padding_block": 30,
+        "content_padding_inline": 30,
+        "custom_svg_spacing_bottom": 10,
+        "subheading_font_size": 12,
+        "subheading_font_weight": "subheading_weight",
+        "subheading_spacing_bottom": 10,
+        "heading_font_size": 36,
+        "heading_font_weight": "heading_weight",
+        "heading_uppercase": false,
+        "heading_spacing_bottom": 10,
+        "des_font_size": 14,
+        "des_font_weight": "body_weight",
+        "des_spacing_bottom": 10,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "reset_spacing": false
+      }
+    }
+  },
+  "order": [
+    "slideshow_RykJMi",
+    "17743889294751bb72",
+    "video_width_text_ovlerlay_zzK7cP",
+    "products_carousel_BrKFhr",
+    "collection_packery_6GNcrw",
+    "collection_list_VmEYkJ",
+    "products_carousel_ctPF6C",
+    "1776133405c4c16561",
+    "product_testimonials_DyerjT",
+    "vertical_scrolling_gallery_JN6JWy"
+  ]
+}
