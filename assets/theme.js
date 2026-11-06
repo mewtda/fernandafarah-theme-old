@@ -6176,6 +6176,14 @@ class VariantRadiosDetail extends SwatchFunctions {
   constructor() {
     super();
   }
+  connectedCallback() {
+    // Marca tamanhos indisponíveis já no carregamento (antes só acontecia após um clique)
+    try {
+      if (!this.querySelector('.product-form__input :checked')) return;
+      this.getVariantData();
+      this.updateVariantStatuses();
+    } catch (e) {}
+  }
   groupFunctionsAvailable(variantQtyData, target) {
     this.updateURL();
     this.updateVariantInput();
