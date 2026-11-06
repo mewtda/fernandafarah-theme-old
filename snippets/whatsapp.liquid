@@ -1,0 +1,140 @@
+<div class="overlay_wpp"></div>
+<div id="widget-whatsapp" class="right">
+  <div class="moreThanOne">
+    <div class="moreThanOne__header">
+      <p>Tire suas dúvidas pelo Whatsapp</p>
+      <i class="close"></i>
+    </div>
+    <div class="moreThanOne__footer">
+      <div class="moreThanOne__footer--item">
+        <a href="https://api.whatsapp.com/send?l=pt_br&phone=5531998008081" target="_blank">
+          <div>
+            <span>Personal Shopper 1</span>
+          </div>
+        </a>
+      </div>
+      <div class="moreThanOne__footer--item">
+        <a href="https://api.whatsapp.com/send?l=pt_br&phone=5531998428081" target="_blank" >
+          <div>
+            <span>Personal Shopper 2</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <i class="whatsapp-icon"></i>
+</div>
+<style>
+  #widget-whatsapp {
+    position: fixed;
+    bottom: 40px;
+    z-index: 999;
+    right: 15px;
+}
+.overlay_wpp {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 999; 
+}
+  #widget-whatsapp .moreThanOne {
+    position: fixed;
+    bottom: 100px;
+    z-index: 9;
+    max-width: 390px;
+    width: calc(90% - 15px);
+    display: none;
+    box-shadow: rgba(0,0,0,.4) 2px 2px 6px;
+    border-radius: 15px;
+    background: #fff;
+    right: 15px;
+    text-align: left;
+}
+  #widget-whatsapp .moreThanOne.active {
+    display: block;
+}
+  #widget-whatsapp .moreThanOne__header {
+    width: 100%;
+    background: #25d366;
+    padding: 10px 20px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: normal;
+}
+  #widget-whatsapp .moreThanOne__header p {
+    color: #fff;
+    margin: 0;
+    font-size: 20px;
+}
+  #widget-whatsapp .moreThanOne__header i {
+    background: url(data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KDTwhLS0gVXBsb2FkZWQgdG86IFNWRyBSZXBvLCB3d3cuc3ZncmVwby5jb20sIFRyYW5zZm9ybWVkIGJ5OiBTVkcgUmVwbyBNaXhlciBUb29scyAtLT4KPHN2ZyBmaWxsPSIjZmZmIiB3aWR0aD0iODAwcHgiIGhlaWdodD0iODAwcHgiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHJva2U9IiNmZmYiPgoNPGcgaWQ9IlNWR1JlcG9fYmdDYXJyaWVyIiBzdHJva2Utd2lkdGg9IjAiLz4KDTxnIGlkPSJTVkdSZXBvX3RyYWNlckNhcnJpZXIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgoNPGcgaWQ9IlNWR1JlcG9faWNvbkNhcnJpZXIiPgoNPHBhdGggZD0iTTQuMjkzLDE4LjI5MywxMC41ODYsMTIsNC4yOTMsNS43MDdBMSwxLDAsMCwxLDUuNzA3LDQuMjkzTDEyLDEwLjU4Nmw2LjI5My02LjI5M2ExLDEsMCwxLDEsMS40MTQsMS40MTRMMTMuNDE0LDEybDYuMjkzLDYuMjkzYTEsMSwwLDEsMS0xLjQxNCwxLjQxNEwxMiwxMy40MTQsNS43MDcsMTkuNzA3YTEsMSwwLDAsMS0xLjQxNC0xLjQxNFoiLz4KDTwvZz4KDTwvc3ZnPg==) no-repeat;
+    background-size: 100%;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    cursor: pointer;
+}
+  #widget-whatsapp .moreThanOne__footer {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 0 20px;
+}
+  #widget-whatsapp .moreThanOne__footer--item {
+    display: flex;
+    border-bottom: 1px solid rgba(157, 157, 157, .24);
+}
+  #widget-whatsapp .moreThanOne__footer--item a {
+    width: 100%;
+    padding: 10px 0;
+    text-decoration: none;
+}
+  #widget-whatsapp .moreThanOne__footer--item span {
+    color: #6c6c6c;
+    text-decoration: none;
+    font-size: 17px;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+  #widget-whatsapp .moreThanOne__footer--item {
+    display: flex;
+    border-bottom: 1px solid rgba(157, 157, 157, .24);
+}
+  #widget-whatsapp .whatsapp-icon {
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KDTwhLS0gVXBsb2FkZWQgdG86IFNWRyBSZXBvLCB3d3cuc3ZncmVwby5jb20sIEdlbmVyYXRvcjogU1ZHIFJlcG8gTWl4ZXIgVG9vbHMgLS0+Cjxzdmcgd2lkdGg9IjgwMHB4IiBoZWlnaHQ9IjgwMHB4IiB2aWV3Qm94PSIwIDAgMTAyNCAxMDI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KDTxkZWZzPgoNPHBhdGggaWQ9ImEiIGQ9Ik0xMDIzLjk0MSA3NjUuMTUzYzAgNS42MDYtLjE3MSAxNy43NjYtLjUwOCAyNy4xNTktLjgyNCAyMi45ODItMi42NDYgNTIuNjM5LTUuNDAxIDY2LjE1MS00LjE0MSAyMC4zMDYtMTAuMzkyIDM5LjQ3Mi0xOC41NDIgNTUuNDI1LTkuNjQzIDE4Ljg3MS0yMS45NDMgMzUuNzc1LTM2LjU1OSA1MC4zNjQtMTQuNTg0IDE0LjU2LTMxLjQ3MiAyNi44MTItNTAuMzE1IDM2LjQxNi0xNi4wMzYgOC4xNzItMzUuMzIyIDE0LjQyNi01NS43NDQgMTguNTQ5LTEzLjM3OCAyLjcwMS00Mi44MTIgNC40ODgtNjUuNjQ4IDUuMy05LjQwMi4zMzYtMjEuNTY0LjUwNS0yNy4xNS41MDVsLTUwNC4yMjYtLjA4MWMtNS42MDcgMC0xNy43NjUtLjE3Mi0yNy4xNTgtLjUwOS0yMi45ODMtLjgyNC01Mi42MzktMi42NDYtNjYuMTUyLTUuNC0yMC4zMDYtNC4xNDItMzkuNDczLTEwLjM5Mi01NS40MjUtMTguNTQyLTE4Ljg3Mi05LjY0NC0zNS43NzUtMjEuOTQ0LTUwLjM2NC0zNi41Ni0xNC41Ni0xNC41ODQtMjYuODEyLTMxLjQ3MS0zNi40MTUtNTAuMzE0LTguMTc0LTE2LjAzNy0xNC40MjgtMzUuMzIzLTE4LjU1MS01NS43NDQtMi43LTEzLjM3OC00LjQ4Ny00Mi44MTItNS4zLTY1LjY0OS0uMzM0LTkuNDAxLS41MDMtMjEuNTYzLS41MDMtMjcuMTQ4bC4wOC01MDQuMjI4YzAtNS42MDcuMTcxLTE3Ljc2Ni41MDgtMjcuMTU5LjgyNS0yMi45ODMgMi42NDYtNTIuNjM5IDUuNDAxLTY2LjE1MSA0LjE0MS0yMC4zMDYgMTAuMzkxLTM5LjQ3MyAxOC41NDItNTUuNDI2QzM0LjE1NCA5My4yNCA0Ni40NTUgNzYuMzM2IDYxLjA3IDYxLjc0N2MxNC41ODQtMTQuNTU5IDMxLjQ3Mi0yNi44MTIgNTAuMzE1LTM2LjQxNiAxNi4wMzctOC4xNzIgMzUuMzI0LTE0LjQyNiA1NS43NDUtMTguNTQ5IDEzLjM3Ny0yLjcwMSA0Mi44MTItNC40ODggNjUuNjQ4LTUuMyA5LjQwMi0uMzM1IDIxLjU2NS0uNTA0IDI3LjE0OS0uNTA0bDUwNC4yMjcuMDgxYzUuNjA4IDAgMTcuNzY2LjE3MSAyNy4xNTkuNTA4IDIyLjk4My44MjUgNTIuNjM4IDIuNjQ2IDY2LjE1MiA1LjQwMSAyMC4zMDUgNC4xNDEgMzkuNDcyIDEwLjM5MSA1NS40MjUgMTguNTQyIDE4Ljg3MSA5LjY0MyAzNS43NzQgMjEuOTQ0IDUwLjM2MyAzNi41NTkgMTQuNTU5IDE0LjU4NCAyNi44MTIgMzEuNDcxIDM2LjQxNSA1MC4zMTUgOC4xNzQgMTYuMDM3IDE0LjQyOCAzNS4zMjMgMTguNTUxIDU1Ljc0NCAyLjcgMTMuMzc4IDQuNDg2IDQyLjgxMiA1LjMgNjUuNjQ5LjMzNSA5LjQwMi41MDQgMjEuNTY0LjUwNCAyNy4xNWwtLjA4MiA1MDQuMjI2eiIvPgoNPC9kZWZzPgoNPGxpbmVhckdyYWRpZW50IGlkPSJiIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUxMi4wMDEiIHkxPSIuOTc4IiB4Mj0iNTEyLjAwMSIgeTI9IjEwMjUuMDIzIj4KDTxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzYxZmQ3ZCIvPgoNPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMmJiODI2Ii8+Cg08L2xpbmVhckdyYWRpZW50PgoNPHVzZSB4bGluazpocmVmPSIjYSIgb3ZlcmZsb3c9InZpc2libGUiIGZpbGw9InVybCgjYikiLz4KDTxnPgoNPHBhdGggZmlsbD0iI0ZGRiIgZD0iTTc4My4zMDIgMjQzLjI0NmMtNjkuMzI5LTY5LjM4Ny0xNjEuNTI5LTEwNy42MTktMjU5Ljc2My0xMDcuNjU4LTIwMi40MDIgMC0zNjcuMTMzIDE2NC42NjgtMzY3LjIxNCAzNjcuMDcyLS4wMjYgNjQuNjk5IDE2Ljg4MyAxMjcuODU0IDQ5LjAxNyAxODMuNTIybC01Mi4wOTYgMTkwLjIyOSAxOTQuNjY1LTUxLjA0N2M1My42MzYgMjkuMjQ0IDExNC4wMjIgNDQuNjU2IDE3NS40ODIgNDQuNjgyaC4xNTFjMjAyLjM4MiAwIDM2Ny4xMjgtMTY0LjY4OCAzNjcuMjEtMzY3LjA5NC4wMzktOTguMDg3LTM4LjEyMS0xOTAuMzE5LTEwNy40NTItMjU5LjcwNnpNNTIzLjU0NCA4MDguMDQ3aC0uMTI1Yy01NC43NjctLjAyMS0xMDguNDgzLTE0LjcyOS0xNTUuMzQ0LTQyLjUyOWwtMTEuMTQ2LTYuNjEyLTExNS41MTcgMzAuMjkzIDMwLjgzNC0xMTIuNTkyLTcuMjU5LTExLjU0NGMtMzAuNTUyLTQ4LjU3OS00Ni42ODgtMTA0LjcyOS00Ni42NjQtMTYyLjM3OS4wNjYtMTY4LjIyOSAxMzYuOTg1LTMwNS4wOTYgMzA1LjMzOS0zMDUuMDk2IDgxLjUyMS4wMzEgMTU4LjE1NCAzMS44MTEgMjE1Ljc3OSA4OS40ODJzODkuMzQyIDEzNC4zMzIgODkuMzEyIDIxNS44NTljLS4wNjYgMTY4LjI0My0xMzYuOTg0IDMwNS4xMTgtMzA1LjIwOSAzMDUuMTE4em0xNjcuNDE1LTIyOC41MTVjLTkuMTc3LTQuNTkxLTU0LjI4Ni0yNi43ODItNjIuNjk3LTI5Ljg0My04LjQxLTMuMDYyLTE0LjUyNi00LjU5Mi0yMC42NDUgNC41OTItNi4xMTUgOS4xODItMjMuNjk5IDI5Ljg0My0yOS4wNTMgMzUuOTY0LTUuMzUyIDYuMTIyLTEwLjcwNCA2Ljg4OC0xOS44NzkgMi4yOTYtOS4xNzYtNC41OTEtMzguNzQtMTQuMjc3LTczLjc4Ni00NS41MjYtMjcuMjc1LTI0LjMxOS00NS42OTEtNTQuMzU5LTUxLjA0My02My41NDMtNS4zNTItOS4xODMtLjU2OS0xNC4xNDYgNC4wMjQtMTguNzIgNC4xMjctNC4xMDkgOS4xNzUtMTAuNzEzIDEzLjc2My0xNi4wNjkgNC41ODctNS4zNTUgNi4xMTctOS4xODMgOS4xNzUtMTUuMzA0IDMuMDU5LTYuMTIyIDEuNTI5LTExLjQ3OS0uNzY1LTE2LjA3LTIuMjkzLTQuNTkxLTIwLjY0NC00OS43MzktMjguMjktNjguMTA0LTcuNDQ3LTE3Ljg4Ni0xNS4wMTMtMTUuNDY2LTIwLjY0NS0xNS43NDctNS4zNDYtLjI2Ni0xMS40NjktLjMyMi0xNy41ODUtLjMyMnMtMTYuMDU3IDIuMjk1LTI0LjQ2NyAxMS40NzgtMzIuMTEzIDMxLjM3NC0zMi4xMTMgNzYuNTIxYzAgNDUuMTQ3IDMyLjg3NyA4OC43NjQgMzcuNDY1IDk0Ljg4NSA0LjU4OCA2LjEyMiA2NC42OTkgOTguNzcxIDE1Ni43NDEgMTM4LjUwMiAyMS44OTIgOS40NSAzOC45ODIgMTUuMDk0IDUyLjMwOCAxOS4zMjIgMjEuOTggNi45NzkgNDEuOTgyIDUuOTk1IDU3Ljc5MyAzLjYzNCAxNy42MjgtMi42MzMgNTQuMjg0LTIyLjE4OSA2MS45MzItNDMuNjE1IDcuNjQ2LTIxLjQyNyA3LjY0Ni0zOS43OTEgNS4zNTItNDMuNjE3LTIuMjk0LTMuODI2LTguNDEtNi4xMjItMTcuNTg1LTEwLjcxNHoiLz4KDTwvZz4KDTwvc3ZnPg==) no-repeat;
+    background-size: 100%;
+    width: 50px;
+    height: 50px;
+    display: block;
+    border-radius: 13px;
+    box-shadow: rgba(0,0,0,.4) 2px 2px 6px;
+    cursor: pointer;
+}
+  #widget-whatsapp .moreThanOne__footer--item:last-of-type {
+    border: initial;
+}
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const whatsappIcon = document.querySelector("#widget-whatsapp .whatsapp-icon");
+    const closeButton = document.querySelector("#widget-whatsapp .moreThanOne__header .close");
+    const moreThanOne = document.querySelector("#widget-whatsapp .moreThanOne");
+    const overlay = document.querySelector(".overlay_wpp");
+    whatsappIcon.addEventListener("click", function() {
+      moreThanOne.classList.add("active");
+      overlay.style.display = "block";
+    });
+    function closeWidget() {
+      moreThanOne.classList.remove("active");
+      overlay.style.display = "none";
+    }
+    closeButton.addEventListener("click", closeWidget);
+    overlay.addEventListener("click", closeWidget);
+  });
+</script>

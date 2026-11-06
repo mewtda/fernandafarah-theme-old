@@ -1,0 +1,206 @@
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "top_bar_CbXNYj": {
+      "type": "top-bar",
+      "blocks": {
+        "socials_mhewEF": {
+          "type": "socials",
+          "disabled": true,
+          "settings": {
+            "information_text": "Welcome Milano store!",
+            "hidden_on_mobile": true
+          }
+        },
+        "text_slider_LFaC38": {
+          "type": "text_slider",
+          "settings": {
+            "text1": "Sign up for 10% off your first order. <a href=\"/account/\" title=\"/account/\"><span style=\"text-decoration:underline\"><strong>Sign Up</strong></span></a>",
+            "text2": "<a href=\"/collections/crop-top\" title=\"Crop-top\">Summer</a> sale discount off 50%. <a href=\"/collections/activewear\" title=\"Activewear\"><span style=\"text-decoration:underline\"><strong>Shop Sale</strong></span></a>",
+            "text3": "<a href=\"/collections/sweaters\" title=\"Sweaters\">Coats—every</a> friday 75% Off . <a href=\"/collections/blazers\" title=\"Blazers\"><span style=\"text-decoration:underline\"><strong>Shop Sale</strong></span></a>",
+            "change_every": 3,
+            "hidden_on_mobile": false,
+            "text_slider_center": true
+          }
+        },
+        "cur_lang_aPwfT9": {
+          "type": "cur_lang",
+          "settings": {
+            "menu_link": "",
+            "show_currency": true,
+            "show_language": false,
+            "show_our_store": false,
+            "hidden_on_mobile": true
+          }
+        }
+      },
+      "block_order": [
+        "socials_mhewEF",
+        "text_slider_LFaC38",
+        "cur_lang_aPwfT9"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_width": "fluid_container",
+        "color_scheme": "scheme-2b5c6c91-201d-4fb1-aba3-e6d562656976",
+        "show_mobile": true,
+        "show_separator_line": false,
+        "uppercase": true,
+        "font_size": 13,
+        "font_weight": "body_weight",
+        "padding_top": 9,
+        "padding_bottom": 9
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "menu_promotion_HwTaHB": {
+          "type": "menu_promotion",
+          "disabled": true,
+          "settings": {
+            "text": "Vestidos",
+            "open-link-newtab": true,
+            "item_label": "unset",
+            "promotion_menu_column": 2,
+            "mega_custom_width": 600,
+            "center_submenu": true,
+            "full_width": false,
+            "promotion_position": "right",
+            "promotion_image_width": 20,
+            "promotion_image_1": "shopify://shop_images/IMG_3630_ad4a5742-d643-4104-96c8-7c2f1750591d.jpg",
+            "promotion_link_1": "shopify://products/bandana",
+            "promotion_link_newtab_1": true,
+            "promotion_link_2": "",
+            "promotion_link_newtab_2": true
+          }
+        },
+        "menu_collection_EkdGyG": {
+          "type": "menu_collection",
+          "disabled": true,
+          "settings": {
+            "text": "shop",
+            "open-link-newtab": true,
+            "item_label": "unset",
+            "collection_menu_column": 2,
+            "mega_custom_width": 1030,
+            "center_submenu": true,
+            "full_width": false,
+            "collection_width": 55,
+            "collection_1": "demin",
+            "collection_2": "crop-top",
+            "collection_3": ""
+          }
+        },
+        "menu_promotion_rWzQL6": {
+          "type": "menu_promotion",
+          "disabled": true,
+          "settings": {
+            "text": "Products",
+            "open-link-newtab": true,
+            "item_label": "unset",
+            "promotion_menu_column": 4,
+            "mega_custom_width": 1400,
+            "center_submenu": true,
+            "full_width": false,
+            "promotion_position": "right",
+            "promotion_image_width": 33,
+            "promotion_link_1": "shopify://collections/coats",
+            "promotion_link_newtab_1": true,
+            "promotion_link_2": "",
+            "promotion_link_newtab_2": true
+          }
+        }
+      },
+      "block_order": [
+        "menu_promotion_HwTaHB",
+        "menu_collection_EkdGyG",
+        "menu_promotion_rWzQL6"
+      ],
+      "custom_css": [],
+      "settings": {
+        "section_width": "fluid_container",
+        "color_scheme": "default",
+        "logo_position": "left_left",
+        "logo_position_option": 1,
+        "separator_line": "all-page",
+        "enable_login_popup": true,
+        "sticky_header_type": "always",
+        "sticky_header_mobile": true,
+        "transparent_header": false,
+        "transparent_mobile": true,
+        "header_box": true,
+        "transparent_text_icon_color": "#ffffff",
+        "transparent_bg_color": "rgba(0,0,0,0)",
+        "mega_menu": "main-menu",
+        "dropdowns_animation": "fade-in-down",
+        "uppercase_first": true,
+        "hot": "Hot",
+        "label_color_hot": "#000000",
+        "label_background_hot": "#ffffff",
+        "new": "New",
+        "label_color_new": "#ffffff",
+        "label_background_new": "#ffffff",
+        "sale": "Sale",
+        "label_color_sale": "#ffffff",
+        "label_background_sale": "#ffffff",
+        "redirect_to_link": false,
+        "menu_tab": "custom-collections",
+        "collection_list": [],
+        "menu_mobile_color": "#ffffff",
+        "menu_mobile_background": "#000000",
+        "show_search": true,
+        "show_account_icon": true,
+        "show_wishlist_icon": true,
+        "show_shopping_cart": true,
+        "show_currency": false,
+        "show_language": false,
+        "show_recently_viewed": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "announcement_dawn": {
+      "type": "announcement-dawn",
+      "blocks": {
+        "announcement_1": {
+          "type": "announcement",
+          "settings": {
+            "text": "Frete grátis acima de R$ 299",
+            "link": ""
+          }
+        },
+        "announcement_2": {
+          "type": "announcement",
+          "settings": {
+            "text": "Parcele em até 6x sem juros",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_1",
+        "announcement_2"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2b5c6c91-201d-4fb1-aba3-e6d562656976",
+        "show_mobile": true,
+        "show_separator_line": false,
+        "auto_rotate": true,
+        "change_every": 5,
+        "uppercase": true,
+        "font_size": 13,
+        "font_weight": 400,
+        "letter_spacing": 5,
+        "padding_top": 10,
+        "padding_bottom": 10
+      }
+    }
+  },
+  "order": [
+    "announcement_dawn",
+    "top_bar_CbXNYj",
+    "header"
+  ]
+}

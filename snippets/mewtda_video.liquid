@@ -1,0 +1,723 @@
+{%- assign videos = product.metafields.custom.video.value -%}
+
+{%- if videos != blank -%}
+{%- assign has_videos = true -%}
+{%- else -%}
+{%- assign has_videos = false -%}
+{%- endif -%}
+
+{%- if has_videos -%}
+{%- assign sv_id = product.id -%}
+<style>
+  .video-floating-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 9999;
+  }
+
+  @media (max-width: 500px) {
+    .video-floating-container {
+      bottom: 64px;
+    }
+  }
+
+  .video-thumbnail {
+    width: 120px;
+    height: 200px;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: #000;
+    position: relative;
+  }
+
+  .video-thumbnail:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35);
+  }
+
+  .video-thumbnail video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .video-thumbnail-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.15);
+    transition: background 0.2s ease;
+  }
+
+  .video-thumbnail:hover .video-thumbnail-overlay {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .play-icon {
+    width: 28px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .play-icon svg {
+    width: 11px;
+    height: 11px;
+  }
+
+  .video-thumb-close {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 36px;
+    height: 18px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0);
+    color: #fff;
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    padding: 0;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .video-thumb-close:hover {
+    background: rgba(0,0,0,0.8);
+    transform: scale(1.1);
+  }
+
+  @media (max-width: 480px) {
+    .video-thumbnail {
+      width: 90px;
+      height: 150px;
+      border-radius: 10px;
+    }
+
+    .video-floating-container {
+      bottom: 64px;
+      left: 15px;
+    }
+
+    .play-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .play-icon svg {
+      width: 10px;
+      height: 10px;
+    }
+
+    .video-thumb-close {
+      width: 16px;
+      height: 16px;
+      font-size: 11px;
+    }
+  }
+
+  .sv-modal-{{ sv_id }} {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+  }
+
+  .sv-modal-{{ sv_id }}.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .sv-modal-inner-{{ sv_id }} {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  @media (min-width: 750px) {
+    .sv-modal-inner-{{ sv_id }} {
+      width: 390px;
+      height: 90vh;
+      max-height: 844px;
+      border-radius: 16px;
+    }
+  }
+
+  .sv-modal-header-{{ sv_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 12px 12px 0;
+    z-index: 10;
+    display: flex;
+    gap: 4px;
+  }
+
+  .sv-progress-bar-{{ sv_id }} {
+    flex: 1;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .sv-progress-fill-{{ sv_id }} {
+    height: 100%;
+    background: #fff;
+    width: 0%;
+    transition: width 0.1s linear;
+  }
+
+  .sv-modal-close-{{ sv_id }} {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 28px;
+    height: 28px;
+    background: rgba(0, 0, 0, 0);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, transform 0.2s ease;
+    z-index: 11;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .sv-modal-close-{{ sv_id }}:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+  }
+
+  .sv-modal-content-{{ sv_id }} {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    background: #000;
+  }
+
+  .sv-stories-track-{{ sv_id }} {
+    height: 100%;
+    position: relative;
+  }
+
+  .sv-story-{{ sv_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(100%);
+    background: #000;
+  }
+
+  .sv-story-{{ sv_id }}.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    z-index: 2;
+  }
+
+  .sv-story-{{ sv_id }}.prev {
+    opacity: 0;
+    transform: translateY(-100%);
+    z-index: 1;
+  }
+
+  .sv-story-video-{{ sv_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .sv-story-badges-{{ sv_id }} {
+    position: absolute;
+    top: 44px;
+    left: 12px;
+    z-index: 6;
+  }
+
+  .sv-story-info-{{ sv_id }} {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 18px 16px 24px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: #1a1a1a;
+    z-index: 6;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+  @media (min-width: 750px) {
+    .sv-story-info-{{ sv_id }} {
+      border-radius: 0 0 16px 16px;
+    }
+  }
+
+  .sv-story-meta-{{ sv_id }} {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .sv-story-meta-left-{{ sv_id }} {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .sv-story-title-{{ sv_id }} {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 4px;
+    line-height: 1.35;
+    color: #111;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .sv-story-price-{{ sv_id }} {
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #222;
+  }
+
+  .sv-story-price-compare-{{ sv_id }} {
+    text-decoration: line-through;
+    opacity: 0.45;
+    font-size: 13px;
+    font-weight: 400;
+  }
+
+  .sv-story-share-{{ sv_id }} {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    background: rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+  }
+
+  .sv-story-share-{{ sv_id }}:hover {
+    background: rgba(0, 0, 0, 0.12);
+  }
+
+  .sv-story-actions-{{ sv_id }} {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .sv-story-cta-{{ sv_id }} {
+    display: block;
+    flex: 1;
+    padding: 13px 16px;
+    background: #111;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 8px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    box-sizing: border-box;
+    transition: opacity 0.2s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .sv-story-cta-{{ sv_id }}:hover {
+    opacity: 0.88;
+  }
+
+  .sv-story-cta-{{ sv_id }}:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .sv-tap-zones-{{ sv_id }} {
+    position: absolute;
+    top: 44px;
+    left: 0;
+    right: 0;
+    bottom: 180px;
+    display: flex;
+    z-index: 5;
+  }
+
+  .sv-tap-prev-{{ sv_id }},
+  .sv-tap-next-{{ sv_id }} {
+    flex: 1;
+    cursor: pointer;
+  }
+</style>
+
+<div id="sv-modal-{{ sv_id }}" class="sv-modal-{{ sv_id }}">
+  <div class="sv-modal-inner-{{ sv_id }}">
+    <div class="sv-modal-header-{{ sv_id }}">
+      {% for video in videos %}
+        <div class="sv-progress-bar-{{ sv_id }}" data-index="{{ forloop.index0 }}">
+          <div class="sv-progress-fill-{{ sv_id }}"></div>
+        </div>
+      {% endfor %}
+    </div>
+    <button class="sv-modal-close-{{ sv_id }}" aria-label="Fechar">&#10005;</button>
+    <div class="sv-modal-content-{{ sv_id }}">
+      <div class="sv-stories-track-{{ sv_id }}">
+        {% for video in videos %}
+          <div class="sv-story-{{ sv_id }}" data-index="{{ forloop.index0 }}" data-video-url="{{ video.sources[1].url }}">
+            <video class="sv-story-video-{{ sv_id }}" playsinline></video>
+            <div class="sv-story-badges-{{ sv_id }}">
+              {% render 'product-badges', card_product: product, type: 'product_item' %}
+            </div>
+            <div class="sv-story-info-{{ sv_id }}">
+              <div class="sv-story-meta-{{ sv_id }}">
+                <div class="sv-story-meta-left-{{ sv_id }}">
+                  <h3 class="sv-story-title-{{ sv_id }}">{{ product.title }}</h3>
+                  <div class="sv-story-price-{{ sv_id }}">
+                    {% if product.compare_at_price > product.price %}
+                      <span class="sv-story-price-compare-{{ sv_id }}">{{ product.compare_at_price | money }}</span>
+                      <span>{{ product.price | money }}</span>
+                    {% else %}
+                      <span>{{ product.price | money }}</span>
+                    {% endif %}
+                  </div>
+                </div>
+                <button class="sv-story-share-{{ sv_id }}" aria-label="Compartilhar" data-share-url="{{ product.url | prepend: shop.url }}" data-share-title="{{ product.title | escape }}">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="18" cy="5" r="3"></circle>
+                    <circle cx="6" cy="12" r="3"></circle>
+                    <circle cx="18" cy="19" r="3"></circle>
+                    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="sv-tap-zones-{{ sv_id }}">
+        <div class="sv-tap-prev-{{ sv_id }}"></div>
+        <div class="sv-tap-next-{{ sv_id }}"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="video-floating-container">
+  <div class="video-thumbnail" onclick="openVideoModal()">
+    <video muted playsinline id="thumbnail-video" autoplay loop src="{{ videos[0].sources[1].url }}"></video>
+
+    <div class="video-thumbnail-overlay">
+      <div class="play-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+      </div>
+    </div>
+
+    <button type="button" class="video-thumb-close" onclick="event.stopPropagation(); hideVideoThumbnail()">✕</button>
+  </div>
+</div>
+
+<script>
+  (function() {
+    var id = '{{ sv_id }}';
+    var selectedSwatchIndex = 0;
+
+    var videosArray = [
+      {%- for video in videos -%}
+        {
+          id: {{ forloop.index }},
+          url: '{{ video.sources[1].url }}',
+          title: '{{ product.title }}'
+        }{% unless forloop.last %},{% endunless %}
+      {%- endfor -%}
+    ];
+
+    function switchVideo(index) {
+      if (index < 0 || index >= videosArray.length) return;
+      selectedSwatchIndex = index;
+      var thumbnailVideo = document.getElementById('thumbnail-video');
+      if (thumbnailVideo && videosArray[index]) {
+        thumbnailVideo.pause();
+        thumbnailVideo.src = videosArray[index].url;
+        thumbnailVideo.load();
+        thumbnailVideo.play().catch(function() {});
+      }
+    }
+
+    function getCheckedSwatchIndex() {
+      var swatches = document.querySelectorAll('.product-form__input_color input[type="radio"]');
+      for (var i = 0; i < swatches.length; i++) {
+        if (swatches[i].checked) return i;
+      }
+      return 0;
+    }
+
+    var modal = document.getElementById('sv-modal-' + id);
+    var closeBtn = modal.querySelector('.sv-modal-close-' + id);
+    var stories = modal.querySelectorAll('.sv-story-' + id);
+    var progressBars = modal.querySelectorAll('.sv-progress-bar-' + id);
+    var tapNext = modal.querySelector('.sv-tap-next-' + id);
+    var tapPrev = modal.querySelector('.sv-tap-prev-' + id);
+    var currentStory = 0;
+
+    window.openVideoModal = function() {
+      currentStory = 0;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      showStory(currentStory);
+    };
+
+    function closeModal() {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+      stories.forEach(function(s) {
+        var v = s.querySelector('video');
+        if (v) { v.pause(); v.currentTime = 0; }
+      });
+      progressBars.forEach(function(bar) {
+        var fill = bar.querySelector('.sv-progress-fill-' + id);
+        if (fill) fill.style.width = '0%';
+      });
+    }
+
+    function showStory(index) {
+      stories.forEach(function(s, i) {
+        s.classList.remove('active', 'prev');
+        var vid = s.querySelector('video');
+        if (vid) vid.pause();
+        if (i < index) s.classList.add('prev');
+        else if (i === index) s.classList.add('active');
+      });
+
+      progressBars.forEach(function(bar, i) {
+        var fill = bar.querySelector('.sv-progress-fill-' + id);
+        if (i < index) fill.style.width = '100%';
+        else fill.style.width = '0%';
+      });
+
+      var activeStory = stories[index];
+      var activeVideo = activeStory.querySelector('video');
+      var videoUrl = activeStory.dataset.videoUrl;
+
+      if (activeVideo && videoUrl) {
+        activeVideo.src = videoUrl;
+        activeVideo.currentTime = 0;
+        activeVideo.play().catch(function() {});
+        updateProgress(index, activeVideo);
+      }
+    }
+
+    function updateProgress(index, video) {
+      var fill = progressBars[index].querySelector('.sv-progress-fill-' + id);
+      var interval = setInterval(function() {
+        if (video.duration && video.currentTime >= 0) {
+          var pct = (video.currentTime / video.duration) * 100;
+          fill.style.width = pct + '%';
+        }
+      }, 50);
+
+      video.onended = function() {
+        clearInterval(interval);
+        fill.style.width = '100%';
+        nextStory();
+      };
+
+      video.onpause = function() {
+        clearInterval(interval);
+      };
+    }
+
+    function nextStory() {
+      if (currentStory < stories.length - 1) {
+        currentStory++;
+        showStory(currentStory);
+      } else {
+        closeModal();
+      }
+    }
+
+    function prevStory() {
+      if (currentStory > 0) {
+        currentStory--;
+        showStory(currentStory);
+      }
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    tapNext.addEventListener('click', nextStory);
+    tapPrev.addEventListener('click', prevStory);
+
+    progressBars.forEach(function(bar) {
+      bar.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var idx = parseInt(bar.dataset.index, 10);
+        if (!isNaN(idx)) {
+          currentStory = idx;
+          showStory(currentStory);
+        }
+      });
+    });
+
+    modal.addEventListener('click', function(e) {
+      var inner = modal.querySelector('.sv-modal-inner-' + id);
+      if (!inner.contains(e.target)) closeModal();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+    });
+
+    modal.addEventListener('click', function(e) {
+      var shareBtn = e.target.closest('.sv-story-share-' + id);
+      if (!shareBtn) return;
+      e.stopPropagation();
+      var url = shareBtn.dataset.shareUrl;
+      var title = shareBtn.dataset.shareTitle;
+      if (navigator.share) {
+        navigator.share({ title: title, url: url }).catch(function() {});
+      } else if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(function() {
+          var icon = shareBtn.querySelector('svg');
+          if (icon) {
+            var original = icon.innerHTML;
+            icon.innerHTML = '<polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>';
+            setTimeout(function() { icon.innerHTML = original; }, 1800);
+          }
+        });
+      }
+    });
+
+    modal.addEventListener('click', function(e) {
+      var atcBtn = e.target.closest('.sv-story-cta-' + id);
+      if (!atcBtn) return;
+      e.stopPropagation();
+      var variantId = atcBtn.dataset.variantId;
+      if (!variantId) return;
+      atcBtn.disabled = true;
+      atcBtn.textContent = 'Adicionando...';
+
+      fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: variantId, quantity: 1 })
+      })
+      .then(function(res) { return res.json(); })
+      .then(function() {
+        atcBtn.textContent = 'Adicionado!';
+        setTimeout(function() {
+          closeModal();
+          fetch('/?sections=mini-cart', { cache: 'no-store' })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+              var html = data['mini-cart'];
+              if (html) {
+                var cartNotif = document.querySelector('cart-notification');
+                if (cartNotif) {
+                  var wrapper = cartNotif.querySelector('#minicart_wrapper');
+                  if (wrapper) {
+                    var temp = document.createElement('div');
+                    temp.innerHTML = html;
+                    var newWrapper = temp.querySelector('#minicart_wrapper');
+                    if (newWrapper) wrapper.innerHTML = newWrapper.innerHTML;
+                  }
+                  cartNotif.classList.add('active');
+                  cartNotif.classList.remove('hidden');
+                  cartNotif.removeAttribute('hidden');
+                  document.body.classList.add('overflow-hidden');
+                }
+              }
+            });
+        }, 400);
+      })
+      .catch(function() {
+        atcBtn.disabled = false;
+        atcBtn.textContent = 'Adicionar ao carrinho';
+      });
+    });
+
+    window.hideVideoThumbnail = function() {
+      var container = document.querySelector('.video-floating-container');
+      if (container) container.style.display = 'none';
+    };
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var thumbnailVideo = document.getElementById('thumbnail-video');
+      if (thumbnailVideo && videosArray.length > 0) {
+        thumbnailVideo.src = videosArray[0].url;
+        thumbnailVideo.load();
+        thumbnailVideo.play().catch(function() {});
+      }
+
+      selectedSwatchIndex = getCheckedSwatchIndex();
+      if (selectedSwatchIndex > 0) switchVideo(selectedSwatchIndex);
+
+      var swatches = document.querySelectorAll('.product-form__input_color .product__color-swatches--js');
+      swatches.forEach(function(swatch, index) {
+        swatch.addEventListener('click', function() {
+          if (index < videosArray.length) switchVideo(index);
+        });
+      });
+
+      var radioInputs = document.querySelectorAll('.product-form__input_color input[type="radio"]');
+      radioInputs.forEach(function(radio, index) {
+        radio.addEventListener('change', function() {
+          if (this.checked && index < videosArray.length) switchVideo(index);
+        });
+      });
+    });
+
+  })();
+</script>
+{%- endif -%}
