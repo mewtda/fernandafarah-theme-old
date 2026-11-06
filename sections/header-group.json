@@ -17,12 +17,13 @@
         "announcement_1": {
           "type": "announcement",
           "settings": {
-            "text": "Frete grátis acima de R$ 1999",
+            "text": "Frete grátis acima de R$ 1800",
             "link": ""
           }
         },
         "announcement_2": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text": "Parcele em até 6x sem juros",
             "link": ""

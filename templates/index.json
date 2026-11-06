@@ -70,6 +70,7 @@
         },
         "slider_item_NgPjLx": {
           "type": "slider_item",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/03_002cd4cd-9b84-4aec-9abf-93944e713202.png",
             "image_mobile": "shopify://shop_images/03_7b162937-d456-4d04-9fbe-4c6f22a5e486.png",
@@ -98,6 +99,7 @@
         },
         "slider_item_RTtkGA": {
           "type": "slider_item",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/04_456a1855-f242-46f8-9405-c459fd33f40f.png",
             "image_mobile": "shopify://shop_images/04_1.png",
@@ -126,6 +128,7 @@
         },
         "slider_item_WMKwRK": {
           "type": "slider_item",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/DESK_-_Sale.png",
             "image_mobile": "shopify://shop_images/MOB_-_Sale.png",
