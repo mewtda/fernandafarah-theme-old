@@ -402,3 +402,22 @@ media-gallery .external_video iframe model-viewer {
 .product-item iframe{
   pointer-events: none;
 }
+
+/* Risco de indisponível nas bolinhas de cor: linha branca com contorno escuro,
+   visível em qualquer cor (branco, bege, preto...) */
+input.option-disabled + .product__color-swatch::after,
+.option-disabled .product__color-swatch::after,
+.option-disabled.product__color-swatch::after {
+  background: linear-gradient(
+      to top left,
+      transparent calc(50% - 2.5px),
+      rgba(0, 0, 0, 0.55) calc(50% - 2.5px),
+      rgba(0, 0, 0, 0.55) calc(50% - 1.5px),
+      #fff calc(50% - 1.5px),
+      #fff calc(50% + 1.5px),
+      rgba(0, 0, 0, 0.55) calc(50% + 1.5px),
+      rgba(0, 0, 0, 0.55) calc(50% + 2.5px),
+      transparent calc(50% + 2.5px)
+    )
+    no-repeat !important;
+}

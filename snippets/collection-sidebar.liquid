@@ -309,6 +309,34 @@
                                               assign swatch_hex = '#79A5C0'
                                             when 'jeans claro'
                                               assign swatch_hex = '#AAD0E9'
+                                            when 'black'
+                                              assign swatch_hex = '#000000'
+                                            when 'azul jeans'
+                                              assign swatch_hex = '#5b7fa6'
+                                            when 'cinza chumbo'
+                                              assign swatch_hex = '#4a4a4a'
+                                            when 'claro'
+                                              assign swatch_hex = '#AAD0E9'
+                                            when 'lilás', 'lilas'
+                                              assign swatch_hex = '#C8A2C8'
+                                            when 'pink'
+                                              assign swatch_hex = '#FF4FA3'
+                                            when 'rosa'
+                                              assign swatch_hex = '#F4A7B9'
+                                            when 'salmão', 'salmao'
+                                              assign swatch_hex = '#FA8072'
+                                            when 'vermelho'
+                                              assign swatch_hex = '#C8102E'
+                                            when 'poá azul marinho', 'poa azul marinho'
+                                              assign swatch_hex = 'radial-gradient(#fff 22%, transparent 25%) 0 0 / 7px 7px, #212C56'
+                                            when 'poá bege', 'poa bege'
+                                              assign swatch_hex = 'radial-gradient(#5a4a3a 22%, transparent 25%) 0 0 / 7px 7px, #F2E5C0'
+                                            when 'ondas bege e preto'
+                                              assign swatch_hex = 'repeating-linear-gradient(135deg, #F2E5C0 0 4px, #000 4px 7px)'
+                                            when 'arabesco azul'
+                                              assign swatch_hex = 'linear-gradient(135deg, #fff 50%, #2a46ce 50%)'
+                                            when 'estampa colorida'
+                                              assign swatch_hex = 'conic-gradient(#e63946, #f4a261, #e9c46a, #2a9d8f, #457b9d, #a54675, #e63946)'
                                             else
                                               assign swatch_hex = value.value
                                           endcase
@@ -316,7 +344,7 @@
                                         <span
                                           class="product__color-swatches--js custom__color-swatches--{{ value.label | handleize }} {{ value.value | handleize }} clrbox product__color-swatch relative block rounded-50"
                                           data-color="{{ value.label | downcase }}"
-                                          style="background-color: {{ swatch_hex }};"
+                                          style="background: {{ swatch_hex }};"
                                         ></span>
                                       {% else %}
                                         <span class="relative z-2">
