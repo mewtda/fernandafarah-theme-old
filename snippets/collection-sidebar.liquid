@@ -115,6 +115,7 @@
             {%- assign filters = collection.filters -%}
             {%- assign total_active_values = 0 -%}
             {%- for filter in filters -%}
+              {%- if filter.param_name == 'filter.v.availability' -%}{%- continue -%}{%- endif -%}
               {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
               <div
                 {{ block.shopify_attributes }}
