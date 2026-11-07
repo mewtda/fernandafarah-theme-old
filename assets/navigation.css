@@ -464,6 +464,7 @@
     padding-block: 6px 14px;
     border-bottom: 1px solid #ededed;
   }
+  .navigation .level0 > .submenu ul.subchildmenu.px-30 { padding-left: 16px !important; padding-right: 0 !important; margin-inline: 30px !important; }
   .navigation .level0 > .submenu .level-1 > menu-item { border: 0; }
   .navigation .level0 > .submenu .level-1 > menu-item > a {
     min-height: 40px;
