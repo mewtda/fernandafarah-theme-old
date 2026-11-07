@@ -382,3 +382,15 @@ video-section.h-full video {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* Banner "tela cheia" no celular: banner + barra de anúncio + header = altura da tela */
+@media (max-width: 991.98px) {
+  .sec__inner.h-full_screen:not(.text-below-mb) {
+    min-height: calc(100svh - var(--ff-hero-offset, 105px));
+  }
+  .sec__inner.h-full_screen:not(.text-below-mb)[style*="--aspect-ratio"]::before { padding-top: 0; }
+  .sec__inner.h-full_screen:not(.text-below-mb) .banner__media img,
+  .sec__inner.h-full_screen:not(.text-below-mb) .banner__media video {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+}

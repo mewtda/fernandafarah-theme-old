@@ -518,3 +518,10 @@
   }
   .navigation > close-menu { z-index: 5; }
 }
+
+@media screen and (max-width: 1024.98px) {
+  .navigation .level0.ff-menu-quick a.ff-menu-quick__item,
+  .navigation .level0.ff-menu-quick .ff-menu-quick__item { color: #000; font-size: 11px; letter-spacing: .1em; }
+  .navigation .level0.ff-menu-quick svg { width: 20px; height: 20px; }
+  .navigation .level0.single:last-of-type > menu-item, .ff-menu-quick__row { margin-top: 0; }
+}

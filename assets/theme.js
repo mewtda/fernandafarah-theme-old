@@ -8953,3 +8953,20 @@ document.addEventListener('click', (e) => {
     if (toggle && root && !root.classList.contains('is-open')) toggle.click();
   }, 450);
 });
+
+// Altura ocupada por barra de anúncio + header (usada no banner "tela cheia" do celular)
+(function () {
+  const set = () => {
+    const groups = document.querySelectorAll('.shopify-section-group-header-group');
+    let bottom = 0;
+    groups.forEach((g) => {
+      const r = g.getBoundingClientRect();
+      if (r.height > 0) bottom = Math.max(bottom, r.bottom + window.scrollY);
+    });
+    if (bottom > 0) document.documentElement.style.setProperty('--ff-hero-offset', Math.round(bottom) + 'px');
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', set, { once: true });
+  else set();
+  window.addEventListener('load', set);
+  window.addEventListener('resize', set);
+})();
