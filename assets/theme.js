@@ -8953,23 +8953,3 @@ document.addEventListener('click', (e) => {
     if (toggle && root && !root.classList.contains('is-open')) toggle.click();
   }, 450);
 });
-
-// Altura ocupada por barra de anúncio + header (usada no banner "tela cheia" do celular)
-(function () {
-  // Soma só as alturas (não a posição): com header fixo ao rolar, a posição muda e quebrava o banner
-  let lastWidth = 0;
-  const set = (force) => {
-    if (force !== true && window.innerWidth === lastWidth) return; // rolagem no celular dispara resize só de altura
-    lastWidth = window.innerWidth;
-    let total = 0;
-    document.querySelectorAll('.shopify-section-group-header-group').forEach((g) => {
-      const h = g.offsetHeight;
-      if (h > 0 && getComputedStyle(g).display !== 'none') total += h;
-    });
-    if (total > 0 && total < 300) document.documentElement.style.setProperty('--ff-hero-offset', total + 'px');
-  };
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => set(true), { once: true });
-  else set(true);
-  window.addEventListener('load', () => set(true));
-  window.addEventListener('resize', set);
-})();

@@ -143,7 +143,10 @@
               {%- if forloop.first -%}
                 {%- style -%}
                   @media (max-width: 767.98px) {
-                    #shopify-section-{{ section.id }} .banner__media[data-mb-top-spacing] {
+                    #shopify-section-{{ section.id }} [data-mb-top-spacing][style*="--aspect-ratio-mb"]::before {
+                      padding-top: calc(100% / (0 + var(--aspect-ratio-mb, 9 / 16)) + var(--mb-top-spacing));
+                    }
+                    #shopify-section-{{ section.id }} [data-mb-top-spacing] > .banner__media {
                       top: var(--mb-top-spacing);
                       bottom: 0;
                       height: auto !important;
@@ -157,7 +160,8 @@
               >
                 <div
                   class="sec__inner {% if section_st.show_layout3 %}w-full {% endif %}flex relative{% if section_st.content_below_image %} flex-column flex-md-row text-below-mb{% endif %}{% if slide_height == 'adapt' and image_mobile != blank %} ratio-mobile{% endif %} h-{{ slide_height }}"
-                  style="--overlay-opacity: {{ block_st.overlay_opacity }}%;{% if slide_height == 'adapt' or  slide_height == 'full_screen' %}--aspect-ratio: {{ ratio_dk }};--aspect-ratio-mb: {{ ratio_mb }};{% endif %}"
+                  style="--overlay-opacity: {{ block_st.overlay_opacity }}%;{% if slide_height == 'adapt' or  slide_height == 'full_screen' %}--aspect-ratio: {{ ratio_dk }};--aspect-ratio-mb: {{ ratio_mb }};{% endif %}{% if block_st.mobile_top_spacing > 0 %}--mb-top-spacing: {{ block_st.mobile_top_spacing }}px;{% endif %}"
+                  {% if block_st.mobile_top_spacing > 0 %}data-mb-top-spacing{% endif %}
                 >
                   {% liquid
   assign full_slide_link = ''
@@ -178,8 +182,7 @@
 
                   <div
                     class="banner__media w-full  overlay-bg-slider overlay-bg{% if section_st.section_width != "full_width" %} rounded{% endif %}{% if section_st.content_below_image %} absolute-md mb-40 mb-md-0{% else %} absolute{% endif %} inset-0{% if slide_height == 'adapt' and image_mobile != blank %} ratio-mobile{% endif %}{% if slide_height == 'full_screen' %} h-{{ slide_height }}{% endif %}"
-                    style="--aspect-ratio: {{ ratio_dk }};--aspect-ratio-mb: {{ ratio_mb }};--point:{{ image.presentation.focal_point }};{% if block_st.mobile_top_spacing > 0 %}--mb-top-spacing: {{ block_st.mobile_top_spacing }}px;{% endif %}"
-                    {% if block_st.mobile_top_spacing > 0 %}data-mb-top-spacing{% endif %}
+                    style="--aspect-ratio: {{ ratio_dk }};--aspect-ratio-mb: {{ ratio_mb }};--point:{{ image.presentation.focal_point }};"
                   >
                     {%- if image != blank or image_mobile != blank or local_video != blank -%}
                       {% if local_video != blank %}
@@ -709,7 +712,7 @@
           "step": 1,
           "unit": "px",
           "label": "Distância do topo no celular",
-          "info": "Afasta a imagem do topo do banner no celular para não cortar.",
+          "info": "Adiciona um espaço acima da imagem no celular, sem cortar a imagem.",
           "default": 0
         },
         {
