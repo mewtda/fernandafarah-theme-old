@@ -8881,3 +8881,63 @@ class ToggleHeaderVertical extends HTMLElement {
 }
 
 customElements.define("toggle-header-vertical", ToggleHeaderVertical);
+// Itens de menu com submenu: não têm link; o clique abre/fecha os submenus (desktop e menu hambúrguer)
+(function () {
+  const isDesktop = () => window.innerWidth >= 1025;
+  const closeOthers = (li) => {
+    const parent = li.parentElement;
+    if (!parent) return;
+    [...parent.children].forEach((sib) => {
+      if (sib === li) return;
+      sib.classList.remove('visible');
+      const mi = sib.querySelector(':scope > menu-item');
+      if (mi) mi.classList.remove('is-open');
+      const a = sib.querySelector(':scope > menu-item > .menu-parent-link');
+      if (a) a.setAttribute('aria-expanded', 'false');
+    });
+  };
+  const toggleFromLink = (link) => {
+    const menuItem = link.closest('menu-item');
+    const li = menuItem && menuItem.parentElement;
+    if (!li) return;
+    let open;
+    if (isDesktop() && li.classList.contains('level0')) {
+      // No desktop o hover já abre; o clique só garante que fique aberto (tablets/touch)
+      open = true;
+      li.classList.add('visible');
+    } else {
+      open = !menuItem.classList.contains('is-open');
+      menuItem.classList.toggle('is-open', open);
+    }
+    if (open) closeOthers(li);
+    link.setAttribute('aria-expanded', open ? 'true' : 'false');
+  };
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('.menu-parent-link');
+    if (link) {
+      e.preventDefault();
+      toggleFromLink(link);
+      return;
+    }
+    // Seta do menu mobile (já abre/fecha pelo tema): só fecha os outros abertos
+    const toggle = e.target.closest('.navigation open-children-toggle');
+    if (toggle && !isDesktop()) {
+      const li = toggle.closest('menu-item')?.parentElement;
+      if (li) setTimeout(() => {
+        if (toggle.parentElement.classList.contains('is-open')) closeOthers(li);
+      }, 0);
+      return;
+    }
+    // Clique fora fecha submenus abertos por clique no desktop
+    if (isDesktop() && !e.target.closest('.level0.menu-parent')) {
+      document.querySelectorAll('.level0.menu-parent.visible').forEach((li) => li.classList.remove('visible'));
+    }
+  });
+  document.addEventListener('keydown', (e) => {
+    const link = e.target.closest && e.target.closest('.menu-parent-link');
+    if (link && (e.key === 'Enter' || e.key === ' ')) {
+      e.preventDefault();
+      toggleFromLink(link);
+    }
+  });
+})();

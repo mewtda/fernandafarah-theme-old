@@ -22,8 +22,8 @@
       <li class="menu-link level-1">
         <menu-item class="{% if section_st.categories_menu == blank %}relative {% endif %}static-1025 flex justify-between align-center border-bottom border-bottom-1025-0">
           <a
-            class="menu_item-link no-underline{% if menu_type != 'dropdown' %} heading-style{% endif %} py-10 py-1025-5 min-h-55 min-h-1025-unset inline-flex align-center"
-            href="{{ child_link.url }}"
+            class="menu_item-link no-underline{% if menu_type != 'dropdown' %} heading-style{% endif %} py-10 py-1025-5 min-h-55 min-h-1025-unset inline-flex align-center{% if child_link.links.size > 0 %} menu-parent-link{% endif %}"
+            {% if child_link.links.size > 0 %}role="button" tabindex="0"{% else %}href="{{ child_link.url }}"{% endif %}
           >
             {% liquid
               assign label_setting = ''

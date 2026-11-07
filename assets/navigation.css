@@ -410,3 +410,77 @@
 
 
 
+
+/* ===== Menu mobile minimalista (acordeão) ===== */
+@media screen and (max-width: 1024.98px) {
+  .nav-open #widget-whatsapp { display: none; }
+
+  .navigation .menu-mobile-title { min-height: 56px; padding-inline: 30px; }
+  .navigation .menu-mobile-title a { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; opacity: 1; }
+
+  .navigation .level0 > menu-item {
+    border-bottom-color: #ededed;
+  }
+  .navigation .level0 > menu-item > a {
+    min-height: 54px;
+    font-size: 13px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+  .navigation .level0 > menu-item > open-children-toggle svg.hidden-1025 {
+    transition: transform .25s ease;
+  }
+  .navigation .level0 > menu-item.is-open > open-children-toggle svg.hidden-1025 {
+    transform: rotate(90deg);
+  }
+
+  /* Submenu abre embaixo do item, sem trocar de tela */
+  .navigation .level0 > .submenu {
+    position: static;
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+    max-width: none;
+    height: auto;
+    background: transparent;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows .3s ease;
+    overflow: hidden;
+  }
+  .navigation .level0 > menu-item.is-open + .submenu { grid-template-rows: 1fr; }
+  .navigation .level0 > .submenu > * { min-height: 0; }
+  .navigation .level0 > .submenu > .hidden-1025.grey-bg { display: none !important; }
+  .navigation .level0 > .submenu .subchildmenu {
+    padding: 0 0 0 16px !important;
+    margin: 0 30px;
+    border-bottom: 0;
+    max-height: none;
+    overflow: hidden;
+    transition: padding .3s ease;
+  }
+  .navigation .level0 > menu-item.is-open + .submenu .subchildmenu {
+    padding-block: 6px 14px;
+    border-bottom: 1px solid #ededed;
+  }
+  .navigation .level0 > .submenu .level-1 > menu-item { border: 0; }
+  .navigation .level0 > .submenu .level-1 > menu-item > a {
+    min-height: 40px;
+    padding-block: 6px;
+    font-size: 12px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #6b6b6b;
+  }
+  .navigation .level0 > .submenu .level-1 > menu-item > a:hover { color: #000; }
+
+  /* Lista de desejos / conta: discretos */
+  .navigation .level0.hidden-1025 > a,
+  .navigation .level0.hidden-1025 a {
+    font-size: 12px;
+    letter-spacing: .12em;
+    color: #6b6b6b;
+  }
+  .navigation .level0.hidden-1025 svg { width: 18px; height: 18px; }
+}
