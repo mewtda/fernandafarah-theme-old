@@ -5718,7 +5718,19 @@ class SwatchFunctions extends SwatchInit {
     );
     const inputWrappers = [...this.querySelectorAll('.product-form__input')];
     inputWrappers.forEach((option, index) => {
-      if (index === 0) return;
+      if (index === 0) {
+        // Risca a cor (1ª opção) quando nenhum tamanho dela está disponível
+        if (inputWrappers.length > 1) {
+          const availableFirst = this.variantData
+            .filter((variant) => variant.available)
+            .map((variant) => variant.option1);
+          this.setInputAvailability(
+            [...option.querySelectorAll('input[type="radio"], option')],
+            availableFirst
+          );
+        }
+        return;
+      }
       const optionInputs = [
         ...option.querySelectorAll('input[type="radio"], option'),
       ];
@@ -6177,12 +6189,61 @@ class VariantRadiosDetail extends SwatchFunctions {
     super();
   }
   connectedCallback() {
-    // Marca tamanhos indisponíveis já no carregamento (antes só acontecia após um clique)
-    try {
-      if (!this.querySelector('.product-form__input :checked')) return;
-      this.getVariantData();
-      this.updateVariantStatuses();
-    } catch (e) {}
+    const run = () => {
+      try {
+        if (!this.querySelector('.product-form__input :checked')) return;
+        // Se a página abriu numa variante esgotada (ex.: link do card com filtro de cor),
+        // troca para a primeira variante disponível da MESMA cor.
+        if (!this.selectAvailableVariant(true)) {
+          // Marca indisponíveis já no carregamento (antes só acontecia após um clique)
+          this.getVariantData();
+          this.updateVariantStatuses();
+        }
+      } catch (e) {}
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', run, { once: true });
+    } else {
+      run();
+    }
+  }
+  onVariantChange(e) {
+    // Ao trocar a cor, se o tamanho atual não existe nela, pula para um tamanho disponível
+    const firstFieldset = this.querySelector('fieldset.product-form__input');
+    if (
+      e.target.closest('fieldset') === firstFieldset &&
+      this.selectAvailableVariant()
+    ) {
+      return;
+    }
+    super.onVariantChange(e);
+  }
+  selectAvailableVariant(allowOtherColor = false) {
+    const data = this.getVariantData();
+    const fieldsets = [...this.querySelectorAll('fieldset.product-form__input')];
+    const selected = fieldsets.map(
+      (fs) => fs.querySelector('input[type="radio"]:checked')?.value
+    );
+    const current = data.find((v) =>
+      v.options.every((o, i) => selected[i] === o)
+    );
+    if (!current || current.available) return false;
+    const alt =
+      data.find((v) => v.available && v.option1 === current.option1) ||
+      (allowOtherColor ? data.find((v) => v.available) : null);
+    if (!alt) return false;
+    let lastChanged = null;
+    fieldsets.forEach((fs, i) => {
+      fs.querySelectorAll('input[type="radio"]').forEach((input) => {
+        const match = input.value === alt.options[i];
+        if (match && !input.checked) lastChanged = input;
+        input.checked = match;
+      });
+    });
+    if (!lastChanged) return false;
+    // Dispara o fluxo normal do tema (preço, botão, URL, imagem, marcações)
+    lastChanged.dispatchEvent(new Event('change', { bubbles: true }));
+    return true;
   }
   groupFunctionsAvailable(variantQtyData, target) {
     this.updateURL();
