@@ -183,7 +183,7 @@
         "dropdowns_animation": "fade-in-down",
         "uppercase_first": true,
         "menu_font_weight": "500",
-        "submenu_font_weight": "400",
+        "submenu_font_weight": "500",
         "hot": "Hot",
         "label_color_hot": "#000000",
         "label_background_hot": "#ffffff",
