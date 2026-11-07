@@ -58,6 +58,11 @@
   .ff-wa__list a svg { transition: transform .2s ease; }
   .ff-wa__list a:hover svg { transform: translateX(4px); }
   @media (max-width: 767px) { .ff-wa { right: 12px; bottom: 16px; } .ff-wa__toggle { width: 48px; height: 48px; } }
+  /* Botão "voltar ao topo" alinhado na mesma coluna do WhatsApp, logo acima dele */
+  back-to-top.back-to-top { right: 16px !important; bottom: 88px !important; width: 52px !important; height: 52px !important; }
+  @media (max-width: 767px) {
+    back-to-top.back-to-top { right: 12px !important; bottom: 76px !important; width: 48px !important; height: 48px !important; }
+  }
 </style>
 <script>
   (function () {
