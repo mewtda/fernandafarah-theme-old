@@ -52,8 +52,8 @@
 
 /* Itens */
 .minicart__wrapper .cart-item {
+  border: 0 !important;
   border-bottom: 1px solid #ededed !important;
-  border-style: solid !important;
 }
 .minicart__wrapper .cart-item:last-child { border-bottom: 0 !important; }
 .minicart__wrapper .minicart__product-name,
@@ -86,7 +86,10 @@
   text-transform: uppercase;
   font-weight: 400;
 }
-:is(.minicart__wrapper, .page-cart) .cart-recommend .product-item.style-as-card,
+:is(.minicart__wrapper, .page-cart) .cart-recommend .product-item.style-as-card {
+  border: 0 !important;
+  box-shadow: none !important;
+}
 :is(.minicart__wrapper, .page-cart) .cart-recommend .product-item__wrapper {
   border: 1px solid #ededed !important;
   border-radius: 0 !important;
@@ -211,3 +214,20 @@
   color: #6b6b6b;
 }
 .page-cart .cart__ctas { border-color: #ededed !important; }
+
+/* Nomes em até 2 linhas, sem cortar em uma */
+:is(.minicart__wrapper .minicart__product-name, .page-cart .cart-item__details .product-item__name, .cart-recommend .product-item__name) {
+  white-space: normal !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  letter-spacing: .06em !important;
+}
+:is(.minicart__wrapper .minicart__product-name, .minicart__wrapper .minicart__product-name a) { letter-spacing: .06em !important; }
+
+/* Página do carrinho: "Remover" só texto (o ícone ficava por cima) */
+.page-cart cart-remove-button .remove-icon > svg,
+.page-cart cart-remove-button .remove-icon > :not(.underline) { display: none !important; }
+.page-cart cart-remove-button .remove-icon::before,
+.page-cart cart-remove-button .remove-icon::after { display: none !important; }

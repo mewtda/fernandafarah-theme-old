@@ -8956,17 +8956,20 @@ document.addEventListener('click', (e) => {
 
 // Altura ocupada por barra de anúncio + header (usada no banner "tela cheia" do celular)
 (function () {
-  const set = () => {
-    const groups = document.querySelectorAll('.shopify-section-group-header-group');
-    let bottom = 0;
-    groups.forEach((g) => {
-      const r = g.getBoundingClientRect();
-      if (r.height > 0) bottom = Math.max(bottom, r.bottom + window.scrollY);
+  // Soma só as alturas (não a posição): com header fixo ao rolar, a posição muda e quebrava o banner
+  let lastWidth = 0;
+  const set = (force) => {
+    if (force !== true && window.innerWidth === lastWidth) return; // rolagem no celular dispara resize só de altura
+    lastWidth = window.innerWidth;
+    let total = 0;
+    document.querySelectorAll('.shopify-section-group-header-group').forEach((g) => {
+      const h = g.offsetHeight;
+      if (h > 0 && getComputedStyle(g).display !== 'none') total += h;
     });
-    if (bottom > 0) document.documentElement.style.setProperty('--ff-hero-offset', Math.round(bottom) + 'px');
+    if (total > 0 && total < 300) document.documentElement.style.setProperty('--ff-hero-offset', total + 'px');
   };
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', set, { once: true });
-  else set();
-  window.addEventListener('load', set);
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => set(true), { once: true });
+  else set(true);
+  window.addEventListener('load', () => set(true));
   window.addEventListener('resize', set);
 })();

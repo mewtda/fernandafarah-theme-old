@@ -525,3 +525,15 @@
   .navigation .level0.ff-menu-quick svg { width: 20px; height: 20px; }
   .navigation .level0.single:last-of-type > menu-item, .ff-menu-quick__row { margin-top: 0; }
 }
+
+/* Linha Desejos / Entrar / Atendimento sempre no rodapé do menu */
+@media screen and (max-width: 1024.98px) {
+  .navigation .navigation__menu-content { display: flex; flex-direction: column; }
+  .navigation .navigation__menu-content > .horizontal-list { display: flex; flex-direction: column; flex: 1 0 auto; }
+  .navigation .level0.ff-menu-quick {
+    margin-top: auto;
+    position: sticky; bottom: 0; z-index: 3;
+    background: var(--color-background, #fff);
+    margin-inline: -30px; padding-inline: 30px;
+  }
+}
