@@ -349,6 +349,9 @@
             {% endif %}
           </div>
         {% endif %}
+        <div class="footer__pode-trocar flex justify-center">
+          {%- render 'pode-trocar', context: 'footer' -%}
+        </div>
         {%- if section_st.payment_enable -%}
           <div class="footer__payment flex grow-1 justify-center flex-md-end align-center max-w-100">
             {%- if section_st.payment_image != blank -%}

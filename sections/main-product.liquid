@@ -424,6 +424,10 @@
                 </div>
               </div>
             </collapsible-block>
+            {%- assign heading_down = block_st.heading | downcase -%}
+            {%- if heading_down contains 'envio' -%}
+              {%- render 'pode-trocar', context: 'product' -%}
+            {%- endif -%}
           {%- when 'countdown_timer' -%}
             {% comment %} Countdown timer {% endcomment %}
             {{ 'countdown.css' | asset_url | stylesheet_tag }}

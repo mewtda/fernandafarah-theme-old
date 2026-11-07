@@ -1,0 +1,29 @@
+{%- comment -%}
+  Selo "Troca fácil e segura com Pode Trocar"
+  - context: 'product' (abaixo de Envio e entrega) | 'footer'
+{%- endcomment -%}
+<a
+  class="pode-trocar pode-trocar--{{ context | default: 'product' }}"
+  href="https://podetrocar.fernandafarah.com.br/"
+  target="_blank"
+  rel="noopener"
+>
+  <img
+    src="https://podetrocar.fernandafarah.com.br/assets/pode-trocar-mark-c0f16f62.svg"
+    alt=""
+    width="20"
+    height="20"
+    loading="lazy"
+  >
+  <span>Troca fácil e segura com <strong>Pode Trocar</strong></span>
+</a>
+{%- unless pode_trocar_css_loaded -%}
+  <style>
+    .pode-trocar { display: inline-flex; align-items: center; gap: 10px; color: var(--color-heading, #000); text-decoration: none; font-size: 13px; line-height: 1.4; }
+    .pode-trocar img { width: 20px; height: 20px; flex: none; }
+    .pode-trocar strong { font-weight: 500; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+    .pode-trocar:hover strong { text-decoration-thickness: 2px; }
+    .pode-trocar--product { display: flex; padding: 17px 0; border-bottom: 1px solid var(--color-border, #ebebeb); }
+    .pode-trocar--footer { font-size: 12px; }
+  </style>
+{%- endunless -%}
