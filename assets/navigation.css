@@ -493,3 +493,28 @@
 .submenu .level-1 > menu-item > a > span:first-child::first-letter {
   text-transform: uppercase;
 }
+
+/* Menu mobile: Desejos / Entrar / Atendimento numa linha só */
+.ff-menu-quick { list-style: none; }
+.ff-menu-quick__row {
+  display: grid; grid-auto-flow: column; grid-auto-columns: 1fr;
+  border-top: 1px solid #ededed; border-bottom: 1px solid #ededed; margin-top: 8px;
+}
+.ff-menu-quick__item {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  padding: 16px 4px; min-height: 72px; background: none; border: 0; cursor: pointer;
+  color: #000; text-decoration: none; font: inherit; font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+}
+.ff-menu-quick__item + .ff-menu-quick__item { border-left: 1px solid #ededed; }
+.ff-menu-quick__item svg { color: #000; }
+
+/* Barra "Menu" do menu mobile: preto 50% com blur, fixa no topo enquanto rola */
+@media screen and (max-width: 1024.98px) {
+  .navigation .menu-mobile-title {
+    position: sticky; top: 0; z-index: 4;
+    background: rgba(0, 0, 0, .5) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
+    backdrop-filter: blur(12px) saturate(140%);
+  }
+  .navigation > close-menu { z-index: 5; }
+}

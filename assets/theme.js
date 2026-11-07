@@ -8941,3 +8941,15 @@ customElements.define("toggle-header-vertical", ToggleHeaderVertical);
     }
   });
 })();
+
+// Menu mobile: "Atendimento" fecha o menu e abre o painel do WhatsApp
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.ff-menu-quick__wa')) return;
+  e.preventDefault();
+  document.querySelector('close-menu')?.click();
+  setTimeout(() => {
+    const toggle = document.querySelector('.ff-wa__toggle');
+    const root = document.getElementById('widget-whatsapp');
+    if (toggle && root && !root.classList.contains('is-open')) toggle.click();
+  }, 450);
+});

@@ -509,65 +509,33 @@
             </a>
           </li>
         {% endif %}
-        {%- if wishlist -%}
-          <li class="level0 hidden-1025">
-            <a
-              class="no-underline py-10 lh-normal flex border-bottom border-bottom-1025-0 min-h-55 min-h-1025-50 align-center{% if uppercase_first %} uppercase{% endif %}"
-              href="/pages/wishlist"
-              aria-label="{{ 'templates.wishlist.wishlist' | t }}"
-            >
-              <svg width="22" height="22" viewBox="0 0 1.08 1.08" class="me-10" fill="none">
-                <use href="#icon-wishlist-header" />
-              </svg>
-              {{ 'templates.wishlist.wishlist' | t }}
-            </a>
-          </li>
-        {% endif %}
-        {%- if show_my_account -%}
-          {% if customer %}
-            <li class="level0 hidden-1025">
-              <a
-                href="{{ routes.account_url }}"
-                class="no-underline py-10 lh-normal flex border-bottom border-bottom-1025-0 min-h-55 min-h-1025-50 align-center account-url{% if uppercase_first %} uppercase{% endif %}"
-                aria-label="{{ customer.name }}"
-              >
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" class="me-10">
-                  <use href="#icon-account" />
-                </svg>
-                {% if customer.name != blank %}
-                  {{ customer.name }}
-                {% else %}
-                  {{ 'customer.account.my_account' | t }}
-                {% endif %}
+        <li class="level0 hidden-1025 ff-menu-quick">
+          <div class="ff-menu-quick__row">
+            {%- if wishlist -%}
+              <a class="ff-menu-quick__item" href="/pages/wishlist">
+                <svg width="20" height="20" viewBox="0 0 1.08 1.08" fill="none" aria-hidden="true"><use href="#icon-wishlist-header" /></svg>
+                <span>Desejos</span>
               </a>
-            </li>
-            <li class="level0 hidden-1025">
-              <a
-                href="{{ routes.account_logout_url }}"
-                class="no-underline py-10 lh-normal flex border-bottom border-bottom-1025-0 min-h-55 min-h-1025-50 align-center account-logout{% if uppercase_first %} uppercase{% endif %}"
-                arial-label="{{ 'customer.log_out' | t }}"
-              >
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" class="me-10">
-                  <use href="#icon-account" />
-                </svg>
-                {{- 'customer.log_out' | t -}}
-              </a>
-            </li>
-          {% else %}
-            <li class="level0 hidden-1025">
-              <a
-                href="{{ routes.account_login_url }}"
-                class="no-underline py-10 lh-normal flex border-bottom border-bottom-1025-0 min-h-55 min-h-1025-50 align-center account-login{% if uppercase_first %} uppercase{% endif %}"
-                arial-label=" {{ 'customer.login_menu_mobile' | t }}"
-              >
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" class="me-10">
-                  <use href="#icon-account" />
-                </svg>
-                {{ 'customer.login_menu_mobile' | t }}
-              </a>
-            </li>
-          {% endif %}
-        {%- endif -%}
+            {%- endif -%}
+            {%- if show_my_account -%}
+              {%- if customer -%}
+                <a class="ff-menu-quick__item account-url" href="{{ routes.account_url }}">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="#icon-account" /></svg>
+                  <span>Minha conta</span>
+                </a>
+              {%- else -%}
+                <a class="ff-menu-quick__item account-login" href="{{ routes.account_login_url }}">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="#icon-account" /></svg>
+                  <span>Entrar</span>
+                </a>
+              {%- endif -%}
+            {%- endif -%}
+            <button type="button" class="ff-menu-quick__item ff-menu-quick__wa">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 18.5V12a8 8 0 1 1 16 0v6.5M4 15.5h2.5V20H5a1 1 0 0 1-1-1v-3.5Zm16 0h-2.5V20H19a1 1 0 0 0 1-1v-3.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+              <span>Atendimento</span>
+            </button>
+          </div>
+        </li>
         {% if type == 'header_mega' or type == 'header_vertical' %}
           {%- if section_st.show_phone and theme_st.store_phone != blank -%}
             <li class="level0 hidden-1025">
