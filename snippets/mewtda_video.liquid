@@ -398,6 +398,65 @@
     flex: 1;
     cursor: pointer;
   }
+
+  /* ===== Refinamento minimalista (thumbnail + modal) ===== */
+  .video-floating-container { left: 16px; bottom: 24px; transition: opacity .25s ease; }
+  .nav-open .video-floating-container, .open-minicart .video-floating-container { opacity: 0; pointer-events: none; }
+  .video-thumbnail {
+    width: 96px; height: 152px; border-radius: 4px;
+    border: 2px solid #fff; box-shadow: 0 6px 20px rgba(0,0,0,.18);
+  }
+  .video-thumbnail:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(0,0,0,.22); }
+  .video-thumbnail-overlay {
+    align-items: flex-end; justify-content: flex-start;
+    background: linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,0) 45%);
+  }
+  .video-thumbnail:hover .video-thumbnail-overlay { background: linear-gradient(to top, rgba(0,0,0,.65), rgba(0,0,0,0) 55%); }
+  .video-thumb-label {
+    display: inline-flex; align-items: center; gap: 5px; margin: 0 0 9px 9px;
+    color: #fff; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; line-height: 1;
+  }
+  .video-thumb-close {
+    top: 6px; right: 6px; width: 22px; height: 22px; border-radius: 50%;
+    background: rgba(0,0,0,.45); color: #fff;
+  }
+  .video-thumb-close:hover { background: rgba(0,0,0,.75); transform: none; }
+  @media (max-width: 767px) {
+    .video-floating-container { left: 12px; bottom: 16px; }
+    .video-thumbnail { width: 80px; height: 128px; }
+    .video-thumb-close { width: 22px; height: 22px; }
+  }
+
+  .sv-modal-{{ sv_id }} { background: rgba(0,0,0,.92); }
+  @media (min-width: 750px) {
+    .sv-modal-inner-{{ sv_id }} { border-radius: 6px; }
+    .sv-story-info-{{ sv_id }} { border-radius: 0 0 6px 6px; }
+  }
+  .sv-progress-bar-{{ sv_id }} { height: 2px; }
+  .sv-modal-close-{{ sv_id }} {
+    top: 18px; width: 32px; height: 32px; background: rgba(0,0,0,.35); font-weight: 400;
+  }
+  .sv-modal-close-{{ sv_id }}:hover { background: rgba(0,0,0,.6); transform: none; }
+  .sv-story-info-{{ sv_id }} {
+    background: #fff; backdrop-filter: none; -webkit-backdrop-filter: none;
+    border-top: 0; padding: 18px 20px 22px;
+  }
+  .sv-story-meta-{{ sv_id }} { margin-bottom: 16px; }
+  .sv-story-title-{{ sv_id }} {
+    font-size: 12px; font-weight: 400; letter-spacing: .12em; text-transform: uppercase; color: #000; margin-bottom: 6px;
+  }
+  .sv-story-price-{{ sv_id }} { font-size: 14px; font-weight: 400; color: #000; }
+  .sv-story-share-{{ sv_id }} {
+    width: 36px; height: 36px; background: transparent; border: 1px solid #e5e5e5; color: #000;
+  }
+  .sv-story-share-{{ sv_id }}:hover { background: #f5f5f5; }
+  .sv-story-choose-{{ sv_id }} {
+    display: block; width: 100%; padding: 14px 16px; border: 0; border-radius: 0; cursor: pointer;
+    background: #000; color: #fff; font: inherit; font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+    transition: opacity .2s ease;
+  }
+  .sv-story-choose-{{ sv_id }}:hover { opacity: .85; }
+  .sv-tap-zones-{{ sv_id }} { bottom: 170px; }
 </style>
 
 <div id="sv-modal-{{ sv_id }}" class="sv-modal-{{ sv_id }}">
@@ -409,7 +468,7 @@
         </div>
       {% endfor %}
     </div>
-    <button class="sv-modal-close-{{ sv_id }}" aria-label="Fechar">&#10005;</button>
+    <button class="sv-modal-close-{{ sv_id }}" aria-label="Fechar"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" fill="none"/></svg></button>
     <div class="sv-modal-content-{{ sv_id }}">
       <div class="sv-stories-track-{{ sv_id }}">
         {% for video in videos %}
@@ -441,6 +500,7 @@
                   </svg>
                 </button>
               </div>
+              <button type="button" class="sv-story-choose-{{ sv_id }}">Escolher tamanho</button>
             </div>
           </div>
         {% endfor %}
@@ -458,14 +518,15 @@
     <video muted playsinline id="thumbnail-video" autoplay loop src="{{ videos[0].sources[1].url }}"></video>
 
     <div class="video-thumbnail-overlay">
-      <div class="play-icon">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M8 5v14l11-7z"/>
-        </svg>
-      </div>
+      <span class="video-thumb-label">
+        <svg viewBox="0 0 24 24" width="9" height="9" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        Assista
+      </span>
     </div>
 
-    <button type="button" class="video-thumb-close" onclick="event.stopPropagation(); hideVideoThumbnail()">✕</button>
+    <button type="button" class="video-thumb-close" aria-label="Fechar vídeo" onclick="event.stopPropagation(); hideVideoThumbnail()">
+      <svg viewBox="0 0 24 24" width="10" height="10" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+    </button>
   </div>
 </div>
 
@@ -596,6 +657,14 @@
     }
 
     closeBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', function(e) {
+      if (!e.target.closest('.sv-story-choose-' + id)) return;
+      e.stopPropagation();
+      closeModal();
+      var picker = document.querySelector('variant-radios-detail') || document.querySelector('.product-form__buttons');
+      if (picker) picker.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
     tapNext.addEventListener('click', nextStory);
     tapPrev.addEventListener('click', prevStory);
 
