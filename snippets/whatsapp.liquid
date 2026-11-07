@@ -32,7 +32,7 @@
   .ff-wa__toggle {
     width: 52px; height: 52px; border-radius: 50%; border: 0; padding: 0; cursor: pointer;
     display: flex; align-items: center; justify-content: center;
-    background: #000; color: #fff; box-shadow: 0 4px 14px rgba(0,0,0,.18);
+    background: #000; color: #fff; box-shadow: 0 4px 14px rgba(0,0,0,.18), 0 0 0 1px rgba(255,255,255,.28);
     transition: transform .2s ease;
   }
   .ff-wa__toggle:hover { transform: scale(1.05); }
@@ -59,7 +59,7 @@
   .ff-wa__list a:hover svg { transform: translateX(4px); }
   @media (max-width: 767px) { .ff-wa { right: 12px; bottom: 16px; } .ff-wa__toggle { width: 48px; height: 48px; } }
   /* Botão "voltar ao topo" alinhado na mesma coluna do WhatsApp, logo acima dele */
-  back-to-top.back-to-top { right: 16px !important; bottom: 88px !important; width: 52px !important; height: 52px !important; }
+  back-to-top.back-to-top { right: 16px !important; bottom: 88px !important; width: 52px !important; height: 52px !important; box-shadow: 0 4px 14px rgba(0,0,0,.18), 0 0 0 1px rgba(255,255,255,.28) !important; }
   @media (max-width: 767px) {
     back-to-top.back-to-top { right: 12px !important; bottom: 76px !important; width: 48px !important; height: 48px !important; }
   }
