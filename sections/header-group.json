@@ -200,7 +200,7 @@
         "menu_mobile_background": "#000000",
         "show_search": true,
         "show_account_icon": true,
-        "show_wishlist_icon": true,
+        "show_wishlist_icon": false,
         "show_shopping_cart": true,
         "show_currency": false,
         "show_language": false,
