@@ -495,6 +495,11 @@ class SlideSection extends HTMLElement {
     }
 
     const showLayout3 = _this?.dataset.showLayout3 === "true";
+    // Swiper não consegue fazer loop com poucos slides (com 2 slides o "próximo" volta para o atual).
+    // Nesses casos usa rewind: do último volta ao primeiro e vice-versa.
+    const realSlides = _this.querySelectorAll(".swiper-wrapper > .swiper-slide").length;
+    const maxPerView = Math.max(itemMobile, itemTablet || 1, itemDesktop);
+    const loopOk = loop && realSlides >= Math.max(3, maxPerView + 1);
     const initialSlide = parseInt(_this?.dataset.initialSlide) || 0;
 
     this.globalSlide = new Swiper(_this, {
@@ -504,7 +509,8 @@ class SlideSection extends HTMLElement {
       initialSlide: initialSlide,
       autoplay: autoplaying,
       direction: direction,
-      loop: loop,
+      loop: loopOk,
+      rewind: loop && !loopOk,
       effect: effect,
       mousewheel: mousewheel
         ? {
