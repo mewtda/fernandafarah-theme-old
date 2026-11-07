@@ -32,6 +32,13 @@
     }
   {%- endstyle -%}
 {%- endif -%}
+{%- if section_st.submenu_font_weight != blank and section_st.submenu_font_weight != 'theme' -%}
+  {%- style -%}
+    #shopify-section-{{ section.id }} .horizontal-list .submenu .level-1 > menu-item > a {
+      font-weight: {{ section_st.submenu_font_weight }};
+    }
+  {%- endstyle -%}
+{%- endif -%}
 {%- capture style -%}
 --section-pt: {{ section_st.padding_top }}; 
 --section-pb: {{ section_st.padding_bottom }};
@@ -409,6 +416,20 @@
         { "value": "700", "label": "Negrito (700)" },
         { "value": "800", "label": "Extra negrito (800)" },
         { "value": "900", "label": "Black (900)" }
+      ],
+      "default": "theme"
+    },
+    {
+      "type": "select",
+      "id": "submenu_font_weight",
+      "label": "Espessura das letras do submenu",
+      "options": [
+        { "value": "theme", "label": "Padrão do tema" },
+        { "value": "300", "label": "Fina (300)" },
+        { "value": "400", "label": "Normal (400)" },
+        { "value": "500", "label": "Média (500)" },
+        { "value": "600", "label": "Seminegrito (600)" },
+        { "value": "700", "label": "Negrito (700)" }
       ],
       "default": "theme"
     },
