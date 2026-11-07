@@ -1,0 +1,252 @@
+{%- comment -%}
+  Rodapé Fernanda Farah — minimalista, alinhado ao tema
+  (substitui o footer antigo; mantém menus, contato, redes, selos, pagamentos e voltar ao topo)
+{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+-%}
+
+{%- if s.enable_back_top -%}
+  {%- style -%}
+    .back-to-top { transform: scale(0); }
+    .back-to-top.show { transform: scale(1); opacity: 1; visibility: visible; }
+    .height-scroll { height: var(--height); }
+    .mix-blend { mix-blend-mode: difference; }
+  {%- endstyle -%}
+  <back-to-top class="back-to-top transition invisible pointer w-50 h-50 inline-flex content-center shadow bg-white fixed bottom-30 right-30 z-10 rounded-50 overflow-hidden">
+    <span class="absolute left-0 bottom-0 w-full bg-dark height-scroll"></span>
+    <svg width="8" height="10" fill="none" class="mix-blend" style="color:#fff;" aria-hidden="true">
+      <path fill="currentColor" d="M7.797 4.203h.016A.636.636 0 0 1 8 4.672a.67.67 0 0 1-.188.469.69.69 0 0 1-.484.187.67.67 0 0 1-.469-.187L4 2.28l-2.86 2.86a.69.69 0 0 1-.484.187.617.617 0 0 1-.453-.187A.644.644 0 0 1 0 4.67c0-.187.068-.343.203-.468L3.531.86A.636.636 0 0 1 4 .672c.188 0 .344.062.469.187l3.328 3.344Zm0 4.656h.016A.69.69 0 0 1 8 9.344a.617.617 0 0 1-.188.453.661.661 0 0 1-.953 0L4 6.937l-2.86 2.86A.661.661 0 0 1 .657 10a.594.594 0 0 1-.453-.203A.594.594 0 0 1 0 9.344c0-.188.068-.35.203-.485l3.328-3.328A.611.611 0 0 1 4 5.328c.188 0 .344.068.469.203L7.797 8.86Z"/>
+    </svg>
+  </back-to-top>
+{%- endif -%}
+
+<footer class="ff-footer">
+  <div class="ff-footer__inner">
+    <div class="ff-footer__top">
+      <div class="ff-footer__brand">
+        <a href="{{ routes.root_url }}" class="ff-footer__logo" aria-label="{{ shop.name }}">
+          {%- if s.logo != blank -%}
+            {{ s.logo | image_url: width: 600 | image_tag: loading: 'lazy', alt: shop.name }}
+          {%- else -%}
+            <span class="ff-footer__wordmark">{{ shop.name }}</span>
+          {%- endif -%}
+        </a>
+        {%- if s.tagline != blank -%}
+          <div class="ff-footer__tagline">{{ s.tagline }}</div>
+        {%- endif -%}
+        {%- if s.show_social -%}
+          <div class="ff-footer__social">{% render 'social-icons' %}</div>
+        {%- endif -%}
+      </div>
+
+      {%- for i in (1..2) -%}
+        {%- capture menu_key -%}menu_{{ i }}{%- endcapture -%}
+        {%- capture title_key -%}menu_{{ i }}_title{%- endcapture -%}
+        {%- assign menu = s[menu_key] -%}
+        {%- if menu != blank -%}
+          {%- assign col_title = s[title_key] | default: menu.title -%}
+          <details class="ff-footer__col" {% if i == 1 %}data-ff-col="1"{% endif %}>
+            <summary class="ff-footer__heading">
+              {{ col_title }}
+              <span class="ff-footer__plus" aria-hidden="true"></span>
+            </summary>
+            <ul class="ff-footer__links">
+              {%- for link in menu.links -%}
+                <li><a href="{{ link.url }}">{{ link.title | capitalize }}</a></li>
+              {%- endfor -%}
+            </ul>
+          </details>
+        {%- endif -%}
+      {%- endfor -%}
+
+      <details class="ff-footer__col ff-footer__contact" open>
+        <summary class="ff-footer__heading">
+          {{ s.contact_title }}
+          <span class="ff-footer__plus" aria-hidden="true"></span>
+        </summary>
+        <div class="ff-footer__contact-body">
+          {%- if s.contact_text != blank -%}
+            <div class="ff-footer__rte">{{ s.contact_text }}</div>
+          {%- endif -%}
+          {%- if s.show_email and settings.store_email != blank -%}
+            <p><a href="mailto:{{ settings.store_email }}">{{ settings.store_email }}</a></p>
+          {%- endif -%}
+          {%- if s.show_address and settings.store_address != blank -%}
+            <p class="ff-footer__muted">{{ settings.store_address }}</p>
+          {%- endif -%}
+        </div>
+      </details>
+    </div>
+
+    <div class="ff-footer__bottom">
+      <div class="ff-footer__copy">
+        {%- if s.copyright_text != blank -%}{{ s.copyright_text }}{%- else -%}© {{ 'now' | date: '%Y' }} {{ shop.name }}{%- endif -%}
+      </div>
+      <div class="ff-footer__badges">
+        {%- render 'pode-trocar', context: 'footer' -%}
+        <a class="footer__dev" href="https://www.mewtda.com.br/" target="_blank" rel="noopener">
+          <span>Desenvolvido por</span>
+          <img src="https://www.mewtda.com.br/assets/landing/mewtda-logo-nav-f941cf8ff4d4eb65217f33fd90b754edde28505c59dec7b625bb0727fe3795b8.png" alt="Mewtda" width="81" height="26" loading="lazy">
+        </a>
+      </div>
+      {%- if s.payment_enable and shop.enabled_payment_types != empty -%}
+        <ul class="ff-footer__payments" aria-label="Formas de pagamento">
+          {%- for type in shop.enabled_payment_types -%}
+            <li>{{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}</li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </div>
+  </div>
+</footer>
+
+<style>
+  .ff-footer {
+    --ff-f-bg: {{ s.background }};
+    --ff-f-text: {{ s.text_color }};
+    --ff-f-muted: {{ s.text_color | color_modify: 'alpha', 0.62 }};
+    --ff-f-line: {{ s.text_color | color_modify: 'alpha', 0.14 }};
+    background: var(--ff-f-bg);
+    color: var(--ff-f-text);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .ff-footer a { color: inherit; text-decoration: none; transition: opacity .2s ease, color .2s ease; }
+  .ff-footer__inner { max-width: 1440px; margin: 0 auto; padding: 64px 30px 0; }
+  .ff-footer__top {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+    gap: 40px;
+    padding-bottom: 56px;
+  }
+  .ff-footer__logo { display: block; max-width: {{ s.logo_width }}px; }
+  .ff-footer__logo img { display: block; width: 100%; height: auto; {% if s.invert_logo %}filter: brightness(0) invert(1);{% endif %} }
+  .ff-footer__wordmark { font-size: 18px; letter-spacing: .2em; text-transform: uppercase; }
+  .ff-footer__tagline { margin-top: 18px; max-width: 320px; color: var(--ff-f-muted); }
+  .ff-footer__tagline p { margin: 0; }
+  .ff-footer__social { margin-top: 24px; }
+  .ff-footer__social .list-social { --col-gap: 18px !important; }
+  .ff-footer__social .list-social a { color: var(--ff-f-text) !important; width: auto; height: auto; border: 0 !important; background: none !important; }
+  .ff-footer__social .list-social a:hover { opacity: .6; }
+  .ff-footer__social svg { width: 16px; height: 16px; }
+  .ff-footer__social .tooltip-content { display: none; }
+
+  .ff-footer__col summary { list-style: none; }
+  .ff-footer__col summary::-webkit-details-marker { display: none; }
+  .ff-footer__heading {
+    margin: 0 0 18px;
+    font-size: 11px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--ff-f-text);
+    cursor: default;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .ff-footer__plus { display: none; }
+  .ff-footer__links { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  .ff-footer__links a, .ff-footer__contact-body, .ff-footer__contact-body a { color: var(--ff-f-muted); }
+  .ff-footer__links a:hover, .ff-footer__contact-body a:hover { color: var(--ff-f-text); }
+  .ff-footer__contact-body p, .ff-footer__rte p { margin: 0 0 8px; }
+  .ff-footer__rte strong { font-weight: 400; color: var(--ff-f-text); }
+
+  .ff-footer__bottom {
+    display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+    border-top: 1px solid var(--ff-f-line);
+    padding: 22px 0 26px;
+    font-size: 11px; letter-spacing: .04em; color: var(--ff-f-muted);
+  }
+  .ff-footer__badges { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+  .ff-footer .pode-trocar { color: var(--ff-f-muted); font-size: 11px; }
+  .ff-footer .pode-trocar strong { color: var(--ff-f-text); }
+  .ff-footer .footer__dev { position: relative; display: inline-flex; align-items: center; gap: 8px; color: var(--ff-f-muted); font-size: 11px; padding-bottom: 4px; white-space: nowrap; }
+  .ff-footer .footer__dev img { height: 26px; width: auto; transform: translateY(-6px); margin-bottom: -6px; }
+  .ff-footer .footer__dev::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1.5px; border-radius: 2px;
+    background: linear-gradient(90deg, #ff004c, #ff8a00, #ffe600, #2bd96b, #00b3ff, #6a5cff, #d24bff, #ff004c);
+    background-size: 200% 100%; animation: ffRainbow 3s linear infinite;
+  }
+  @keyframes ffRainbow { to { background-position: -200% 0; } }
+  @media (prefers-reduced-motion: reduce) { .ff-footer .footer__dev::after { animation: none; } }
+  .ff-footer__payments { list-style: none; margin: 0; padding: 0; display: flex; gap: 6px; flex-wrap: wrap; }
+  .ff-footer__payments svg { width: 34px; height: 22px; display: block; }
+
+  /* Desktop: colunas sempre abertas, sem acordeão */
+  @media (min-width: 768px) {
+    .ff-footer__col > summary { pointer-events: none; }
+    .ff-footer__col:not([open]) > *:not(summary) { display: block; }
+  }
+
+  /* Celular: acordeões */
+  @media (max-width: 767px) {
+    .ff-footer__inner { padding: 48px 20px 0; }
+    .ff-footer__top { grid-template-columns: 1fr; gap: 0; padding-bottom: 32px; }
+    .ff-footer__brand { text-align: center; padding-bottom: 32px; }
+    .ff-footer__logo { display: inline-block; }
+    .ff-footer__tagline { margin-inline: auto; }
+    .ff-footer__social .list-social { justify-content: center; }
+    .ff-footer__col { border-top: 1px solid var(--ff-f-line); }
+    .ff-footer__col:last-child { border-bottom: 1px solid var(--ff-f-line); }
+    .ff-footer__heading { margin: 0; padding: 18px 0; cursor: pointer; }
+    .ff-footer__plus { display: block; position: relative; width: 11px; height: 11px; }
+    .ff-footer__plus::before, .ff-footer__plus::after {
+      content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: currentColor; transition: transform .25s ease;
+    }
+    .ff-footer__plus::after { transform: rotate(90deg); }
+    .ff-footer__col[open] .ff-footer__plus::after { transform: rotate(0deg); }
+    .ff-footer__links, .ff-footer__contact-body { padding-bottom: 20px; }
+    .ff-footer__bottom { flex-direction: column; text-align: center; gap: 16px; padding-bottom: 90px; }
+    .ff-footer__badges { flex-direction: column; gap: 12px; }
+    .ff-footer__payments { justify-content: center; }
+  }
+</style>
+
+<script>
+  (function () {
+    // No celular os menus começam fechados; no desktop ficam sempre abertos
+    var mq = window.matchMedia('(max-width: 767px)');
+    function sync() {
+      document.querySelectorAll('.ff-footer__col').forEach(function (d) {
+        if (mq.matches) { if (!d.classList.contains('ff-footer__contact')) d.removeAttribute('open'); }
+        else d.setAttribute('open', '');
+      });
+    }
+    sync();
+    if (mq.addEventListener) mq.addEventListener('change', sync);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Rodapé Fernanda Farah",
+  "class": "footer",
+  "settings": [
+    { "type": "header", "content": "Marca" },
+    { "type": "image_picker", "id": "logo", "label": "Logo" },
+    { "type": "range", "id": "logo_width", "label": "Largura do logo", "min": 100, "max": 320, "step": 10, "unit": "px", "default": 180 },
+    { "type": "checkbox", "id": "invert_logo", "label": "Logo branco (inverter cores)", "default": true },
+    { "type": "richtext", "id": "tagline", "label": "Texto curto abaixo do logo" },
+    { "type": "checkbox", "id": "show_social", "label": "Mostrar redes sociais", "default": true },
+    { "type": "header", "content": "Colunas de links" },
+    { "type": "text", "id": "menu_1_title", "label": "Título da coluna 1", "default": "Menu" },
+    { "type": "link_list", "id": "menu_1", "label": "Menu da coluna 1" },
+    { "type": "text", "id": "menu_2_title", "label": "Título da coluna 2", "default": "Institucional" },
+    { "type": "link_list", "id": "menu_2", "label": "Menu da coluna 2" },
+    { "type": "header", "content": "Contato" },
+    { "type": "text", "id": "contact_title", "label": "Título", "default": "Contato" },
+    { "type": "richtext", "id": "contact_text", "label": "Texto" },
+    { "type": "checkbox", "id": "show_email", "label": "Mostrar e-mail da loja", "default": true },
+    { "type": "checkbox", "id": "show_address", "label": "Mostrar endereço da loja", "default": true },
+    { "type": "header", "content": "Rodapé inferior" },
+    { "type": "text", "id": "copyright_text", "label": "Texto de copyright" },
+    { "type": "checkbox", "id": "payment_enable", "label": "Mostrar formas de pagamento", "default": true },
+    { "type": "checkbox", "id": "enable_back_top", "label": "Botão voltar ao topo", "default": true },
+    { "type": "header", "content": "Cores" },
+    { "type": "color", "id": "background", "label": "Fundo", "default": "#000000" },
+    { "type": "color", "id": "text_color", "label": "Texto", "default": "#ffffff" }
+  ],
+  "presets": [{ "name": "Rodapé Fernanda Farah" }],
+  "enabled_on": { "groups": ["footer"] }
+}
+{% endschema %}
