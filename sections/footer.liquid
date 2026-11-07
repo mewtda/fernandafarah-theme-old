@@ -349,9 +349,25 @@
             {% endif %}
           </div>
         {% endif %}
-        <div class="footer__pode-trocar flex justify-center">
-          {%- render 'pode-trocar', context: 'footer' -%}
+        <div class="footer__pode-trocar flex justify-center">
+          {%- render 'pode-trocar', context: 'footer' -%}
         </div>
+        <a class="footer__dev" href="https://www.mewtda.com.br/" target="_blank" rel="noopener">
+          <span>Desenvolvido por</span>
+          <img src="https://www.mewtda.com.br/assets/landing/mewtda-logo-nav-f941cf8ff4d4eb65217f33fd90b754edde28505c59dec7b625bb0727fe3795b8.png" alt="Mewtda" width="81" height="26" loading="lazy">
+        </a>
+        <style>
+          .footer__dev { position: relative; display: inline-flex; align-items: center; gap: 8px; font-size: 12px; color: var(--color-text, #555); text-decoration: none; padding-bottom: 4px; white-space: nowrap; }
+          .footer__dev img { height: 26px; width: auto; transform: translateY(-6px); margin-bottom: -6px; }
+          .footer__dev::after {
+            content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1.5px; border-radius: 2px;
+            background: linear-gradient(90deg, #ff004c, #ff8a00, #ffe600, #2bd96b, #00b3ff, #6a5cff, #d24bff, #ff004c);
+            background-size: 200% 100%;
+            animation: ffRainbow 3s linear infinite;
+          }
+          @keyframes ffRainbow { to { background-position: -200% 0; } }
+          @media (prefers-reduced-motion: reduce) { .footer__dev::after { animation: none; } }
+        </style>
         {%- if section_st.payment_enable -%}
           <div class="footer__payment flex grow-1 justify-center flex-md-end align-center max-w-100">
             {%- if section_st.payment_image != blank -%}
