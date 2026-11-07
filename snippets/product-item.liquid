@@ -608,6 +608,9 @@
               {% endif %}
             </div>
           {% endif %}
+          {%- if quick_add_sizes == true and theme_st.enable_catalog_mode == false -%}
+            {%- render 'quick-add-sizes', card_product: card_product, section_id: section_id -%}
+          {%- endif -%}
         </div>
       {% endif %}
       {% comment %} Product information {% endcomment %}
