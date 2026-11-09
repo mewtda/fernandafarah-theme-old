@@ -402,6 +402,26 @@ var eventCollectionShopify = (function () {
             const newSection = new DOMParser()
               .parseFromString(responseText, "text/html")
               .querySelector(options_collection.section);
+            // Mantém o drawer de filtros aberto após a troca da seção;
+            // senão o <html> fica com open-drawer (overflow hidden) e a página trava.
+            const currentSidebar = document.querySelector(
+              options_collection.collectionSidebar
+            );
+            if (currentSidebar && currentSidebar.classList.contains("open")) {
+              const newSidebar = newSection.querySelector(
+                options_collection.collectionSidebar
+              );
+              const newBtn = newSection.querySelector(".btn-filter");
+              if (newSidebar) newSidebar.classList.add("open");
+              if (newBtn) newBtn.classList.add("open");
+              if (!newSidebar) {
+                document.documentElement.classList.remove(
+                  "open-drawer",
+                  "open-sidebar"
+                );
+                root.style.removeProperty("padding-right");
+              }
+            }
             document
               .querySelector(options_collection.section)
               .replaceWith(newSection);
