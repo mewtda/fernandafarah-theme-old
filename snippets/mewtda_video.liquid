@@ -541,6 +541,11 @@
        empilhamento e o header, a top bar e os cards apareciam por cima do vídeo maximizado. */
     var svModalEl = document.getElementById('sv-modal-' + id);
     if (svModalEl && svModalEl.parentNode !== document.body) document.body.appendChild(svModalEl);
+
+    /* Mesmo motivo para o vídeo flutuante: dentro da coluna fixa do produto, as fotos dos cards
+       do "Compre seu look" passavam por cima dele. */
+    var svFloatEl = document.querySelector('.video-floating-container');
+    if (svFloatEl && svFloatEl.parentNode !== document.body) document.body.appendChild(svFloatEl);
     var selectedSwatchIndex = 0;
 
     var videosArray = [
