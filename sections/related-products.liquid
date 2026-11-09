@@ -110,10 +110,9 @@
           @media (min-width: 990px) {
             .ff-look__inner { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 48px; align-items: start; }
             .ff-look--no-image .ff-look__inner { grid-template-columns: minmax(0, 1fr); }
-            .ff-look__media { position: sticky; top: 100px; }
           }
           .ff-look__media { position: relative; overflow: hidden; background: #f5f5f5; }
-          .ff-look__img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; }
+          .ff-look__img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
           .ff-look__badge {
             position: absolute; left: 12px; bottom: 12px; padding: 6px 10px;
             background: #fff; color: #111; font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
@@ -140,6 +139,30 @@
           }
           .ff-look__track::-webkit-scrollbar { display: none; }
           .ff-look__track > * { width: auto !important; min-width: 0; scroll-snap-align: start; }
+          .ff-look__slide { display: flex; flex-direction: column; }
+          .ff-pick { display: block; margin-top: 12px; }
+          .ff-pick__label { margin: 0 0 6px; font-size: 12px; letter-spacing: .04em; color: rgba(0, 0, 0, .6); }
+          .ff-pick__label span { color: #111; }
+          .ff-pick__sizes { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+          .ff-pick__size {
+            min-width: 40px; height: 36px; padding: 0 10px; border: 1px solid rgba(0, 0, 0, .2);
+            background: #fff; color: #111; font-size: 13px; cursor: pointer; transition: border-color .15s, background-color .15s, color .15s;
+          }
+          .ff-pick__size:hover:not([disabled]) { border-color: #111; }
+          .ff-pick__size.is-selected { background: #111; border-color: #111; color: #fff; }
+          .ff-pick__size[disabled] { color: #aaa; border-color: #e5e5e5; text-decoration: line-through; cursor: not-allowed; }
+          .ff-pick__add {
+            width: 100%; height: 44px; border: 1px solid #111; background: #111; color: #fff;
+            font-size: 12px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; cursor: pointer;
+            transition: background-color .2s, color .2s, opacity .2s;
+          }
+          .ff-pick__add:hover:not([disabled]) { background: #fff; color: #111; }
+          .ff-pick__add[disabled] { opacity: .4; cursor: not-allowed; }
+          .ff-pick.is-loading .ff-pick__add { opacity: .6; pointer-events: none; }
+          .ff-pick__hint { margin: 6px 0 0; font-size: 12px; color: #c0392b; }
+          .ff-pick.is-missing .ff-pick__sizes { animation: ff-shake .35s; }
+          @keyframes ff-shake { 25% { transform: translateX(-3px); } 75% { transform: translateX(3px); } }
+          .ff-pick__form { display: none; }
           @media (min-width: 750px) {
             .ff-look__track { grid-auto-columns: calc((100% - 2 * var(--ff-look-gap)) / 3); gap: var(--ff-look-gap); }
           }
@@ -200,19 +223,22 @@
                   {%- if cj_count >= items_to_show -%}
                     {%- break -%}
                   {%- endif -%}
-                  {% render 'product-item',
-                    card_product: cj_product,
-                    section_id: section.id,
-                    is_compare: false,
-                    template_enable_action: true,
-                    template_enable_product_vendor: true,
-                    template_enable_rate: true,
-                    template_enable_product_short_description: false,
-                    template_enable_color_swatches: true,
-                    template_enable_price: true,
-                    template_enable_add_cart: true,
-                    template_enable_product_badges: true
-                  %}
+                  <div class="ff-look__slide">
+                    {% render 'product-item',
+                      card_product: cj_product,
+                      section_id: section.id,
+                      is_compare: false,
+                      template_enable_action: false,
+                      template_enable_product_vendor: true,
+                      template_enable_rate: true,
+                      template_enable_product_short_description: false,
+                      template_enable_color_swatches: true,
+                      template_enable_price: true,
+                      template_enable_add_cart: false,
+                      template_enable_product_badges: true
+                    %}
+                    {% render 'ff-look-picker', card_product: cj_product, section_id: section.id %}
+                  </div>
                   {%- assign cj_count = cj_count | plus: 1 -%}
                 {% endfor %}
               </div>
@@ -221,6 +247,125 @@
         </div>
 
         <script>
+          if (!customElements.get('ff-look-picker')) {
+            customElements.define('ff-look-picker', class extends HTMLElement {
+              connectedCallback() {
+                if (this._ready) return;
+                this._ready = true;
+                var read = (sel) => { var el = this.querySelector(sel); try { return el ? JSON.parse(el.textContent) : null; } catch (e) { return null; } };
+                this.colorPos = parseInt(this.dataset.colorPos, 10) || 0;
+                this.sizePos = parseInt(this.dataset.sizePos, 10) || 0;
+                this.variants = read('[data-ff-variants]') || [];
+                this.sizes = read('[data-ff-sizes]') || [];
+                this.card = this.closest('.ff-look__slide');
+                this.size = null;
+                this.list = this.querySelector('[data-ff-size-list]');
+                this.btn = this.querySelector('[data-ff-add]');
+                this.hint = this.querySelector('[data-ff-hint]');
+                this.form = this.querySelector('form');
+                this.idInput = this.form && this.form.querySelector('[name="id"]');
+                this.submit = this.querySelector('.ff-pick__submit');
+                this.label = this.btn ? this.btn.textContent : '';
+
+                if (this.card) {
+                  this.card.addEventListener('click', (e) => {
+                    if (e.target.closest('.product__color-swatches--js')) setTimeout(() => this.render(), 0);
+                  });
+                }
+                if (this.btn) this.btn.addEventListener('click', () => this.add());
+                this.render();
+              }
+
+              color() {
+                if (!this.colorPos) return null;
+                var active = this.card && this.card.querySelector('.product__color-swatches--js.active');
+                if (active && active.dataset.value) return active.dataset.value;
+                var first = this.variants.find((v) => v.available) || this.variants[0];
+                return first ? first.options[this.colorPos - 1] : null;
+              }
+
+              match(size) {
+                var color = this.color();
+                return this.variants.find((v) =>
+                  (!this.colorPos || color === null || v.options[this.colorPos - 1] === color) &&
+                  (!this.sizePos || size === null || v.options[this.sizePos - 1] === size)
+                );
+              }
+
+              render() {
+                var color = this.color();
+                var colorEl = this.querySelector('[data-ff-color]');
+                if (colorEl) colorEl.textContent = color ? color.charAt(0) + color.slice(1).toLowerCase() : '';
+                if (!this.sizePos || !this.list) { this.update(); return; }
+                this.list.innerHTML = '';
+                var keep = false;
+                this.sizes.forEach((size) => {
+                  var v = this.match(size);
+                  if (!v) return;
+                  var b = document.createElement('button');
+                  b.type = 'button';
+                  b.className = 'ff-pick__size';
+                  b.textContent = size;
+                  b.setAttribute('role', 'radio');
+                  if (!v.available) {
+                    b.disabled = true;
+                    b.setAttribute('aria-label', size + ' (esgotado)');
+                  } else {
+                    b.addEventListener('click', () => { this.size = size; this.render(); });
+                  }
+                  var on = this.size === size && v.available;
+                  if (on) keep = true;
+                  b.classList.toggle('is-selected', on);
+                  b.setAttribute('aria-checked', on ? 'true' : 'false');
+                  this.list.appendChild(b);
+                });
+                if (!keep) this.size = null;
+                var sizeEl = this.querySelector('[data-ff-size]');
+                if (sizeEl) sizeEl.textContent = this.size || 'selecione';
+                this.update();
+              }
+
+              update() {
+                if (!this.btn) return;
+                this.classList.remove('is-missing');
+                if (this.hint) this.hint.hidden = true;
+                var anyAvailable = this.variants.some((v) =>
+                  v.available && (!this.colorPos || v.options[this.colorPos - 1] === this.color())
+                );
+                this.btn.disabled = !anyAvailable;
+                this.btn.textContent = anyAvailable ? this.label : 'Esgotado';
+              }
+
+              add() {
+                if (this.classList.contains('is-loading') || !this.form) return;
+                var v = this.sizePos ? (this.size ? this.match(this.size) : null) : this.match(null);
+                if (this.sizePos && !this.size) {
+                  this.classList.add('is-missing');
+                  if (this.hint) this.hint.hidden = false;
+                  return;
+                }
+                if (!v || !v.available) return;
+                this.idInput.disabled = false;
+                this.idInput.value = v.id;
+                this.classList.add('is-loading');
+                var done = () => {
+                  this.classList.remove('is-loading');
+                  this.btn.textContent = 'Adicionado ✓';
+                  setTimeout(() => this.update(), 1800);
+                };
+                var obs = new MutationObserver(() => {
+                  if (!this.submit.classList.contains('loading')) { obs.disconnect(); done(); }
+                });
+                this.form.requestSubmit(this.submit);
+                if (this.submit.classList.contains('loading')) {
+                  obs.observe(this.submit, { attributes: true, attributeFilter: ['class'] });
+                } else {
+                  done();
+                }
+              }
+            });
+          }
+
           (function () {
             var root = document.getElementById('ffLook-{{ section.id }}');
             if (!root) return;

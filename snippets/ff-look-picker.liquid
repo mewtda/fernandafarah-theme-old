@@ -1,0 +1,77 @@
+{%- comment -%}
+  Seletor de tamanho + adicionar à sacola do "Compre seu look".
+  A cor é escolhida nas bolinhas do próprio card (.product__color-swatches--js.active).
+
+  Accepts:
+  - card_product: {Object} Product
+  - section_id: {String}
+{%- endcomment -%}
+{%- liquid
+  assign color_names = settings.color_swatch_trigger | default: 'Cor' | split: ','
+  assign size_names = settings.size_trigger | default: 'Tamanho' | split: ','
+  assign color_pos = 0
+  assign size_pos = 0
+  for opt in card_product.options_with_values
+    assign opt_name = opt.name | strip
+    assign opt_down = opt_name | downcase
+    for n in color_names
+      assign n_clean = n | strip
+      if opt_name == n_clean
+        assign color_pos = opt.position
+      endif
+    endfor
+    for n in size_names
+      assign n_clean = n | strip
+      if opt_name == n_clean
+        assign size_pos = opt.position
+      endif
+    endfor
+    if size_pos == 0
+      if opt_down contains 'tamanho' or opt_down == 'size' or opt_down == 'tam'
+        assign size_pos = opt.position
+      endif
+    endif
+  endfor
+  assign form_id = 'ff-look-form-' | append: section_id | append: '-' | append: card_product.id
+-%}
+<ff-look-picker
+  class="ff-pick"
+  data-color-pos="{{ color_pos }}"
+  data-size-pos="{{ size_pos }}"
+>
+  <script type="application/json" data-ff-variants>
+    [
+      {%- for v in card_product.variants -%}
+        {"id":{{ v.id }},"available":{{ v.available | json }},"options":{{ v.options | json }}}{% unless forloop.last %},{% endunless %}
+      {%- endfor -%}
+    ]
+  </script>
+  {%- if size_pos > 0 -%}
+    <script type="application/json" data-ff-sizes>
+      {%- for opt in card_product.options_with_values -%}
+        {%- if opt.position == size_pos -%}{{ opt.values | json }}{%- endif -%}
+      {%- endfor -%}
+    </script>
+  {%- endif -%}
+
+  {%- if color_pos > 0 -%}
+    <p class="ff-pick__label">Cor: <span data-ff-color></span></p>
+  {%- endif -%}
+  {%- if size_pos > 0 -%}
+    <p class="ff-pick__label">Tamanho: <span data-ff-size>selecione</span></p>
+    <div class="ff-pick__sizes" data-ff-size-list role="radiogroup" aria-label="Tamanho"></div>
+  {%- endif -%}
+
+  <button type="button" class="ff-pick__add" data-ff-add {% unless card_product.available %}disabled{% endunless %}>
+    {%- if card_product.available -%}Adicionar à sacola{%- else -%}Esgotado{%- endif -%}
+  </button>
+  <p class="ff-pick__hint" data-ff-hint hidden>Selecione um tamanho</p>
+
+  <product-form class="ff-pick__form" data-hide-errors="true">
+    {%- form 'product', card_product, id: form_id, novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+      <input type="hidden" name="id" value="{{ card_product.selected_or_first_available_variant.id }}" disabled>
+      <input type="hidden" name="quantity" value="1">
+      <button type="submit" class="ff-pick__submit" tabindex="-1" aria-hidden="true"></button>
+    {%- endform -%}
+  </product-form>
+</ff-look-picker>
