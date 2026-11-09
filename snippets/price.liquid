@@ -51,9 +51,11 @@
       <span class="price-discount" style="color: #e00000; font-weight: 600; margin-left: 6px; margin-top: -2px;">
         -{{ discount_percent }}%
       </span>
+      {%- unless scope == 'detail' -%}
       <span class="parcel" style="font-weight: bold; font-size: 0.9em; display: block;">
         6x de {{ installment_money }}
       </span>
+      {%- endunless -%}
     </div>
   {%- else -%}
     <div class="price-regular">
@@ -64,6 +66,11 @@
         {{ money_price }}
       </span>
     </div>
+  {%- endif -%}
+  {%- if scope == 'detail' -%}
+    <span class="parcel" style="font-size: 0.9em; display: block; width: 100%;">
+      ou 6x de {{ installment_money }} sem juros
+    </span>
   {%- endif -%}
   {% if target.unit_price_measurement != null %}
     <small class="unit-price">

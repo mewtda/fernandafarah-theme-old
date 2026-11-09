@@ -609,7 +609,7 @@
   "platform_customizations": {
     "custom_css": [
       ".back-to-top {bottom: 10em !important; right: 14px !important;}",
-      ".product-detail__title {display: flex; justify-content: center;}"
+      ".product-detail__title {display: flex; justify-content: flex-start; text-align: left;}"
     ]
   }
 }
