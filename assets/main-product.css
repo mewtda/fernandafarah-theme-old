@@ -724,7 +724,7 @@ variant-radios-detail fieldset:last-of-type {
 
 /* Título do produto em serifada, diferente da fonte do preço */
 .product-detail__title {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Aileron", sans-serif;
   font-weight: 400;
   letter-spacing: 0.02em;
 }
