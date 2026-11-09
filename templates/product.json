@@ -52,7 +52,7 @@
         "delivery_return_iJHeMD": {
           "type": "delivery_return",
           "settings": {
-            "delivery_design": "vertical",
+            "delivery_design": "compact",
             "delivery_content_icon": "check_badge",
             "delivery_content": "<p><strong>Peças exclusivas e limitadas</strong></p>",
             "discount_content_icon": "discount",
