@@ -1,0 +1,117 @@
+/* Filtros da coleção no padrão do site: títulos pequenos em maiúsculas, linhas finas, preto e branco */
+
+/* Títulos dos grupos (Tipo de produto, Tamanho, Cor...) */
+#CollectionSidebar .collapsible-heading {
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #000;
+  padding-top: 18px;
+  padding-bottom: 16px;
+}
+#CollectionSidebar collapsible-block.border-bottom { border-color: #ededed; }
+#CollectionSidebar .collapsible-content { padding-bottom: 18px; }
+
+/* Cabeçalho da gaveta no celular */
+#CollectionSidebar .sidebar-header { border-color: #ededed; }
+#CollectionSidebar .sidebar-header h3 {
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #000;
+}
+
+/* Lista com caixinhas (Tipo de produto etc.) */
+#CollectionSidebar .items .item.mb-10 { margin-bottom: 9px; }
+#CollectionSidebar .items filter-item {
+  font-size: 11px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #444;
+  align-items: center;
+}
+#CollectionSidebar .items filter-item:hover { color: #000; }
+#CollectionSidebar .filter-item .checkbox {
+  width: 13px;
+  height: 13px;
+  border: 1px solid #000;
+  border-radius: 0;
+  background: #fff;
+  flex: 0 0 13px;
+}
+#CollectionSidebar filter-item:hover .checkbox { background: #f3f3f3; }
+#CollectionSidebar .current-filter filter-item { color: #000; font-weight: 500; }
+#CollectionSidebar .current-filter filter-item .checkbox { background: #000; border-color: #000; }
+#CollectionSidebar .current-filter filter-item .checkbox svg { color: #fff; transform: scale(.8); }
+
+/* Tamanhos */
+#CollectionSidebar .swatch-option.size .items { gap: 6px; }
+#CollectionSidebar .swatch-option.size .swatch-option.size {
+  min-width: 46px;
+  padding: 9px 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 0;
+  background: #fff;
+  color: #000;
+  font-size: 11px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+#CollectionSidebar .swatch-option.size .swatch-option.size:hover { border-color: #000; }
+#CollectionSidebar .swatch-option.size .swatch-option.size::before,
+#CollectionSidebar .swatch-option.size .swatch-option.size::after { display: none; }
+#CollectionSidebar .swatch-option.size .swatch-option.size.current-filter {
+  background: #000;
+  border-color: #000;
+  color: #fff;
+}
+
+/* Cores */
+#CollectionSidebar .swatch-option.color .items { gap: 10px; }
+#CollectionSidebar .swatch-option.color .clrbox {
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(0, 0, 0, .15);
+}
+#CollectionSidebar .swatch-option.color .swatch-option.color:hover .clrbox,
+#CollectionSidebar .swatch-option.color .swatch-option.color.current-filter .clrbox {
+  outline: 1px solid #000;
+  outline-offset: 2px;
+}
+
+/* Barra lateral no desktop: começa abaixo do header fixo e rola sozinha se for maior que a tela */
+@media screen and (min-width: 1025px) {
+  #CollectionSidebar.vertical .collection-sidebar.sticky-1025 {
+    top: 80px;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+  }
+}
+
+/* Filtros aplicados (chips acima dos produtos) */
+.filter-current .link-filter {
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 0;
+  color: #000;
+  padding: 8px 12px;
+  gap: 10px;
+  font-size: 11px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.filter-current .link-filter:hover { background: #000; color: #fff; }
+
+/* Barra de ferramentas (resultados e ordenar) */
+.toolbar-products .toolbar-amount {
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #6b6b6b;
+}
