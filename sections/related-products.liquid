@@ -224,10 +224,22 @@
                   });
                 }
                 if (this.btn) this.btn.addEventListener('click', () => this.add());
+                this.markSoldOutColors();
                 this.render();
                 var start = () => setTimeout(() => this.firstAvailable(), 0);
                 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
                 else start();
+              }
+
+              /* Risca as bolinhas de cor sem nenhum tamanho em estoque */
+              markSoldOutColors() {
+                if (!this.colorPos || !this.card) return;
+                this.card.querySelectorAll('.product__color-swatches--js').forEach((el) => {
+                  var value = el.dataset.value;
+                  var inStock = this.variants.some((v) => v.available && v.options[this.colorPos - 1] === value);
+                  el.classList.toggle('option-disabled', !inStock);
+                  if (!inStock) el.setAttribute('title', value + ' (esgotado)');
+                });
               }
 
               /* Se a cor/variante mostrada no card está esgotada, vai para a primeira variante com estoque */
