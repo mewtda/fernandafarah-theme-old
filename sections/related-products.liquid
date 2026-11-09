@@ -42,28 +42,8 @@
     assign hide_section = true
   endif
 
-  # ---- Foto do look (modo "Compre junto") ----
-  assign look_image = null
+  # ---- Quantidade de peças (modo "Compre junto") ----
   if products_source == 'compre_junto'
-    if section_st.look_image_metafield != blank
-      assign li_parts = section_st.look_image_metafield | strip | split: '.'
-      if li_parts.size == 2
-        assign li_value = product.metafields[li_parts[0]][li_parts[1]].value
-        if li_value != blank
-          assign look_image = li_value
-        endif
-      endif
-    endif
-    if look_image == blank and section_st.look_image != blank
-      assign look_image = section_st.look_image
-    endif
-    if look_image == blank and section_st.look_image_source != 'none'
-      if section_st.look_image_source == 'second' and product.media.size > 1
-        assign look_image = product.media[1].preview_image
-      elsif product.featured_media
-        assign look_image = product.featured_media.preview_image
-      endif
-    endif
     assign look_count = compre_junto_products.size
     if look_count > items_to_show
       assign look_count = items_to_show
@@ -105,18 +85,7 @@
       {%- if products_source == 'compre_junto' -%}
         {%- comment -%} Modo "Compre junto": foto do look + carrossel com as peças do metafield {%- endcomment -%}
         <style>
-          #ffLook-{{ section.id }} { --ff-look-cols: {{ items_per_row | at_most: 3 }}; --ff-look-gap: {{ column_gap | at_most: 24 }}px; }
-          .ff-look__inner { display: grid; gap: 24px; }
-          @media (min-width: 990px) {
-            .ff-look__inner { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 48px; align-items: start; }
-            .ff-look--no-image .ff-look__inner { grid-template-columns: minmax(0, 1fr); }
-          }
-          .ff-look__media { position: relative; overflow: hidden; background: #f5f5f5; }
-          .ff-look__img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
-          .ff-look__badge {
-            position: absolute; left: 12px; bottom: 12px; padding: 6px 10px;
-            background: #fff; color: #111; font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
-          }
+          #ffLook-{{ section.id }} { --ff-look-cols: {{ items_per_row | at_most: 5 }}; --ff-look-gap: {{ column_gap | at_most: 24 }}px; }
           .ff-look__content { min-width: 0; }
           .ff-look__header {
             display: flex; align-items: flex-end; justify-content: space-between; gap: 16px;
@@ -174,24 +143,7 @@
           @media (max-width: 749px) { .ff-look__arrows { display: none; } }
         </style>
 
-        <div id="ffLook-{{ section.id }}" class="ff-look{% if look_image == blank %} ff-look--no-image{% endif %}{% if section_st.section_width == 'full_width' %} px-20{% endif %}" data-ff-look>
-          <div class="ff-look__inner">
-            {%- if look_image != blank -%}
-              <div class="ff-look__media">
-                {{
-                  look_image
-                  | image_url: width: 1400
-                  | image_tag:
-                    loading: 'lazy',
-                    sizes: '(min-width: 990px) 40vw, 100vw',
-                    widths: '450, 600, 800, 1000, 1200, 1400',
-                    class: 'ff-look__img',
-                    alt: product.title
-                }}
-                <span class="ff-look__badge">{{ look_count }} {% if look_count == 1 %}peça{% else %}peças{% endif %}</span>
-              </div>
-            {%- endif -%}
-
+        <div id="ffLook-{{ section.id }}" class="ff-look{% if section_st.section_width == 'full_width' %} px-20{% endif %}" data-ff-look>
             <div class="ff-look__content">
               <div class="ff-look__header">
                 <div>
@@ -243,7 +195,6 @@
                 {% endfor %}
               </div>
             </div>
-          </div>
         </div>
 
         <script>
@@ -274,6 +225,24 @@
                 }
                 if (this.btn) this.btn.addEventListener('click', () => this.add());
                 this.render();
+                var start = () => setTimeout(() => this.firstAvailable(), 0);
+                if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+                else start();
+              }
+
+              /* Se a cor/variante mostrada no card está esgotada, vai para a primeira variante com estoque */
+              firstAvailable() {
+                var first = this.variants.find((v) => v.available);
+                if (!first) return;
+                var color = this.color();
+                var colorHasStock = !this.colorPos || this.variants.some((v) => v.available && v.options[this.colorPos - 1] === color);
+                if (colorHasStock) return;
+                if (this.sizePos) this.size = first.options[this.sizePos - 1];
+                var target = first.options[this.colorPos - 1];
+                var swatch = this.card && Array.from(this.card.querySelectorAll('.product__color-swatches--js'))
+                  .find((el) => el.dataset.value === target);
+                if (swatch) swatch.click();
+                else this.render();
               }
 
               color() {
@@ -554,29 +523,6 @@
       "id": "look_eyebrow",
       "label": "Compre junto: subtítulo",
       "default": "Complete sua produção"
-    },
-    {
-      "type": "text",
-      "id": "look_image_metafield",
-      "label": "Compre junto: metafield da foto do look",
-      "info": "Opcional. Formato namespace.chave, tipo arquivo (imagem). Tem prioridade sobre as opções abaixo.",
-      "default": "custom.foto_look"
-    },
-    {
-      "type": "image_picker",
-      "id": "look_image",
-      "label": "Compre junto: foto fixa do look"
-    },
-    {
-      "type": "select",
-      "id": "look_image_source",
-      "label": "Compre junto: sem foto definida, usar",
-      "default": "featured",
-      "options": [
-        { "value": "featured", "label": "Foto principal do produto" },
-        { "value": "second", "label": "Segunda foto do produto" },
-        { "value": "none", "label": "Sem foto (só carrossel)" }
-      ]
     },
     {
       "type": "range",
