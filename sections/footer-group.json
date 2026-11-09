@@ -74,7 +74,7 @@
       "settings": {
         "section_width": "fluid_container",
         "color_scheme": "scheme-5af42e36-ad1c-4052-a1c7-25170695ca08",
-        "enable_back_top": true,
+        "enable_back_top": false,
         "separator_line": "unset",
         "enable_country_selector": true,
         "enable_language_selector": false,
@@ -108,7 +108,7 @@
         "show_address": true,
         "copyright_text": "© 2026 Todos direitos reservados Fernanda Farah - 20.203.489/0001-06",
         "payment_enable": true,
-        "enable_back_top": true,
+        "enable_back_top": false,
         "background": "#000000",
         "text_color": "#ffffff"
       }

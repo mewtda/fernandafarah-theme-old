@@ -29,7 +29,7 @@
   </button>
 </div>
 <style>
-  .ff-wa { position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 999; font-family: inherit; }
+  .ff-wa { position: fixed; right: 0; bottom: 96px; z-index: 999; font-family: inherit; }
   .ff-wa__toggle {
     display: flex; flex-direction: column; align-items: stretch; width: 32px; padding: 0; margin: 0; cursor: pointer;
     background: #fff; color: #000; border: 1px solid #000; border-right: 0; border-radius: 0;
@@ -43,13 +43,13 @@
   .ff-wa__icon { display: flex; align-items: center; justify-content: center; height: 32px; border-top: 1px solid #000; }
   .ff-wa__toggle:hover .ff-wa__label { text-decoration: underline; text-underline-offset: 3px; }
   .ff-wa__panel {
-    position: absolute; right: 40px; top: 50%; width: 300px; max-width: calc(100vw - 56px);
+    position: absolute; right: 40px; bottom: 0; width: 300px; max-width: calc(100vw - 56px);
     background: #fff; color: #000; border: 1px solid #e5e5e5;
     box-shadow: 0 10px 30px rgba(0,0,0,.08); padding: 20px 20px 8px;
-    opacity: 0; transform: translate(8px, -50%); transition: opacity .2s ease, transform .2s ease;
+    opacity: 0; transform: translateX(8px); transition: opacity .2s ease, transform .2s ease;
   }
   .ff-wa__panel[hidden] { display: block; visibility: hidden; pointer-events: none; }
-  .ff-wa.is-open .ff-wa__panel { opacity: 1; transform: translate(0, -50%); visibility: visible; pointer-events: auto; }
+  .ff-wa.is-open .ff-wa__panel { opacity: 1; transform: none; visibility: visible; pointer-events: auto; }
   .ff-wa__head { display: flex; align-items: center; justify-content: space-between; }
   .ff-wa__title { margin: 0; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; font-weight: 500; color: #000; }
   .ff-wa__close { background: none; border: 0; padding: 4px; margin: -4px; cursor: pointer; color: #000; display: flex; }
