@@ -170,7 +170,7 @@
         "color_scheme": "default",
         "logo_position": "left_left",
         "logo_position_option": 1,
-        "separator_line": "all-page",
+        "separator_line": "unset",
         "enable_login_popup": true,
         "sticky_header_type": "always",
         "sticky_header_mobile": true,
