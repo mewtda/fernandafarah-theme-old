@@ -721,3 +721,10 @@ variant-radios-detail fieldset:last-of-type {
   opacity: 0;
   transform: translate(-50%, -50%) rotate(90deg);
 }
+
+/* Título do produto em serifada, diferente da fonte do preço */
+.product-detail__title {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
