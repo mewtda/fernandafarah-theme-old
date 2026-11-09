@@ -56,7 +56,7 @@
           "settings": {
             "image_width": 120,
             "store_heading": "Contato",
-            "store_description": "<p><strong>Whatsapp</strong>: <a href=\"https://api.whatsapp.com/send?phone=5531999628081\" target=\"_blank\" title=\"https://api.whatsapp.com/send?phone=5531971109057\">31 97110-9057</a></p>",
+            "store_description": "<p><strong>Whatsapp</strong>: <a href=\"https://api.whatsapp.com/send?phone=5531971109057\" target=\"_blank\" title=\"https://api.whatsapp.com/send?phone=5531971109057\">31 97110-9057</a></p>",
             "store_address": true,
             "store_phone": false,
             "store_email": true,
@@ -103,7 +103,7 @@
         "menu_2_title": "Institucional",
         "menu_2": "institucional",
         "contact_title": "Contato",
-        "contact_text": "<p><strong>Whatsapp</strong>: <a href=\"https://api.whatsapp.com/send?phone=5531999628081\" target=\"_blank\" title=\"https://api.whatsapp.com/send?phone=5531971109057\">31 97110-9057</a></p>",
+        "contact_text": "<p><strong>Whatsapp</strong>: <a href=\"https://api.whatsapp.com/send?phone=5531971109057\" target=\"_blank\" title=\"https://api.whatsapp.com/send?phone=5531971109057\">31 97110-9057</a></p>",
         "show_email": true,
         "show_address": true,
         "copyright_text": "© 2026 Todos direitos reservados Fernanda Farah - 20.203.489/0001-06",
