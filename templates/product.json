@@ -221,7 +221,7 @@
       ],
       "custom_css": [
         ".price-discount {margin-top: -13px; font-size: 1.5em; display: flex; justify-content: flex-start;}",
-        ".parcel {font-size: 1.5em !important; display: flex !important; justify-content: flex-start !important;}",
+        ".parcel {font-size: 1.2em !important; display: flex !important; justify-content: flex-start !important;}",
         ".card-product-price {display: flex; justify-content: flex-start;}"
       ],
       "settings": {
