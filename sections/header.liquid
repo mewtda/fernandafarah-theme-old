@@ -69,6 +69,21 @@
     .section-header:not(.shopify-section-header-sticky) .transparent.header-box header-inner::after {
       border-radius: var(--rounded-radius, 5px);
     }
+    /* Header transparente no topo com leve desfoque do fundo; ao rolar volta ao fundo branco */
+    .section-header:not(.shopify-section-header-sticky) header.transparent,
+    .section-header:not(.shopify-section-header-sticky) header.transparent-mobile {
+      isolation: isolate;
+    }
+    .section-header:not(.shopify-section-header-sticky) header.transparent::before,
+    .section-header:not(.shopify-section-header-sticky) header.transparent-mobile::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+    }
     .section-header:not(.shopify-section-header-sticky) .transparent.header-box header-inner:hover::after,
     .section-header:not(.shopify-section-header-sticky) .transparent:not(.header-box):hover::after {
       opacity: 1;
