@@ -1,5 +1,76 @@
 {{ 'marquee.css' | asset_url | stylesheet_tag }}
 {{ 'banner.css' | asset_url | stylesheet_tag }}
+<style>
+  #shopify-section-{{ section.id }} .sec__content-inner { max-width: 600px; }
+  #shopify-section-{{ section.id }} .sec__content-subheading {
+    text-transform: uppercase;
+    letter-spacing: .22em;
+    opacity: .6;
+  }
+  #shopify-section-{{ section.id }} .sec__content-heading { line-height: 1.2; text-wrap: balance; }
+  #shopify-section-{{ section.id }} .sec__content-des { line-height: 1.8; opacity: .85; }
+  #shopify-section-{{ section.id }} .sec__content-des p + p { margin-top: 1.2em; }
+  #shopify-section-{{ section.id }} .sec__content-des p:last-child {
+    margin-top: 1.6em;
+    padding-left: 16px;
+    border-left: 2px solid currentColor;
+    font-style: italic;
+    opacity: 1;
+  }
+  #shopify-section-{{ section.id }} .ff-store {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    margin-top: 32px;
+    padding: 22px 24px;
+    background: #f7f5f2;
+    border-radius: 6px;
+    text-align: left;
+  }
+  #shopify-section-{{ section.id }} .ff-store__icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--color-heading);
+  }
+  #shopify-section-{{ section.id }} .ff-store__title {
+    margin: 0 0 6px;
+    font-size: 11px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--color-heading);
+  }
+  #shopify-section-{{ section.id }} .ff-store__address {
+    margin: 0;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--color-heading);
+  }
+  #shopify-section-{{ section.id }} .ff-store__hours { margin: 6px 0 0; font-size: 13px; opacity: .7; }
+  #shopify-section-{{ section.id }} .ff-store__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    font-size: 12px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--color-heading);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  #shopify-section-{{ section.id }} .ff-store__link svg { transition: transform .2s; }
+  #shopify-section-{{ section.id }} .ff-store__link:hover svg { transform: translateX(3px); }
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .ff-store { padding: 18px; }
+  }
+</style>
 {%- liquid
   assign section_st = section.settings
   assign section_width = section_st.section_width
@@ -160,6 +231,35 @@
               {% endif %}
             </div>
           {% endif %}
+          {%- if section_st.store_address != blank -%}
+            {%- liquid
+              assign store_link = section_st.store_button_link
+              if store_link == blank
+                assign maps_query = 'Fernanda Farah ' | append: section_st.store_address | url_encode
+                assign store_link = 'https://www.google.com/maps/search/?api=1&query=' | append: maps_query
+              endif
+            -%}
+            <div class="ff-store">
+              <span class="ff-store__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+              </span>
+              <div class="ff-store__body">
+                {%- if section_st.store_heading != blank -%}
+                  <p class="ff-store__title">{{ section_st.store_heading }}</p>
+                {%- endif -%}
+                <address class="ff-store__address">{{ section_st.store_address | newline_to_br }}</address>
+                {%- if section_st.store_hours != blank -%}
+                  <p class="ff-store__hours">{{ section_st.store_hours | newline_to_br }}</p>
+                {%- endif -%}
+                {%- if section_st.store_button_label != blank -%}
+                  <a class="ff-store__link" href="{{ store_link }}" target="_blank" rel="noopener">
+                    {{ section_st.store_button_label }}
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                  </a>
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endif -%}
         </div>
       </div>
     </div>
@@ -653,6 +753,39 @@
       "id": "reset_spacing",
       "label": "t:sections.all.section_padding.reset_spacing.label",
       "default": false
+    },
+    {
+      "type": "header",
+      "content": "Loja física"
+    },
+    {
+      "type": "text",
+      "id": "store_heading",
+      "label": "Título",
+      "default": "Visite nossa loja física"
+    },
+    {
+      "type": "textarea",
+      "id": "store_address",
+      "label": "Endereço",
+      "info": "Deixe vazio para ocultar o bloco da loja."
+    },
+    {
+      "type": "textarea",
+      "id": "store_hours",
+      "label": "Horário de funcionamento (opcional)"
+    },
+    {
+      "type": "text",
+      "id": "store_button_label",
+      "label": "Texto do link",
+      "default": "Como chegar"
+    },
+    {
+      "type": "url",
+      "id": "store_button_link",
+      "label": "Link",
+      "info": "Opcional. Sem link, abre o Google Maps com o endereço."
     }
   ],
   "blocks": [
