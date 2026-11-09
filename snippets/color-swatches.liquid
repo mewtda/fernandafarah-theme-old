@@ -124,6 +124,13 @@
                 break
               endif
             endfor
+            assign color_in_stock = false
+            for i in variant
+              if i.available
+                assign color_in_stock = true
+                break
+              endif
+            endfor
 
             comment
               Get swatch value from custom color_config metafield
@@ -166,7 +173,7 @@
           -%}
 
           <div
-            class="product__color-swatches--js {% if limit_color != "default" and  forloop.index > limit_color and is_compare != true    %} opacity-0 hidden {% endif %} relative tooltip product__color-swatch {{ theme_st.swatch_item_type }} rounded-50 pointer {{ active }}"
+            class="product__color-swatches--js {% if limit_color != "default" and  forloop.index > limit_color and is_compare != true    %} opacity-0 hidden {% endif %} relative tooltip product__color-swatch {{ theme_st.swatch_item_type }} rounded-50 pointer {{ active }}{% unless color_in_stock %} option-disabled{% endunless %}"
             data-value="{{ value | replace: '"', "'" }}"
             data-color="{{ value | downcase | replace: ' ', '-' | replace: '"', "'" }}"
             data-custom-value="custom__color-swatches--{{ value | downcase | replace: ' ', '-' | replace: '"', "'" }}"
@@ -180,7 +187,7 @@
               style="background-color: {{ swatch_value }} !important; background-image: none !important;"
             {% endif %}
           >
-            <span class="tooltip-content invisible rounded-3 absolute pointer-none">{{ value }}</span>
+            <span class="tooltip-content invisible rounded-3 absolute pointer-none">{{ value }}{% unless color_in_stock %} (esgotado){% endunless %}</span>
           </div>
         {%- endfor -%}
         {% if limit_color != 'default' and color_left > 0 and is_compare != true %}
