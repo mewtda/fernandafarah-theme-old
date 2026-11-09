@@ -53,7 +53,33 @@
             </summary>
             <ul class="ff-footer__links">
               {%- for link in menu.links -%}
-                <li><a href="{{ link.url }}">{{ link.title | capitalize }}</a></li>
+                <li>
+                  {%- if link.links.size > 0 -%}
+                    <details class="ff-footer__sub">
+                      <summary class="ff-footer__sub-toggle">{{ link.title | capitalize }}<span class="ff-footer__sub-plus" aria-hidden="true"></span></summary>
+                      <ul class="ff-footer__sub-links">
+                        {%- for child in link.links -%}
+                          <li>
+                            {%- if child.links.size > 0 -%}
+                              <details class="ff-footer__sub">
+                                <summary class="ff-footer__sub-toggle">{{ child.title | capitalize }}<span class="ff-footer__sub-plus" aria-hidden="true"></span></summary>
+                                <ul class="ff-footer__sub-links">
+                                  {%- for grandchild in child.links -%}
+                                    <li><a href="{{ grandchild.url }}">{{ grandchild.title | capitalize }}</a></li>
+                                  {%- endfor -%}
+                                </ul>
+                              </details>
+                            {%- else -%}
+                              <a href="{{ child.url }}">{{ child.title | capitalize }}</a>
+                            {%- endif -%}
+                          </li>
+                        {%- endfor -%}
+                      </ul>
+                    </details>
+                  {%- else -%}
+                    <a href="{{ link.url }}">{{ link.title | capitalize }}</a>
+                  {%- endif -%}
+                </li>
               {%- endfor -%}
             </ul>
           </details>
@@ -148,6 +174,19 @@
   .ff-footer__links { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
   .ff-footer__links a, .ff-footer__contact-body, .ff-footer__contact-body a { color: var(--ff-f-muted); }
   .ff-footer__links a:hover, .ff-footer__contact-body a:hover { color: var(--ff-f-text); }
+
+  /* Submenus (desktop e celular): clicar abre/fecha a lista */
+  .ff-footer__sub > summary { list-style: none; }
+  .ff-footer__sub > summary::-webkit-details-marker { display: none; }
+  .ff-footer__sub-toggle { display: inline-flex; align-items: center; gap: 10px; color: var(--ff-f-muted); cursor: pointer; pointer-events: auto; }
+  .ff-footer__sub-toggle:hover, .ff-footer__sub[open] > .ff-footer__sub-toggle { color: var(--ff-f-text); }
+  .ff-footer__sub-plus { position: relative; width: 9px; height: 9px; flex-shrink: 0; }
+  .ff-footer__sub-plus::before, .ff-footer__sub-plus::after {
+    content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: currentColor; transition: transform .25s ease;
+  }
+  .ff-footer__sub-plus::after { transform: rotate(90deg); }
+  .ff-footer__sub[open] > .ff-footer__sub-toggle .ff-footer__sub-plus::after { transform: rotate(0deg); }
+  .ff-footer__sub-links { list-style: none; margin: 0; padding: 8px 0 2px 12px; display: grid; gap: 6px; }
   .ff-footer__contact-body p, .ff-footer__rte p { margin: 0 0 8px; }
   .ff-footer__rte strong { font-weight: 400; color: var(--ff-f-text); }
 

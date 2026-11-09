@@ -568,6 +568,129 @@
     </div>
   </nav>
 {%- endif -%}
+
+{%- comment -%} Desktop: menu sempre em uma linha; o que não couber vai para "Mais" {%- endcomment -%}
+<style>
+  @media (min-width: 1025px) {
+    .logo-position:not(.show-search-form).logo-left_left { grid-template-columns: 15rem minmax(0, 1fr) auto; }
+    .section-header .header__menu,
+    .section-header .navigation__menu-content { min-width: 0; }
+    .section-header .header__menu .horizontal-list { flex-wrap: nowrap !important; --col-gap: clamp(1.8rem, 2.2vw, 3.3rem) !important; }
+    .section-header .header__menu .horizontal-list > li.level0 { flex-shrink: 0; white-space: nowrap; }
+    .section-header .header__menu .horizontal-list > li.ff-nav-hidden { display: none !important; }
+    .ff-nav-more { position: relative; z-index: 2; }
+    .ff-nav-more > button {
+      display: inline-flex; align-items: center; gap: 6px; min-height: 50px; padding: 0; border: 0; background: none;
+      color: var(--color-heading, #111); font: inherit; font-weight: 500; text-transform: uppercase; letter-spacing: inherit; cursor: pointer;
+    }
+    .ff-nav-more > button svg { width: 9px; height: 6px; transition: transform .2s ease; }
+    .ff-nav-more.is-open > button svg { transform: rotate(180deg); }
+    .ff-nav-more__panel {
+      position: absolute; top: 100%; right: 0; z-index: 30; min-width: 220px; max-height: 70vh; overflow-y: auto;
+      padding: 20px 24px; background: #fff; color: #111; border: 1px solid #ebebeb; box-shadow: 0 8px 24px rgba(0,0,0,.06);
+      opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity .2s ease, transform .2s ease, visibility 0s linear .2s;
+    }
+    .ff-nav-more.is-open .ff-nav-more__panel { opacity: 1; visibility: visible; transform: none; transition: opacity .2s ease, transform .2s ease; }
+    .ff-nav-more__panel ul { list-style: none; margin: 0; padding: 0; }
+    .ff-nav-more__panel > ul > li + li { margin-top: 14px; }
+    .ff-nav-more__panel a { color: inherit; text-decoration: none !important; }
+    .ff-nav-more__panel a:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .ff-nav-more__title { text-transform: uppercase; letter-spacing: .08em; }
+    .ff-nav-more__sub { margin-top: 8px !important; padding-left: 12px !important; display: grid; gap: 6px; text-transform: none; letter-spacing: normal; opacity: .75; }
+  }
+  @media (max-width: 1024.98px) { .ff-nav-more { display: none !important; } }
+</style>
+<script>
+  (function () {
+    var ul = document.currentScript && document.currentScript.parentElement
+      ? document.currentScript.parentElement.querySelector('.header__menu .horizontal-list')
+      : null;
+    ul = ul || document.querySelector('.section-header .header__menu .horizontal-list');
+    if (!ul || ul.dataset.ffNavMore) return;
+    ul.dataset.ffNavMore = '1';
+    var desktop = window.matchMedia('(min-width: 1025px)');
+
+    var items = Array.prototype.filter.call(ul.children, function (li) {
+      return li.tagName === 'LI' && li.classList.contains('level0') && li.querySelector(':scope > menu-item');
+    });
+    if (!items.length) return;
+
+    var more = document.createElement('li');
+    more.className = 'level0 ff-nav-more';
+    more.hidden = true;
+    more.innerHTML =
+      '<button type="button" class="heading-style" aria-expanded="false" aria-haspopup="true">Mais' +
+      '<svg viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.2"/></svg></button>' +
+      '<div class="ff-nav-more__panel"><ul></ul></div>';
+    items[items.length - 1].after(more);
+    var btn = more.querySelector('button');
+    var list = more.querySelector('ul');
+
+    var entries = items.map(function (li) {
+      var a = li.querySelector(':scope > menu-item > a');
+      var entry = document.createElement('li');
+      entry.hidden = true;
+      var title = document.createElement(a && a.getAttribute('href') ? 'a' : 'span');
+      title.className = 'ff-nav-more__title';
+      if (a && a.getAttribute('href')) title.href = a.getAttribute('href');
+      title.textContent = a ? a.textContent.trim() : '';
+      entry.appendChild(title);
+      var subs = li.querySelectorAll('.submenu a[href]');
+      if (subs.length) {
+        var sub = document.createElement('ul');
+        sub.className = 'ff-nav-more__sub';
+        var seen = {};
+        Array.prototype.forEach.call(subs, function (s) {
+          var text = s.textContent.trim();
+          var key = s.getAttribute('href') + '|' + text;
+          if (!text || seen[key]) return;
+          seen[key] = true;
+          var item = document.createElement('li');
+          var link = document.createElement('a');
+          link.href = s.getAttribute('href');
+          link.textContent = text;
+          item.appendChild(link);
+          sub.appendChild(item);
+        });
+        if (sub.children.length) entry.appendChild(sub);
+      }
+      list.appendChild(entry);
+      return entry;
+    });
+
+    var container = ul.parentElement;
+    var overflowing = function () { return ul.scrollWidth > container.clientWidth + 1; };
+
+    var fit = function () {
+      items.forEach(function (li) { li.classList.remove('ff-nav-hidden'); });
+      entries.forEach(function (e) { e.hidden = true; });
+      more.hidden = true;
+      if (!desktop.matches || !overflowing()) return;
+      more.hidden = false;
+      for (var i = items.length - 1; i >= 0 && overflowing(); i--) {
+        items[i].classList.add('ff-nav-hidden');
+        entries[i].hidden = false;
+      }
+    };
+
+    var setOpen = function (open) {
+      more.classList.toggle('is-open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+    var closeTimer;
+    more.addEventListener('mouseenter', function () { clearTimeout(closeTimer); setOpen(true); });
+    more.addEventListener('mouseleave', function () { closeTimer = setTimeout(function () { setOpen(false); }, 200); });
+    btn.addEventListener('click', function () { setOpen(!more.classList.contains('is-open')); });
+    document.addEventListener('click', function (e) { if (!more.contains(e.target)) setOpen(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+
+    var t;
+    window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(fit, 100); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+    window.addEventListener('load', fit);
+    fit();
+  })();
+</script>
 {% comment %}
 
 This file has been rewritten to preserve the original behavior.

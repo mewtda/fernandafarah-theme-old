@@ -161,7 +161,8 @@
           <span class="cart-item__error-text cart-item__error-text-{{ item.id }}"></span>
           {%- render 'icon-error' -%}
         </div>
-        {% if show_add_cart == true and theme_st.enable_catalog_mode == false %}
+        {%- comment -%} Quantidade sempre visível no carrinho (independe do botão de compra dos cards) {%- endcomment -%}
+        {% if theme_st.enable_catalog_mode == false %}
           <div class="minicart__actions mt-6 flex grow-1 bottom-left w-full">
             <quantity-input class="quantity rounded-3 border inline-flex text-center grey-bg">
               <button

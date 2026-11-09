@@ -750,3 +750,22 @@ collapsible-block + product-recommendations {
 variant-radios-detail fieldset:last-of-type {
   margin-bottom: 0;
 }
+
+/* "+" dos accordions (Descrição, Envio e entrega...): alinhado à direita, vira "−" quando aberto */
+.collapsible-heading { padding-right: 24px; }
+.collapsible-heading .icon_plus-animation::before,
+.collapsible-heading .icon_plus-animation::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: calc(100% - 6px);
+  transform: translate(-50%, -50%) rotate(-90deg);
+  background-color: currentColor;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.collapsible-heading .icon_plus-animation::before { width: 12px; height: 1px; }
+.collapsible-heading .icon_plus-animation::after { width: 1px; height: 12px; }
+.active .collapsible-heading .icon_plus-animation::before {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(90deg);
+}

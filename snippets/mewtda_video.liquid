@@ -147,6 +147,9 @@
     visibility: visible;
   }
 
+  /* Com o vídeo maximizado, só o WhatsApp fica acima dele */
+  body:has(.sv-modal-{{ sv_id }}.active) .ff-wa { z-index: 10001; }
+
   .sv-modal-inner-{{ sv_id }} {
     position: relative;
     width: 100%;
@@ -533,6 +536,11 @@
 <script>
   (function() {
     var id = '{{ sv_id }}';
+
+    /* Move o modal para o <body>: dentro da seção do produto ele ficava preso no contexto de
+       empilhamento e o header, a top bar e os cards apareciam por cima do vídeo maximizado. */
+    var svModalEl = document.getElementById('sv-modal-' + id);
+    if (svModalEl && svModalEl.parentNode !== document.body) document.body.appendChild(svModalEl);
     var selectedSwatchIndex = 0;
 
     var videosArray = [
