@@ -42,9 +42,17 @@
     assign hide_section = true
   endif
 
-  # ---- Quantidade de peças (modo "Compre junto") ----
+  # ---- Quantidade de peças (modo "Compre junto"): só as que têm estoque ----
   if products_source == 'compre_junto'
-    assign look_count = compre_junto_products.size
+    assign look_count = 0
+    for cj_item in compre_junto_products
+      if cj_item.available
+        assign look_count = look_count | plus: 1
+      endif
+    endfor
+    if compre_junto_products != blank and look_count == 0
+      assign hide_section = true
+    endif
     if look_count > items_to_show
       assign look_count = items_to_show
     endif
@@ -175,6 +183,7 @@
                   {%- if cj_count >= items_to_show -%}
                     {%- break -%}
                   {%- endif -%}
+                  {%- unless cj_product.available -%}{%- continue -%}{%- endunless -%}
                   <div class="ff-look__slide">
                     {% render 'product-item',
                       card_product: cj_product,
