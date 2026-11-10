@@ -21,9 +21,15 @@
             "link": ""
           }
         },
+        "announcement_jtfydm": {
+          "type": "announcement",
+          "settings": {
+            "text": "10% off com o cupom PRIMEIRACOMPRA",
+            "link": ""
+          }
+        },
         "announcement_2": {
           "type": "announcement",
-          "disabled": true,
           "settings": {
             "text": "Parcele em até 6x sem juros",
             "link": ""
@@ -32,6 +38,7 @@
       },
       "block_order": [
         "announcement_1",
+        "announcement_jtfydm",
         "announcement_2"
       ],
       "settings": {
