@@ -56,7 +56,7 @@
             "delivery_content_icon": "check_badge",
             "delivery_content": "<p><strong>Peças exclusivas e limitadas</strong></p>",
             "discount_content_icon": "discount",
-            "discount_content": "<p>15% de Cashback</p>",
+            "discount_content": "<p>15% de Cashback &nbsp;&middot;&nbsp; 10% OFF cupom <strong>PRIMEIRACOMPRA</strong></p>",
             "return_content_icon": "truck",
             "return_content": "<p>Frete grátis em compras acima de R$ 1800,00</p>"
           }
