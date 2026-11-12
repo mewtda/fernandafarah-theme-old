@@ -12,35 +12,6 @@
     "slideshow_RykJMi": {
       "type": "slideshow",
       "blocks": {
-        "slider_item_JbXYD3": {
-          "type": "slider_item",
-          "settings": {
-            "image": "shopify://shop_images/BANNER_V1.png",
-            "image_mobile": "shopify://shop_images/BANNER_-_MOB_02.png",
-            "mobile_top_spacing": 0,
-            "overlay_opacity": 0,
-            "slider_effect": "effect_fadeinup",
-            "subheading": "",
-            "heading": "",
-            "description": "",
-            "first_button_label": "",
-            "first_button_link": "shopify://collections/novidades",
-            "first_button_style": false,
-            "second_button_label": "",
-            "second_button_link": "",
-            "second_button_style": false,
-            "content_alignment": "center",
-            "content_position": "bottom-center",
-            "content_width": "container",
-            "content_max_width": 100,
-            "content_padding_block": 60,
-            "content_padding_inline": 30,
-            "show_content_background": false,
-            "content_background": "#ffffff",
-            "content_box_opacity": 100,
-            "content_alignment_mobile": "center"
-          }
-        },
         "slider_item_pULFaf": {
           "type": "slider_item",
           "settings": {
@@ -64,6 +35,35 @@
             "content_max_width": 40,
             "content_padding_block": 40,
             "content_padding_inline": 15,
+            "show_content_background": false,
+            "content_background": "#ffffff",
+            "content_box_opacity": 100,
+            "content_alignment_mobile": "center"
+          }
+        },
+        "slider_item_JbXYD3": {
+          "type": "slider_item",
+          "settings": {
+            "image": "shopify://shop_images/BANNER_V1.png",
+            "image_mobile": "shopify://shop_images/BANNER_-_MOB_02.png",
+            "mobile_top_spacing": 0,
+            "overlay_opacity": 0,
+            "slider_effect": "effect_fadeinup",
+            "subheading": "",
+            "heading": "",
+            "description": "",
+            "first_button_label": "",
+            "first_button_link": "shopify://collections/novidades",
+            "first_button_style": false,
+            "second_button_label": "",
+            "second_button_link": "",
+            "second_button_style": false,
+            "content_alignment": "center",
+            "content_position": "bottom-center",
+            "content_width": "container",
+            "content_max_width": 100,
+            "content_padding_block": 60,
+            "content_padding_inline": 30,
             "show_content_background": false,
             "content_background": "#ffffff",
             "content_box_opacity": 100,
@@ -161,8 +161,8 @@
         }
       },
       "block_order": [
-        "slider_item_JbXYD3",
         "slider_item_pULFaf",
+        "slider_item_JbXYD3",
         "slider_item_NgPjLx",
         "slider_item_RTtkGA",
         "slider_item_WMKwRK"
