@@ -15,8 +15,8 @@
         "slider_item_pULFaf": {
           "type": "slider_item",
           "settings": {
-            "image": "shopify://shop_images/BANNER_DSK_1.png",
-            "image_mobile": "shopify://shop_images/BANNER_MOB_1.png",
+            "image": "shopify://shop_images/BANNER_DSK_2.png",
+            "image_mobile": "shopify://shop_images/BANNER_MOB_2.png",
             "mobile_top_spacing": 0,
             "overlay_opacity": 0,
             "slider_effect": "effect_fadeinup",
