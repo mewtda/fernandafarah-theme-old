@@ -48,23 +48,11 @@
         "auto_rotate": true,
         "change_every": 5,
         "uppercase": true,
-        "font_size": 13,
-        "font_weight": 400,
+        "font_size": 10,
+        "font_weight": 600,
         "letter_spacing": 5,
         "padding_top": 10,
         "padding_bottom": 10
-      }
-    },
-    "black_banner": {
-      "type": "black-banner",
-      "settings": {
-        "title": "Black",
-        "title_accent": "",
-        "subtitle": "Peças limitadas",
-        "link": "shopify://collections/sale-1",
-        "button_label": "Comprar",
-        "accent_color": "#b80000",
-        "show_mobile": true
       }
     },
     "top_bar_CbXNYj": {
@@ -231,7 +219,6 @@
   },
   "order": [
     "announcement_dawn",
-    "black_banner",
     "top_bar_CbXNYj",
     "header"
   ]
