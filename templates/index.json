@@ -348,7 +348,8 @@
         "slider_item_UjzG9f": {
           "type": "slider_item",
           "settings": {
-            "image": "shopify://shop_images/BANNER_QUADRADO_1.png",
+            "image": "shopify://shop_images/BANNER_FAIXA.png",
+            "image_mobile": "shopify://shop_images/BANNER_QUADRADO_1.png",
             "mobile_top_spacing": 0,
             "overlay_opacity": 0,
             "slider_effect": "effect_fadeindown",
@@ -379,7 +380,7 @@
       ],
       "name": "t:sections.slideshow.name",
       "settings": {
-        "section_width": "container",
+        "section_width": "full_width",
         "section_scroll_animation": false,
         "slide_height": "adapt",
         "desktop_height": 800,
