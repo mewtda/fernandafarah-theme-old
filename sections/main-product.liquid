@@ -354,10 +354,31 @@
             {% endif %}
           {%- when 'delivery_return' -%}
             {% comment %} delivery return {% endcomment %}
+            {%- liquid
+              assign is_black_product = false
+              for v in product.variants
+                if v.compare_at_price > v.price
+                  assign is_black_product = true
+                  break
+                endif
+              endfor
+              unless is_black_product
+                for c in product.collections
+                  if c.handle == 'sale' or c.handle == 'sale-1'
+                    assign is_black_product = true
+                    break
+                  endif
+                endfor
+              endunless
+              assign coupon_content = block_st.coupon_content
+              if is_black_product
+                assign coupon_content = blank
+              endif
+            -%}
             {%- if block_st.delivery_design == 'compact' -%}
               {%- if block_st.delivery_content != blank
                 or block_st.discount_content != blank
-                or block_st.coupon_content != blank
+                or coupon_content != blank
                 or block_st.return_content != blank
               -%}
                 <style>
@@ -426,12 +447,12 @@
                       <div class="ff-perks__text">{{ block_st.discount_content }}</div>
                     </li>
                   {%- endif -%}
-                  {%- if block_st.coupon_content != blank -%}
+                  {%- if coupon_content != blank -%}
                     <li class="ff-perks__item">
                       {%- if block_st.coupon_content_icon != 'none' -%}
                         <span class="ff-perks__icon" aria-hidden="true">{% render 'icon_svg_list', icon: block_st.coupon_content_icon, custom_width: 18, custom_height: 18 %}</span>
                       {%- endif -%}
-                      <div class="ff-perks__text">{{ block_st.coupon_content }}</div>
+                      <div class="ff-perks__text">{{ coupon_content }}</div>
                     </li>
                   {%- endif -%}
                   {%- if block_st.return_content != blank -%}

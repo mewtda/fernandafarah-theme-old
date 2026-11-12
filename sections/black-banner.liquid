@@ -6,6 +6,14 @@
   endif
 -%}
 {%- style -%}
+  .section-black-banner {
+    position: sticky;
+    top: 0;
+    z-index: 16;
+  }
+  .shopify-section-header-sticky {
+    top: var(--black-banner-h, 0px) !important;
+  }
   #BlackBanner-{{ section.id }} {
     --bb-red: {{ section_st.accent_color }};
     display: block;
@@ -63,20 +71,33 @@
   }
   @media (max-width: 749px) {
     #BlackBanner-{{ section.id }} .black-banner__inner {
+      flex-wrap: nowrap;
       gap: 10px;
-      padding: 8px 12px;
+      padding: 7px 10px;
     }
     #BlackBanner-{{ section.id }} .black-banner__title {
-      font-size: 20px;
+      font-size: 18px;
+      white-space: nowrap;
     }
     #BlackBanner-{{ section.id }} .black-banner__divider {
-      height: 20px;
+      flex: none;
+      height: 18px;
     }
     #BlackBanner-{{ section.id }} .black-banner__subtitle {
-      font-size: 11px;
-      letter-spacing: 0.2em;
+      min-width: 0;
+      font-size: 10px;
+      line-height: 1.2;
+      letter-spacing: 0.12em;
     }
     #BlackBanner-{{ section.id }} .black-banner__cta {
+      flex: none;
+      padding: 6px 10px;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+    }
+  }
+  @media (max-width: 359px) {
+    #BlackBanner-{{ section.id }} .black-banner__divider {
       display: none;
     }
   }
@@ -106,6 +127,20 @@
 {%- else -%}
   </div>
 {%- endif -%}
+
+<script>
+  (function () {
+    var el = document.getElementById('BlackBanner-{{ section.id }}');
+    if (!el) return;
+    var root = document.documentElement;
+    function update() {
+      root.style.setProperty('--black-banner-h', el.offsetHeight + 'px');
+    }
+    update();
+    window.addEventListener('resize', update);
+    if ('ResizeObserver' in window) new ResizeObserver(update).observe(el);
+  })();
+</script>
 
 {% schema %}
 {
