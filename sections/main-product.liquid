@@ -5,11 +5,11 @@
     display: inline-flex;
     align-items: center;
     height: 1.9em;
-    margin-right: 10px;
+    margin-left: 6px;
     padding: 0 10px 0 22px;
     background: #b80000;
     color: #ffffff;
-    font-size: 0.58em;
+    font-size: 14px;
     font-weight: 700;
     line-height: 1;
     letter-spacing: 0.04em;
@@ -289,15 +289,6 @@
                 {{ block.shopify_attributes }} 
               >
               {%- render 'mewtda_video' -%}
-              {%- liquid
-                assign tag_variant = product.selected_or_first_available_variant
-                assign tag_percent = 0
-                if tag_variant.compare_at_price > tag_variant.price
-                  assign tag_diff = tag_variant.compare_at_price | minus: tag_variant.price
-                  assign tag_percent = tag_diff | times: 100.0 | divided_by: tag_variant.compare_at_price | round
-                endif
-              -%}
-              <span class="product-detail__discount-tag"{% if tag_percent <= 0 %} hidden{% endif %}>-{{ tag_percent }}%</span>
               {%- if product.title != blank -%}
                 {{ product.title | escape }}
               {%- else -%}

@@ -68,6 +68,13 @@
     </div>
   {%- endif -%}
   {%- if scope == 'detail' -%}
+    {%- liquid
+      assign tag_percent = 0
+      if compare_at_price > price
+        assign tag_percent = discount_amount | times: 100.0 | divided_by: compare_at_price | round
+      endif
+    -%}
+    <span class="product-detail__discount-tag"{% if tag_percent <= 0 %} hidden{% endif %}>-{{ tag_percent }}%</span>
     <span class="parcel" style="font-size: 0.9em; display: block; width: 100%;">
       ou 6x de {{ installment_money }} sem juros
     </span>
