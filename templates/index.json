@@ -342,6 +342,71 @@
         "reset_spacing": false
       }
     },
+    "slideshow_L6Bi7P": {
+      "type": "slideshow",
+      "blocks": {
+        "slider_item_UjzG9f": {
+          "type": "slider_item",
+          "settings": {
+            "image": "shopify://shop_images/BANNER_QUADRADO_1.png",
+            "mobile_top_spacing": 0,
+            "overlay_opacity": 0,
+            "slider_effect": "effect_fadeindown",
+            "subheading": "",
+            "heading": "",
+            "description": "",
+            "first_button_label": "",
+            "first_button_link": "shopify://collections/black26",
+            "first_button_style": false,
+            "second_button_label": "",
+            "second_button_link": "",
+            "second_button_style": false,
+            "content_alignment": "left",
+            "content_position": "bottom-left",
+            "content_width": "container",
+            "content_max_width": 100,
+            "content_padding_block": 60,
+            "content_padding_inline": 30,
+            "show_content_background": false,
+            "content_background": "#fff",
+            "content_box_opacity": 100,
+            "content_alignment_mobile": "left"
+          }
+        }
+      },
+      "block_order": [
+        "slider_item_UjzG9f"
+      ],
+      "name": "t:sections.slideshow.name",
+      "settings": {
+        "section_width": "container",
+        "section_scroll_animation": false,
+        "slide_height": "adapt",
+        "desktop_height": 800,
+        "mobile_height": 360,
+        "color_scheme": "",
+        "subheading_font_size": 14,
+        "subheading_font_weight": "body_weight",
+        "subheading_spacing_bottom": 10,
+        "heading_font_size": 70,
+        "heading_font_weight": "heading_weight",
+        "heading_uppercase": false,
+        "heading_spacing_bottom": 10,
+        "des_font_size": 14,
+        "des_font_weight": "body_weight",
+        "des_spacing_bottom": 40,
+        "show_layout3": false,
+        "show_arrow": false,
+        "carousel_pagination": "disable",
+        "pagination_position": "center",
+        "autoplay": false,
+        "autorotate_speed": 5,
+        "content_below_image": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "reset_spacing": false
+      }
+    },
     "collection_packery_6GNcrw": {
       "type": "collection-packery",
       "blocks": {
@@ -751,6 +816,7 @@
     "17743889294751bb72",
     "video_width_text_ovlerlay_zzK7cP",
     "products_carousel_BrKFhr",
+    "slideshow_L6Bi7P",
     "collection_packery_6GNcrw",
     "collection_list_VmEYkJ",
     "products_carousel_ctPF6C",
