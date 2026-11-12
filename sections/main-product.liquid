@@ -1,13 +1,36 @@
 {{ 'main-product.css' | asset_url | stylesheet_tag }}
 {% style %}
   .product-detail__black-note {
-    margin: -10px 0 20px;
-    text-align: center;
-    font-size: 13px;
-    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: -8px 0 20px;
+    padding: 10px 14px;
+    border: 3px solid #000000;
+    background: #ffffff;
+    color: #000000;
     text-transform: uppercase;
+    line-height: 1;
+  }
+  .product-detail__black-note strong {
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+  }
+  .product-detail__black-note strong span {
     color: #b80000;
+  }
+  .product-detail__black-note i {
+    width: 3px;
+    height: 18px;
+    background: #000000;
+  }
+  .product-detail__black-note em {
+    font-style: normal;
+    font-size: 12px;
     font-weight: 600;
+    letter-spacing: 0.25em;
   }
   @font-face {
     font-family: "Aileron";
@@ -285,7 +308,7 @@
                     type: 'main_product'
                   -%}
                 </div>
-                <p class="product-detail__black-note">Black 26, peças limitadas</p>
+                <p class="product-detail__black-note"><strong>Black <span>26</span></strong><i aria-hidden="true"></i><em>Peças limitadas</em></p>
               {% endif %}
             {%- else -%}
               <a

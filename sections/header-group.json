@@ -55,6 +55,18 @@
         "padding_bottom": 10
       }
     },
+    "black_banner": {
+      "type": "black-banner",
+      "settings": {
+        "title": "Black",
+        "title_accent": "26",
+        "subtitle": "Peças limitadas",
+        "link": "shopify://collections/sale-1",
+        "button_label": "Comprar",
+        "accent_color": "#b80000",
+        "show_mobile": true
+      }
+    },
     "top_bar_CbXNYj": {
       "type": "top-bar",
       "blocks": {
@@ -219,6 +231,7 @@
   },
   "order": [
     "announcement_dawn",
+    "black_banner",
     "top_bar_CbXNYj",
     "header"
   ]
