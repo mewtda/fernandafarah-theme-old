@@ -1,5 +1,23 @@
 {{ 'main-product.css' | asset_url | stylesheet_tag }}
 {% style %}
+  .product-detail__discount-tag {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 4px 8px;
+    background: #b80000;
+    color: #ffffff;
+    font-size: 0.6em;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+    vertical-align: middle;
+  }
+  .product-detail__discount-tag[hidden] {
+    display: none;
+  }
+  .sale_badge .product__badges-sale {
+    display: none !important;
+  }
   .product-detail__black-note {
     display: flex;
     align-items: center;
@@ -254,6 +272,15 @@
                 {{ block.shopify_attributes }} 
               >
               {%- render 'mewtda_video' -%}
+              {%- liquid
+                assign tag_variant = product.selected_or_first_available_variant
+                assign tag_percent = 0
+                if tag_variant.compare_at_price > tag_variant.price
+                  assign tag_diff = tag_variant.compare_at_price | minus: tag_variant.price
+                  assign tag_percent = tag_diff | times: 100.0 | divided_by: tag_variant.compare_at_price | round
+                endif
+              -%}
+              <span class="product-detail__discount-tag"{% if tag_percent <= 0 %} hidden{% endif %}>-{{ tag_percent }}%</span>
               {%- if product.title != blank -%}
                 {{ product.title | escape }}
               {%- else -%}
@@ -261,6 +288,28 @@
               {% endif %}
             </h1>
           {%- when 'badges' -%}
+            <script>
+              (function () {
+                var root = document.currentScript.parentElement;
+                function sync() {
+                  var tag = root.querySelector('.product-detail__discount-tag');
+                  if (!tag) return;
+                  var badge = root.querySelector('.sale_badge .product__badges-sale');
+                  var text = badge ? badge.textContent.trim() : '';
+                  if (text) {
+                    tag.textContent = text;
+                    tag.hidden = false;
+                  } else {
+                    tag.hidden = true;
+                  }
+                }
+                document.addEventListener('DOMContentLoaded', function () {
+                  var holder = root.querySelector('.sale_badge');
+                  if (!holder) return;
+                  new MutationObserver(sync).observe(holder, { childList: true, subtree: true, characterData: true });
+                });
+              })();
+            </script>
             <div
               class="sale_badge"
               {{ block.shopify_attributes }}
