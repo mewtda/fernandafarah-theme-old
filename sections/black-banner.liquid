@@ -105,7 +105,7 @@
   <div id="BlackBanner-{{ section.id }}" class="black-banner">
 {%- endif -%}
   <div class="black-banner__inner">
-    <p class="black-banner__title">{{ section_st.title }} <span>{{ section_st.title_accent }}</span></p>
+    <p class="black-banner__title">{{ section_st.title }}{% if section_st.title_accent != blank %} <span>{{ section_st.title_accent }}</span>{% endif %}</p>
     {%- if section_st.subtitle != blank -%}
       <span class="black-banner__divider" aria-hidden="true"></span>
       <p class="black-banner__subtitle">{{ section_st.subtitle }}</p>
@@ -126,7 +126,7 @@
   "class": "section-black-banner",
   "settings": [
     { "type": "text", "id": "title", "label": "Título", "default": "Black" },
-    { "type": "text", "id": "title_accent", "label": "Destaque do título", "default": "26" },
+    { "type": "text", "id": "title_accent", "label": "Destaque do título (opcional)" },
     { "type": "text", "id": "subtitle", "label": "Subtítulo", "default": "Peças limitadas" },
     { "type": "url", "id": "link", "label": "Link" },
     { "type": "text", "id": "button_label", "label": "Texto do botão", "default": "Comprar" },

@@ -59,7 +59,7 @@
       "type": "black-banner",
       "settings": {
         "title": "Black",
-        "title_accent": "26",
+        "title_accent": "",
         "subtitle": "Peças limitadas",
         "link": "shopify://collections/sale-1",
         "button_label": "Comprar",
