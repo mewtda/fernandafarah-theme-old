@@ -158,7 +158,7 @@
   endif
 
   assign black_badge = false
-  if type == 'product_item' and card_product != blank
+  if card_product != blank and type == 'product_item' or card_product != blank and type == 'price_badges'
     if sale
       assign black_badge = true
     else
@@ -205,11 +205,27 @@
       data-show-preorder="{{ show_pre_order }}"
     >
       {%- if black_badge -%}
-        <div
-          class="product__badges-black product__badges-inner align-self-start px-10 inline-flex content-center subheading_weight text-center lh-normal uppercase"
-          style="--badges-color: #ffffff;--badges-bg: #000000;"
-        >
-          Black
+        {%- liquid
+          assign black_discount = 0
+          if sale
+            assign black_discount = compare_at_price | minus: price | times: 100.0 | divided_by: compare_at_price | round
+          endif
+        -%}
+        <div class="product__badges-black-row align-self-start flex" style="gap: 3px;">
+          <div
+            class="product__badges-black product__badges-inner px-10 inline-flex content-center subheading_weight text-center lh-normal uppercase"
+            style="--badges-color: #ffffff;--badges-bg: #000000;"
+          >
+            Black
+          </div>
+          {%- if black_discount > 0 -%}
+            <div
+              class="product__badges-black-discount product__badges-inner px-10 inline-flex content-center subheading_weight text-center lh-normal"
+              style="--badges-color: #ffffff;--badges-bg: #b80000;"
+            >
+              -{{ black_discount }}%
+            </div>
+          {%- endif -%}
         </div>
       {%- endif -%}
       {%- if sale and show_sale and sale_badge_type != 'scrolling' -%}

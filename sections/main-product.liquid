@@ -1,8 +1,5 @@
 {{ 'main-product.css' | asset_url | stylesheet_tag }}
 {% style %}
-  .sale_badge .product__badges-sale {
-    display: none !important;
-  }
   .product-detail__black-note {
     display: flex;
     align-items: center;
@@ -264,28 +261,6 @@
               {% endif %}
             </h1>
           {%- when 'badges' -%}
-            <script>
-              (function () {
-                var root = document.currentScript.parentElement;
-                function sync() {
-                  var tag = root.querySelector('.product-detail__discount-tag');
-                  if (!tag) return;
-                  var badge = root.querySelector('.sale_badge .product__badges-sale');
-                  var text = badge ? badge.textContent.trim() : '';
-                  if (text) {
-                    tag.textContent = text;
-                    tag.hidden = false;
-                  } else {
-                    tag.hidden = true;
-                  }
-                }
-                document.addEventListener('DOMContentLoaded', function () {
-                  var holder = root.querySelector('.sale_badge');
-                  if (!holder) return;
-                  new MutationObserver(sync).observe(holder, { childList: true, subtree: true, characterData: true });
-                });
-              })();
-            </script>
             <div
               class="sale_badge"
               {{ block.shopify_attributes }}
