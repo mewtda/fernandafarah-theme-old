@@ -74,8 +74,8 @@
           "type": "slider_item",
           "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/03_002cd4cd-9b84-4aec-9abf-93944e713202.png",
-            "image_mobile": "shopify://shop_images/03_7b162937-d456-4d04-9fbe-4c6f22a5e486.png",
+            "image": "shopify://shop_images/BANNER_DSK.png",
+            "image_mobile": "shopify://shop_images/BANNER_MOB.png",
             "mobile_top_spacing": 0,
             "overlay_opacity": 0,
             "slider_effect": "effect_fadeinup",
@@ -83,7 +83,7 @@
             "heading": "",
             "description": "",
             "first_button_label": "",
-            "first_button_link": "shopify://collections/segunda-pele-em-renda",
+            "first_button_link": "shopify://collections/sale-1",
             "first_button_style": false,
             "second_button_label": "",
             "second_button_link": "",
@@ -742,7 +742,8 @@
         "store_heading": "Visite nossa loja física",
         "store_address": "",
         "store_hours": "",
-        "store_button_label": "Como chegar"
+        "store_button_label": "Como chegar",
+        "store_button_link": ""
       }
     }
   },
