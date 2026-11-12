@@ -1695,3 +1695,10 @@ mini-cart-remove-button.loading .icon-rotator {
   display: block;
   opacity: 1 !important;
 }
+/* Black: item "BLACK" do menu em vermelho e mais pesado */
+a.ff-menu-black,
+a.ff-menu-black:hover,
+a.ff-menu-black span {
+  color: #b80000 !important;
+  font-weight: 800 !important;
+}
