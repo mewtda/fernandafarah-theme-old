@@ -1,37 +1,5 @@
 {{ 'main-product.css' | asset_url | stylesheet_tag }}
 {% style %}
-  .product-detail__discount-tag {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    height: 1.9em;
-    margin-left: 6px;
-    padding: 0 10px 0 22px;
-    background: #b80000;
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 1;
-    letter-spacing: 0.04em;
-    vertical-align: middle;
-    white-space: nowrap;
-    clip-path: polygon(0.95em 0, 100% 0, 100% 100%, 0.95em 100%, 0 50%);
-    transform: rotate(-4deg);
-  }
-  .product-detail__discount-tag::before {
-    content: "";
-    position: absolute;
-    left: 0.85em;
-    top: 50%;
-    width: 6px;
-    height: 6px;
-    margin-top: -3px;
-    border-radius: 50%;
-    background: #ffffff;
-  }
-  .product-detail__discount-tag[hidden] {
-    display: none;
-  }
   .sale_badge .product__badges-sale {
     display: none !important;
   }

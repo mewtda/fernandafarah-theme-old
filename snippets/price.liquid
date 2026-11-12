@@ -48,10 +48,9 @@
       </span>
     </div>
     {%- unless scope == 'detail' -%}
+    {%- assign card_tag_percent = discount_amount | times: 100.0 | divided_by: compare_at_price | round -%}
+    <span class="ff-discount-tag ff-discount-tag--card">-{{ card_tag_percent }}%</span>
     <div style="width: 100%; line-height: 1.4;">
-      <span class="price-discount" style="color: #e00000; font-weight: 600; margin-left: 6px; margin-top: -2px;">
-        -{{ discount_percent }}%
-      </span>
       <span class="parcel" style="font-weight: bold; font-size: 0.9em; display: block;">
         6x de {{ installment_money }}
       </span>
@@ -74,7 +73,7 @@
         assign tag_percent = discount_amount | times: 100.0 | divided_by: compare_at_price | round
       endif
     -%}
-    <span class="product-detail__discount-tag"{% if tag_percent <= 0 %} hidden{% endif %}>-{{ tag_percent }}%</span>
+    <span class="ff-discount-tag product-detail__discount-tag"{% if tag_percent <= 0 %} hidden{% endif %}>-{{ tag_percent }}%</span>
     <span class="parcel" style="font-size: 0.9em; display: block; width: 100%;">
       ou 6x de {{ installment_money }} sem juros
     </span>

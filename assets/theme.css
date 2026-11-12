@@ -1695,3 +1695,41 @@ mini-cart-remove-button.loading .icon-rotator {
   display: block;
   opacity: 1 !important;
 }
+
+/* Etiqueta de desconto (Black) */
+.ff-discount-tag {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 1.9em;
+  margin-left: 6px;
+  padding: 0 0.7em 0 1.55em;
+  background: #b80000;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  vertical-align: middle;
+  white-space: nowrap;
+  clip-path: polygon(0.95em 0, 100% 0, 100% 100%, 0.95em 100%, 0 50%);
+  transform: rotate(-4deg);
+}
+.ff-discount-tag::before {
+  content: "";
+  position: absolute;
+  left: 0.85em;
+  top: 50%;
+  width: 0.42em;
+  height: 0.42em;
+  margin-top: -0.21em;
+  border-radius: 50%;
+  background: #ffffff;
+}
+.ff-discount-tag[hidden] {
+  display: none;
+}
+.ff-discount-tag--card {
+  margin-left: 2px;
+  font-size: 11px;
+}
