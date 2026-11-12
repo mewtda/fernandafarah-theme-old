@@ -47,16 +47,16 @@
         {{ money_price }}
       </span>
     </div>
+    {%- unless scope == 'detail' -%}
     <div style="width: 100%; line-height: 1.4;">
       <span class="price-discount" style="color: #e00000; font-weight: 600; margin-left: 6px; margin-top: -2px;">
         -{{ discount_percent }}%
       </span>
-      {%- unless scope == 'detail' -%}
       <span class="parcel" style="font-weight: bold; font-size: 0.9em; display: block;">
         6x de {{ installment_money }}
       </span>
-      {%- endunless -%}
     </div>
+    {%- endunless -%}
   {%- else -%}
     <div class="price-regular">
       <span class="visually-hidden">
