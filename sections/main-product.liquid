@@ -1,5 +1,14 @@
 {{ 'main-product.css' | asset_url | stylesheet_tag }}
 {% style %}
+  .product-detail__black-note {
+    margin: -10px 0 20px;
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #b80000;
+    font-weight: 600;
+  }
   @font-face {
     font-family: "Aileron";
     src: url({{ 'Aileron-Regular.woff2' | asset_url }}) format('woff2');
@@ -276,6 +285,7 @@
                     type: 'main_product'
                   -%}
                 </div>
+                <p class="product-detail__black-note">Black 26, peças limitadas</p>
               {% endif %}
             {%- else -%}
               <a

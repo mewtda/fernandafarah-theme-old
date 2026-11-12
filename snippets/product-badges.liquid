@@ -157,6 +157,20 @@
     endif
   endif
 
+  assign black_badge = false
+  if type == 'product_item' and card_product != blank
+    if sale
+      assign black_badge = true
+    else
+      for c in card_product.collections
+        if c.handle == 'sale' or c.handle == 'sale-1'
+          assign black_badge = true
+          break
+        endif
+      endfor
+    endif
+  endif
+
   assign product_create_at = card_product.created_at | date: '%s'
   assign now_timestamp = 'now' | date: '%s'
   assign diff_seconds = now_timestamp | minus: product_create_at
@@ -174,6 +188,7 @@
   or card_product.metafields.custom.custom_product_badge
   or show_new
   or subscription > 0
+  or black_badge
 -%}
   {% if show_product_badges %}
     <div
@@ -189,6 +204,14 @@
       data-show-sold-out="{{ show_sold_out }}"
       data-show-preorder="{{ show_pre_order }}"
     >
+      {%- if black_badge -%}
+        <div
+          class="product__badges-black product__badges-inner align-self-start px-10 inline-flex content-center subheading_weight text-center lh-normal uppercase"
+          style="--badges-color: #ffffff;--badges-bg: #000000;"
+        >
+          Black
+        </div>
+      {%- endif -%}
       {%- if sale and show_sale and sale_badge_type != 'scrolling' -%}
         <div
           class="product__badges-sale {% if sale_badge_type == 'price' %}product__badges-type-price{% elsif sale_badge_type == 'percent' %}product__badges-type-percent{% endif %} product__badges-inner align-self-start px-10 sale inline-flex content-center subheading_weight text-center lh-normal"
