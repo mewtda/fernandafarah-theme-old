@@ -6,14 +6,6 @@
   endif
 -%}
 {%- style -%}
-  .section-black-banner {
-    position: sticky;
-    top: 0;
-    z-index: 16;
-  }
-  .shopify-section-header-sticky {
-    top: var(--black-banner-h, 0px) !important;
-  }
   #BlackBanner-{{ section.id }} {
     --bb-red: {{ section_st.accent_color }};
     display: block;
@@ -127,20 +119,6 @@
 {%- else -%}
   </div>
 {%- endif -%}
-
-<script>
-  (function () {
-    var el = document.getElementById('BlackBanner-{{ section.id }}');
-    if (!el) return;
-    var root = document.documentElement;
-    function update() {
-      root.style.setProperty('--black-banner-h', el.offsetHeight + 'px');
-    }
-    update();
-    window.addEventListener('resize', update);
-    if ('ResizeObserver' in window) new ResizeObserver(update).observe(el);
-  })();
-</script>
 
 {% schema %}
 {
