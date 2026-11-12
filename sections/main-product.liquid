@@ -8,7 +8,7 @@
     align-items: center;
     justify-content: center;
     gap: 12px;
-    margin: -8px 0 20px;
+    margin: 4px 0 20px;
     padding: 10px 14px;
     border: 3px solid #000000;
     background: #ffffff;
@@ -333,6 +333,7 @@
             >
               {%- render 'price', scope: 'detail', product: product, class: 'price-large', show_badges: false -%}
             </div>
+            <a href="{{ routes.collections_url }}/sale-1" class="product-detail__black-note"><strong>Aproveite Nossa <span>BLACK</span></strong><i aria-hidden="true"></i><em>Peças limitadas</em></a>
           {%- when 'buy_buttons' -%}
             {% comment %} Buy button {% endcomment %}
             {%- if product.metafields.custom.external_affiliate == blank -%}
@@ -352,7 +353,6 @@
                     type: 'main_product'
                   -%}
                 </div>
-                <a href="{{ routes.collections_url }}/sale-1" class="product-detail__black-note"><strong>Aproveite Nossa <span>BLACK</span></strong><i aria-hidden="true"></i><em>Peças limitadas</em></a>
               {% endif %}
             {%- else -%}
               <a
