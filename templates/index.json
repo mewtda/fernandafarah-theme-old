@@ -44,8 +44,8 @@
         "slider_item_pULFaf": {
           "type": "slider_item",
           "settings": {
-            "image": "shopify://shop_images/BANNER_V2.png",
-            "image_mobile": "shopify://shop_images/BANNER_-_MOB_02_V1.png",
+            "image": "shopify://shop_images/BANNER_DSK_1.png",
+            "image_mobile": "shopify://shop_images/BANNER_MOB_1.png",
             "mobile_top_spacing": 0,
             "overlay_opacity": 0,
             "slider_effect": "effect_fadeinup",
@@ -53,7 +53,7 @@
             "heading": "",
             "description": "",
             "first_button_label": "",
-            "first_button_link": "shopify://collections/alfaiataria",
+            "first_button_link": "shopify://collections/novidades",
             "first_button_style": false,
             "second_button_label": "",
             "second_button_link": "",
@@ -72,7 +72,6 @@
         },
         "slider_item_NgPjLx": {
           "type": "slider_item",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/BANNER_DSK.png",
             "image_mobile": "shopify://shop_images/BANNER_MOB.png",
