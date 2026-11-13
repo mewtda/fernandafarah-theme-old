@@ -43,6 +43,7 @@
         },
         "slider_item_JbXYD3": {
           "type": "slider_item",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/BANNER_V1.png",
             "image_mobile": "shopify://shop_images/BANNER_-_MOB_02.png",
