@@ -308,6 +308,9 @@
     },
     "products_carousel_BrKFhr": {
       "type": "products-carousel",
+      "custom_css": [
+        ".section__header-heading {text-transform: uppercase; font-size: calc(var(--size) * 0.8) !important;}"
+      ],
       "settings": {
         "section_width": "stretch_width",
         "color_scheme": "default",
@@ -560,6 +563,9 @@
     },
     "products_carousel_ctPF6C": {
       "type": "products-carousel",
+      "custom_css": [
+        ".section__header-heading {text-transform: uppercase; font-size: calc(var(--size) * 0.8) !important;}"
+      ],
       "settings": {
         "section_width": "stretch_width",
         "color_scheme": "",
