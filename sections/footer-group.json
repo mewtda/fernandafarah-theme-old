@@ -90,6 +90,15 @@
       },
       "disabled": true
     },
+    "ff_footer_banner": {
+      "type": "ff-footer-banner",
+      "settings": {
+        "image": "shopify://shop_images/BANNER_FAIXA.png",
+        "image_mobile": "shopify://shop_images/BANNER_QUADRADO_1.png",
+        "link": "shopify://collections/black26",
+        "alt": "Black Fernanda Farah"
+      }
+    },
     "ff_footer": {
       "type": "ff-footer",
       "settings": {
@@ -115,6 +124,7 @@
     }
   },
   "order": [
+    "ff_footer_banner",
     "ff_footer",
     "footer"
   ]
