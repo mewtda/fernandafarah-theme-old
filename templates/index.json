@@ -457,7 +457,7 @@
       "settings": {
         "aria_label": "Explore a coleção",
         "columns_desktop": 4,
-        "columns_mobile": 2,
+        "columns_mobile": "2",
         "gap": 0,
         "overlay_opacity": 60,
         "padding_top": 0,
