@@ -318,7 +318,7 @@
         "description": "",
         "show_view_all_button": false,
         "header_size": "small",
-        "header_alignment": "left",
+        "header_alignment": "center",
         "collection": "novidades",
         "items_to_show": 12,
         "items_per_row": 4,
@@ -458,7 +458,7 @@
         "collection_JGEQk4"
       ],
       "custom_css": [
-        ".ff-cats {margin-bottom: 10px;}"
+        ".ff-cats {margin-bottom: 20px;}"
       ],
       "settings": {
         "aria_label": "Explore a coleção",
@@ -576,7 +576,7 @@
         "description": "",
         "show_view_all_button": false,
         "header_size": "small",
-        "header_alignment": "left",
+        "header_alignment": "center",
         "collection": "mais-vendidos",
         "items_to_show": 12,
         "items_per_row": 4,
