@@ -457,6 +457,9 @@
         "collection_KMYMcF",
         "collection_JGEQk4"
       ],
+      "custom_css": [
+        ".ff-cats {margin-bottom: 10px;}"
+      ],
       "settings": {
         "aria_label": "Explore a coleção",
         "columns_desktop": 4,
