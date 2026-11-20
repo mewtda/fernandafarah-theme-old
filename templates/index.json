@@ -309,7 +309,8 @@
     "products_carousel_BrKFhr": {
       "type": "products-carousel",
       "custom_css": [
-        ".section__header-heading {text-transform: uppercase; font-size: calc(var(--size) * 0.8) !important;}"
+        ".section__header-heading {text-transform: uppercase; font-size: calc(var(--size) * 0.8) !important;}",
+        "@media (max-width: 749px) {.section__header {text-align: center !important; justify-content: center !important;} .section__header-heading {text-align: center !important;}}"
       ],
       "settings": {
         "section_width": "stretch_width",
@@ -318,7 +319,7 @@
         "description": "",
         "show_view_all_button": false,
         "header_size": "small",
-        "header_alignment": "center",
+        "header_alignment": "left",
         "collection": "novidades",
         "items_to_show": 12,
         "items_per_row": 4,
@@ -567,7 +568,8 @@
     "products_carousel_ctPF6C": {
       "type": "products-carousel",
       "custom_css": [
-        ".section__header-heading {text-transform: uppercase; font-size: calc(var(--size) * 0.8) !important;}"
+        ".section__header-heading {text-transform: uppercase; font-size: calc(var(--size) * 0.8) !important;}",
+        "@media (max-width: 749px) {.section__header {text-align: center !important; justify-content: center !important;} .section__header-heading {text-align: center !important;}}"
       ],
       "settings": {
         "section_width": "stretch_width",
@@ -576,7 +578,7 @@
         "description": "",
         "show_view_all_button": false,
         "header_size": "small",
-        "header_alignment": "center",
+        "header_alignment": "left",
         "collection": "mais-vendidos",
         "items_to_show": 12,
         "items_per_row": 4,
