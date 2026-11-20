@@ -1,6 +1,6 @@
 {%- comment -%}
   Category tiles — 4 colunas full-bleed (2 no celular), imagem 2:3,
-  título sobreposto embaixo à esquerda e seta circular à direita.
+  título sobreposto embaixo à esquerda.
 {%- endcomment -%}
 {%- style -%}
   #shopify-section-{{ section.id }} .ff-cats {
@@ -37,7 +37,6 @@
     position: absolute; left: 0; right: 0; bottom: 0; z-index: 1;
     display: flex; flex-direction: column;
     padding: clamp(16px, 2.2vw, 32px);
-    padding-right: clamp(64px, 6vw, 88px);
     color: #fff; pointer-events: none;
   }
   .ff-cat__kicker {
@@ -49,24 +48,10 @@
     font-style: italic; font-size: clamp(22px, 2.5vw, 36px); line-height: 1.1;
     letter-spacing: .02em; text-transform: lowercase;
   }
-  .ff-cat__arrow {
-    position: absolute; z-index: 1;
-    right: clamp(16px, 2.2vw, 32px); bottom: clamp(16px, 2.2vw, 32px);
-    display: grid; place-items: center; width: 40px; height: 40px;
-    border: 1px solid rgba(255, 255, 255, .67); border-radius: 50%;
-    font-size: 16px; line-height: 1; color: #fff;
-    transition: background .3s ease, color .3s ease, transform .3s ease;
-    pointer-events: none;
-  }
-  .ff-cat__link:hover .ff-cat__arrow,
-  .ff-cat__link:focus-visible .ff-cat__arrow { background: #fff; color: #000; transform: translateX(2px); }
   @media (max-width: 749px) {
     .ff-cat__title { font-size: 20px; }
     .ff-cat__kicker { font-size: 14px; margin-bottom: 4px; }
-    .ff-cat__label { padding-right: 52px; }
-    .ff-cat__arrow { width: 32px; height: 32px; font-size: 14px; }
-  }
-  @media (prefers-reduced-motion: reduce) {
+    @media (prefers-reduced-motion: reduce) {
     .ff-cat__media img { transition: none; }
     .ff-cat__link:hover .ff-cat__media img { transform: none; }
   }
@@ -101,7 +86,6 @@
           {%- endif -%}
           <h3 class="ff-cat__title">{{ title | escape }}</h3>
         </div>
-        <span class="ff-cat__arrow" aria-hidden="true">&rarr;</span>
       </a>
     </div>
   {%- endfor -%}
