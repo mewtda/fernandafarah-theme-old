@@ -12,10 +12,11 @@
       assign tam = ''
       for value in variant.options
         assign v = value | downcase | strip
+        assign v_tam = v | split: '/' | first | strip
         if v contains 'azul' or v contains 'branco' or v contains 'marrom'
           assign cor = v
-        elsif v == 'p' or v == 'm' or v == 'g'
-          assign tam = v
+        elsif v_tam == 'p' or v_tam == 'm' or v_tam == 'g'
+          assign tam = v_tam
         endif
       endfor
       assign match = false
