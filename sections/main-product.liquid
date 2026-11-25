@@ -308,6 +308,7 @@
             >
               {%- render 'price', scope: 'detail', product: product, class: 'price-large', show_badges: false -%}
             </div>
+            {%- render 'pre-venda-aviso', product: product, section: section -%}
             <a href="{{ routes.collections_url }}/sale-1" class="product-detail__black-note"><strong>Aproveite Nossa <span>BLACK</span></strong><i aria-hidden="true"></i><em>Peças limitadas</em></a>
           {%- when 'buy_buttons' -%}
             {% comment %} Buy button {% endcomment %}

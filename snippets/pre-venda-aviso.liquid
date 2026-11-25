@@ -1,0 +1,88 @@
+{% comment %}
+  Aviso de pré-venda com contagem regressiva de dias para variantes específicas.
+  Produto: Conjunto Moletom Pantalona com Detalhes em Ribana (id 10261139030325)
+  Variantes: AZUL P/M/G, BRANCO P/M, MARROM P/M/G
+  Começa em 10 dias no dia 2026-11-25 e diminui 1 por dia; some quando chega a 0.
+{% endcomment %}
+{%- if product.id == 10261139030325 -%}
+  {%- liquid
+    assign pre_venda_ids = ''
+    for variant in product.variants
+      assign cor = ''
+      assign tam = ''
+      for value in variant.options
+        assign v = value | downcase | strip
+        if v contains 'azul' or v contains 'branco' or v contains 'marrom'
+          assign cor = v
+        elsif v == 'p' or v == 'm' or v == 'g'
+          assign tam = v
+        endif
+      endfor
+      assign match = false
+      if cor contains 'azul' or cor contains 'marrom'
+        if tam == 'p' or tam == 'm' or tam == 'g'
+          assign match = true
+        endif
+      elsif cor contains 'branco'
+        if tam == 'p' or tam == 'm'
+          assign match = true
+        endif
+      endif
+      if match
+        assign pre_venda_ids = pre_venda_ids | append: variant.id | append: ','
+      endif
+    endfor
+  -%}
+  <div
+    class="pre-venda-aviso"
+    id="PreVendaAviso-{{ section.id }}"
+    data-variant-ids=",{{ pre_venda_ids }}"
+    data-start="2026-11-25"
+    data-days="10"
+    hidden
+  >
+    <strong>PRÉ VENDA:</strong> ENVIO EM <span class="pre-venda-aviso__dias">10 DIAS</span>!
+  </div>
+  <style>
+    .pre-venda-aviso {
+      margin: 10px 0 15px;
+      padding: 10px 14px;
+      background: #000;
+      color: #fff;
+      font-size: 14px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+    .pre-venda-aviso[hidden] { display: none; }
+  </style>
+  <script>
+    (function () {
+      var el = document.getElementById('PreVendaAviso-{{ section.id }}');
+      if (!el) return;
+      var ids = el.dataset.variantIds;
+      var p = el.dataset.start.split('-');
+      var start = new Date(+p[0], +p[1] - 1, +p[2]);
+      var now = new Date();
+      var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      var passed = Math.round((today - start) / 86400000);
+      var dias = parseInt(el.dataset.days, 10) - Math.max(passed, 0);
+      el.querySelector('.pre-venda-aviso__dias').textContent = dias + (dias === 1 ? ' DIA' : ' DIAS');
+
+      function update(id) {
+        el.hidden = !(dias > 0 && id && ids.indexOf(',' + id + ',') !== -1);
+      }
+      function currentId() {
+        var input = document.querySelector('#product-form-{{ section.id }} input[name="id"]');
+        if (input && input.value) return input.value;
+        var m = location.search.match(/variant=(\d+)/);
+        return m ? m[1] : '{{ product.selected_or_first_available_variant.id }}';
+      }
+      update(currentId());
+      document.addEventListener('change', function (e) {
+        var t = e.target;
+        if (t && t.name === 'id' && t.closest('#product-form-{{ section.id }}')) update(t.value);
+      });
+    })();
+  </script>
+{%- endif -%}
